@@ -93,11 +93,9 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        //("Not yet implemented")
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
-        //("Not yet implemented")
     }
 
 }

@@ -5,6 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="마이페이지"
+            android:textSize="22sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_name"
         android:layout_width="wrap_content"
@@ -12,7 +32,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
             android:id="@+id/nickname"
@@ -46,7 +66,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/div_line1"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="2dp"
         android:layout_marginTop="24dp"
         android:background="#E8E8E8"
         app:layout_constraintTop_toBottomOf="@+id/constraint_name"
@@ -74,15 +94,15 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/num_scrap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="18"
-                    android:textSize="30sp"/>
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/text_scrap"
@@ -98,23 +118,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/num_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8"
-                    android:textSize="30sp"/>
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/text_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="작성한 글"
-                    android:textSize="18sp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -122,23 +142,23 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/num_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23"
-                    android:textSize="30sp"/>
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/text_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="작성한 댓글"
-                    android:textSize="18sp"
-                    android:layout_marginTop="5dp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -161,7 +181,7 @@
         app:layout_constraintTop_toBottomOf="@+id/div_line2">
 
         <TextView
-            android:id="@+id/text_setting"
+            android:id="@+id/text_alarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -191,7 +211,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraint_setting">
 
         <TextView
-            android:id="@+id/text_addf_alcohol"
+            android:id="@+id/text_add_alcohol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -212,7 +232,7 @@
             android:textColor="#919191"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_addf_alcohol" />
+            app:layout_constraintTop_toBottomOf="@+id/text_add_alcohol" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

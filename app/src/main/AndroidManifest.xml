@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alevel">
         <activity
+            android:name=".mypage.MyAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".mypage.WrittenCommentActivity"
             android:exported="false" />
         <activity

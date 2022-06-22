@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/A_level/app/src/main/res/drawable/allalcohol_rectangle.xml" value="0.1705" />
         <entry key="..\:/A_level/app/src/main/res/drawable/allalcoholsubcategory_item_rectangle.xml" value="0.1705" />
+        <entry key="..\:/A_level/app/src/main/res/layout/activity_allalcoholsearch.xml" value="0.22" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_allalcohol.xml" value="0.33" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_allalcoholsubcategory.xml" value="0.33" />
@@ -15,6 +16,7 @@
         <entry key="..\:/A_level/app/src/main/res/layout/item_allalcoholsubcategory.xml" value="0.25" />
         <entry key="..\:/A_level/app/src/main/res/layout/item_allalcoholsubcategory_recyclerview.xml" value="0.33" />
         <entry key="..\:/A_level/app/src/main/res/menu/menu_bnav.xml" value="0.5259259259259259" />
+        <entry key="..\:/A_level/app/src/main/res/xml/xml.xml" value="0.3328804347826087" />
       </map>
     </option>
   </component>

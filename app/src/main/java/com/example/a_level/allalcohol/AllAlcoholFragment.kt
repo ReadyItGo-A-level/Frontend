@@ -1,5 +1,6 @@
 package com.example.a_level.allalcohol
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,6 @@ class AllAlcoholFragment : Fragment(R.layout.fragment_allalcohol) {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAllalcoholBinding.inflate(layoutInflater)
-        setTabLayout()
         return binding.root
     }
 
@@ -31,6 +31,15 @@ class AllAlcoholFragment : Fragment(R.layout.fragment_allalcohol) {
         super.onViewCreated(view, savedInstanceState)
         childFragmentManager.beginTransaction()
             .add(R.id.framelayout_allalcohol_fragmentcontainer, AllAlcoholSubCategoryFragment()).commit()
+
+        initListener()
+        setTabLayout()
+    }
+
+    private fun initListener() {
+        binding.textviewAllalcoholSearchbar.setOnClickListener {
+            startActivity(Intent(requireContext(), AllAlcoholSearchActivity::class.java))
+        }
     }
 
     private fun setTabLayout() {

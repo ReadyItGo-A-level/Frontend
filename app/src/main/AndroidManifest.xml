@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alevel">
         <activity
+            android:name=".mypage.ChangePwActivity"
+            android:exported="false" />
+        <activity
             android:name=".mypage.MyAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".mypage.WrittenCommentActivity"
+            android:name=".mypage.ScrapActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.WrittenPostActivity"
             android:exported="false" />
         <activity
-            android:name=".mypage.ChangePwActivity"
+            android:name=".mypage.WrittenCommentActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.SettingActivity"
@@ -27,11 +30,6 @@
         <activity
             android:name=".mypage.AddAlcoholActivity"
             android:exported="false" />
-        <activity
-            android:name=".mypage.ScrapActivity"
-            android:exported="false"
-            android:label="@string/title_activity_scrap"
-            android:theme="@style/Theme.Alevel.NoActionBar" />
         <activity
             android:name=".common.MainActivity"
             android:exported="true">

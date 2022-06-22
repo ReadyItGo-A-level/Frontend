@@ -5,4 +5,10 @@
     <string name="title_activity_scrap">ScrapActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string-array name="spinner_allalcoholsubcategory">
+        <item>조회순</item>
+        <item>리뷰많은순</item>
+        <item>낮은도수순</item>
+        <item>낮은가격순</item>
+    </string-array>
 </resources>

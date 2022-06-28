@@ -1,5 +1,6 @@
 package com.example.a_level.allalcohol
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.a_level.R
+import com.example.a_level.common.AlcoholDetailActivity
 import com.example.a_level.databinding.FragmentAllalcoholsubcategoryBinding
 
 
@@ -76,7 +78,14 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
             adapter = AllAlcoholSubCategoryRecyclerViewAdapter(
                 requireContext(),
                 allAlcoholSubCategoryRecyclerViewData
-            )
+            ).apply {
+                setOnItemClickListener(object :
+                    AllAlcoholSubCategoryRecyclerViewAdapter.OnItemClickListener {
+                    override fun onItemClick(v: View, item: AllAlcoholSubCategoryRecyclerViewData) {
+                        startActivity(Intent(requireContext(), AlcoholDetailActivity::class.java))
+                    }
+                })
+            }
         }
     }
 

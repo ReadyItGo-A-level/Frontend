@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_alcoholdetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_alcoholdetail_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_alcoholdetail"
+        tools:listitem="@layout/item_alcoholdetail_recyclerview" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintlayout_alcoholdetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/allalcoholsubcategory_item_rectangle"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/imageview_alcoholdetail_liquor"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/allalcoholsubcategory_item_testimage"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_alcoholdetail"
+                app:layout_constraintEnd_toEndOf="@+id/constraintlayout_alcoholdetail"
+                app:layout_constraintStart_toStartOf="@+id/constraintlayout_alcoholdetail"
+                app:layout_constraintTop_toTopOf="@+id/constraintlayout_alcoholdetail" />
+
+            <ImageView
+                android:id="@+id/imageview_alcoholdetail_scrap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/allalcoholsubcategory_item_scrapicon"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_alcoholdetail"
+                app:layout_constraintEnd_toEndOf="@+id/constraintlayout_alcoholdetail"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toEndOf="@+id/imageview_alcoholdetail_liquor" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/allalcoholsubcategory_item_rectangle"
+            android:padding="5dp"
+            android:text="술 종류"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_alcoholdetail" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_pairing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/allalcoholsubcategory_item_rectangle"
+            android:padding="5dp"
+            android:text="음식1, 음식2"
+            app:layout_constraintStart_toEndOf="@+id/textview_alcoholdetail_category"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_alcoholdetail" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_taste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/allalcoholsubcategory_item_rectangle"
+            android:padding="5dp"
+            android:text="맛1, 맛2, 맛3"
+            app:layout_constraintStart_toEndOf="@+id/textview_alcoholdetail_pairing"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_alcoholdetail" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_abv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/allalcoholsubcategory_item_rectangle"
+            android:padding="5dp"
+            android:text="도수"
+            app:layout_constraintStart_toEndOf="@+id/textview_alcoholdetail_taste"
+            app:layout_constraintTop_toBottomOf="@+id/constraintlayout_alcoholdetail" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="술 이름"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_category" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="예상 가격 00000원(000ml)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_name" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="상세 설명 텍스트"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_price" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="리뷰"
+            android:textSize="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_content" />
+
+        <TextView
+            android:id="@+id/textview_alcoholdetail_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="작성하기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_content" />
+
+    </androidx.recyclerview.widget.RecyclerView>
+</androidx.constraintlayout.widget.ConstraintLayout>

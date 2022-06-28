@@ -1,6 +1,7 @@
 package com.example.a_level.allalcohol
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.a_level.common.AlcoholDetailActivity
 import com.example.a_level.databinding.ActivityAllalcoholsearchBinding
 
 class AllAlcoholSearchActivity : AppCompatActivity() {
@@ -73,7 +75,14 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
         binding.recyclerviewAllalcoholsearch.apply {
             layoutManager =
                 GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-            adapter = allAlcoholSearchAdapter
+            adapter = allAlcoholSearchAdapter.apply {
+                setOnItemClickListener(object :
+                    AllAlcoholSearchAdapter.OnItemClickListener {
+                    override fun onItemClick(v: View, item: AllAlcoholSubCategoryRecyclerViewData) {
+                        startActivity(Intent(applicationContext, AlcoholDetailActivity::class.java))
+                    }
+                })
+            }
         }
     }
 

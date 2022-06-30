@@ -6,24 +6,41 @@
         <entry key="..\:/A_level/app/src/main/res/drawable-v24/edittext.xml" value="0.249" />
         <entry key="..\:/A_level/app/src/main/res/drawable/allalcohol_rectangle.xml" value="0.1705" />
         <entry key="..\:/A_level/app/src/main/res/drawable/allalcoholsubcategory_item_rectangle.xml" value="0.1705" />
+        <entry key="..\:/A_level/app/src/main/res/drawable/common_roundrectangle.xml" value="0.111" />
+        <entry key="..\:/A_level/app/src/main/res/drawable/feed_wirteicon_test.xml" value="0.1405" />
+        <entry key="..\:/A_level/app/src/main/res/drawable/feed_writeicon_test.xml" value="0.1405" />
+        <entry key="..\:/A_level/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1405" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_addalcohol.xml" value="0.5067708333333333" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_alcoholdetail.xml" value="0.25" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_alcoholdetail_temp.xml" value="0.17592592592592593" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_allalcoholsearch.xml" value="0.22" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_changepw.xml" value="0.5067708333333333" />
+        <entry key="..\:/A_level/app/src/main/res/layout/activity_feeddetail.xml" value="0.1900647948164147" />
         <entry key="..\:/A_level/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/A_level/app/src/main/res/layout/dialog_alcoholdetail_writereview.xml" value="0.25759878419452886" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_allalcohol.xml" value="0.33" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_allalcoholsubcategory.xml" value="0.33" />
-        <entry key="..\:/A_level/app/src/main/res/layout/fragment_feed.xml" value="0.30724417426545086" />
+        <entry key="..\:/A_level/app/src/main/res/layout/fragment_feed.xml" value="0.22" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_maincategory.xml" value="0.30724417426545086" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_mypage.xml" value="0.30724417426545086" />
         <entry key="..\:/A_level/app/src/main/res/layout/fragment_recommend.xml" value="0.30724417426545086" />
+        <entry key="..\:/A_level/app/src/main/res/layout/fragment_scrappost.xml" value="0.23302938196555217" />
         <entry key="..\:/A_level/app/src/main/res/layout/item_alcoholdetail_recyclerview.xml" value="0.3328804347826087" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_alcoholdetail_recyclerviewpost.xml" value="0.5" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_alcoholdetail_recyclerviewreview.xml" value="0.23302938196555217" />
         <entry key="..\:/A_level/app/src/main/res/layout/item_alcoholdetail_viewpager2.xml" value="0.22" />
         <entry key="..\:/A_level/app/src/main/res/layout/item_allalcoholsubcategory.xml" value="0.25" />
         <entry key="..\:/A_level/app/src/main/res/layout/item_allalcoholsubcategory_recyclerview.xml" value="0.33" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_feed_recyclerview.xml" value="0.25" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_feed_recyclerview_description.xml" value="0.30547112462006076" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_feeddetail_recyclerview.xml" value="0.33" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_scrapalcohol.xml" value="0.23302938196555217" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_scrappost.xml" value="0.23302938196555217" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_writtencomment.xml" value="0.23302938196555217" />
+        <entry key="..\:/A_level/app/src/main/res/layout/item_writtenpost.xml" value="0.23302938196555217" />
         <entry key="..\:/A_level/app/src/main/res/menu/menu_bnav.xml" value="0.5259259259259259" />
+        <entry key="..\:/A_level/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1405" />
+        <entry key="..\:/A_level/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1405" />
         <entry key="..\:/A_level/app/src/main/res/xml/xml.xml" value="0.3328804347826087" />
       </map>
     </option>

@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a_level.R
 import com.example.a_level.databinding.ActivityAlcoholdetailBinding
 
 class AlcoholDetailActivity : AppCompatActivity() {
@@ -33,7 +32,6 @@ class AlcoholDetailActivity : AppCompatActivity() {
         setDataOnView()
         //리사이클러뷰 설정하기
         initRecyclerView()
-        initViewPager2()
         //기타 UI 설정하기
         initUI()
     }
@@ -138,14 +136,6 @@ class AlcoholDetailActivity : AppCompatActivity() {
             binding.textviewAlcoholdetailShortreviewplaceholder.visibility = View.GONE
             binding.recyclerviewAlcoholdetailReview.visibility = View.VISIBLE
         }
-    }
-
-    private fun initViewPager2() {
-
-        val pageMarginPx = resources.getDimensionPixelOffset(R.dimen.pageMargin)
-        val pagerWidth = resources.getDimensionPixelOffset(R.dimen.pageWidth)
-        val screenWidth = resources.displayMetrics.widthPixels
-        val offsetPx = screenWidth - pageMarginPx - pagerWidth
 
         if (alcoholDetailPostReviewRecyclerViewData != null) {
             binding.textviewAlcoholdetailPostreviewplaceholder.visibility = View.GONE
@@ -165,8 +155,6 @@ class AlcoholDetailActivity : AppCompatActivity() {
                 alcoholDetailRecommendRecyclerViewAdapter
 
         }
-
-
     }
 
     private fun initUI() {

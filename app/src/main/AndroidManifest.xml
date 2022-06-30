@@ -40,6 +40,7 @@
         </activity>
         <activity android:name=".allalcohol.AllAlcoholSearchActivity"/>
         <activity android:name=".common.AlcoholDetailActivity"/>
+        <activity android:name=".feed.FeedDetailActivity"/>
     </application>
 
 </manifest>

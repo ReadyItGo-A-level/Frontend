@@ -33,7 +33,8 @@
         </activity>
         <activity
             android:name=".common.MainActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
     </application>
 

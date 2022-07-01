@@ -1,31 +1,27 @@
-package com.example.a_level.login
+package com.example.a_level.mypage
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.a_level.databinding.ActivityLoginBinding
 import android.view.MenuItem
-import com.example.a_level.keyword.UserKeywordActivity
+import com.example.a_level.databinding.ActivityMyaccountBinding
+import com.example.a_level.databinding.ActivityWrittenpostBinding
 
-class LoginActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLoginBinding
+class MyAccountActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMyaccountBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityMyaccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        val tb=supportActionBar!!
+        val tb = supportActionBar!!
         tb.setDisplayShowTitleEnabled(false)
         tb.setDisplayHomeAsUpEnabled(true)
 
-        binding.signup.setOnClickListener{
-            val intent = Intent(this, SignUpActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.loginBtn.setOnClickListener {
-            val intent = Intent(this, UserKeywordActivity::class.java)
+        val btn_pw = binding.btnPw
+        btn_pw.setOnClickListener {
+            val intent = Intent(this, ChangePwActivity::class.java)
             startActivity(intent)
         }
     }

@@ -135,7 +135,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="44dp"
         android:backgroundTint="#F37413"
-        android:text="취향 등록"
+        android:text="NEXT"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:textStyle="bold"

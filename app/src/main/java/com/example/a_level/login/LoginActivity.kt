@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.a_level.databinding.ActivityLoginBinding
 import android.view.MenuItem
+import com.example.a_level.keyword.UserKeywordActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -20,6 +21,10 @@ class LoginActivity : AppCompatActivity() {
 
         binding.signup.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+        binding.loginBtn.setOnClickListener{
+            val intent = Intent(this, UserKeywordActivity::class.java)
             startActivity(intent)
         }
     }

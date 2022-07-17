@@ -54,7 +54,7 @@
                     android:id="@+id/imageview_alcoholdetail_scrap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/allalcoholsubcategory_item_scrapicon"
+                    android:src="@drawable/all_scrapicon"
                     app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_alcoholdetail"
                     app:layout_constraintEnd_toEndOf="@+id/constraintlayout_alcoholdetail"
                     app:layout_constraintHorizontal_bias="1"

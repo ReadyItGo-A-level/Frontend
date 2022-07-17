@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -91,13 +90,39 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
 
     private fun initSpinner() {
         val spinner: Spinner = binding.spinnerAllalcoholsubcategory
-        ArrayAdapter.createFromResource(
+        val strings = resources.getStringArray(R.array.spinner_allalcoholsubcategory)
+        val list = ArrayList<AllAlcoholSubCategorySpinnerData>()
+        for (value in strings) {
+            val data = AllAlcoholSubCategorySpinnerData(null, value)
+            list.add(data)
+        }
+        var adapter = AllAlcoholSubCategorySpinnerAdapter(
             requireContext(),
-            R.array.spinner_allalcoholsubcategory,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
+            R.layout.item_allalcoholsubcategory_spinner,
+            list
+        )
+        spinner.adapter = adapter
+        var previousPosition: Int = 0
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val data = spinner.getItemAtPosition(position) as AllAlcoholSubCategorySpinnerData
+                list[previousPosition] =
+                    AllAlcoholSubCategorySpinnerData(null, list[previousPosition].name)
+                list[position] =
+                    AllAlcoholSubCategorySpinnerData(R.drawable.allalcoholsubcategory_spinnerdropdownicon, data.name)
+                adapter.notifyDataSetChanged()
+                previousPosition = position
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+
         }
     }
 

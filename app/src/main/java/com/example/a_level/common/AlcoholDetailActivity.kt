@@ -40,14 +40,14 @@ class AlcoholDetailActivity : AppCompatActivity() {
         alcoholDetailReviewRecyclerViewData = arrayListOf()
         alcoholDetailReviewRecyclerViewData.add(
             AlcoholDetailReviewRecyclerViewData(
-                "테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 ",
+                "테스트 리뷰입니다.",
                 "user1",
                 "0000.00.00"
             )
         )
         alcoholDetailReviewRecyclerViewData.add(
             AlcoholDetailReviewRecyclerViewData(
-                "테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 ",
+                "테스트 리뷰입니다. 오늘은 날씨가 좋습니다.",
                 "user2",
                 "0000.00.00"
             )

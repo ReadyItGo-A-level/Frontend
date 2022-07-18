@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".keyword.UserStyleActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".keyword.UserKeywordActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".login.SignUpActivity"
             android:exported="false" />
         <activity
@@ -17,6 +25,30 @@
             android:exported="false" />
         <activity
             android:name=".login.StartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.ChangePwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.MyAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.ScrapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.WrittenPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.WrittenCommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.AddAlcoholActivity"
+            android:exported="false" />
+        <activity
+            android:name=".common.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +78,7 @@
             android:exported="false" />
         <activity
             android:name=".common.MainActivity"
-            android:exported="false"/>  
+            android:exported="false" />
         <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
     </application>
 

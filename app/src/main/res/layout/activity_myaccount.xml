@@ -57,7 +57,7 @@
         android:text="와인러버"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/nickname"
-        app:layout_constraintStart_toEndOf="@+id/email"
+        app:layout_constraintStart_toEndOf="@+id/emailSignUP"
         app:layout_constraintTop_toTopOf="@id/nickname" />
 
     <Button
@@ -73,7 +73,7 @@
         app:layout_constraintTop_toTopOf="@id/nickname" />
 
     <TextView
-        android:id="@+id/email"
+        android:id="@+id/emailSignUP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -90,9 +90,9 @@
         android:layout_marginStart="16dp"
         android:text="lwieu24@naver.com"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/email"
-        app:layout_constraintStart_toEndOf="@id/email"
-        app:layout_constraintTop_toTopOf="@id/email" />
+        app:layout_constraintBottom_toBottomOf="@id/emailSignUP"
+        app:layout_constraintStart_toEndOf="@id/emailSignUP"
+        app:layout_constraintTop_toTopOf="@id/emailSignUP" />
 
     <TextView
         android:id="@+id/pw"
@@ -103,7 +103,7 @@
         android:text="비밀번호"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/emailSignUP" />
 
     <TextView
         android:id="@+id/pw2"
@@ -113,7 +113,7 @@
         android:text="*********"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/pw"
-        app:layout_constraintStart_toEndOf="@id/email"
+        app:layout_constraintStart_toEndOf="@id/emailSignUP"
         app:layout_constraintTop_toTopOf="@id/pw" />
 
     <Button

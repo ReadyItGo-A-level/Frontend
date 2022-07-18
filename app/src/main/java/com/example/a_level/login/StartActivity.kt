@@ -24,7 +24,7 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
             }
 
-        binding.email.setOnClickListener{
+        binding.emailSignUP.setOnClickListener{
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }

@@ -1,11 +1,18 @@
 package com.example.a_level.login
 
+import android.R
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import com.example.a_level.databinding.ActivityLoginBinding
 import android.view.MenuItem
-import com.example.a_level.keyword.UserKeywordActivity
+import android.view.View
+import android.widget.Toast
+import androidx.core.view.isVisible
+import java.util.regex.Pattern
+
+//import com.example.a_level.keyword.UserKeywordActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -24,20 +31,41 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.loginBtn.setOnClickListener {
-            val intent = Intent(this, UserKeywordActivity::class.java)
-            startActivity(intent)
+        binding.completeSignUp.setOnClickListener {
+            val email=binding.editTextEmail.text.toString()
+            val pwd=binding.editTextPassword.text.toString()
+
+            val wrongEmail=binding.wrongEmail
+            val wrongPwd=binding.wrongPassword
+            if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                if(!wrongEmail.isVisible)
+                    wrongEmail.visibility= View.VISIBLE
+            }
+            else
+                wrongEmail.visibility= View.GONE
+
+            if(pwd=="1234"){
+                wrongPwd.visibility=View.GONE
+            }
+            else{
+                wrongPwd.visibility=View.VISIBLE
+            }
+//            val intent = Intent(this, UserKeywordActivity::class.java)
+//            startActivity(intent)
         }
+
+
+        val pwd=binding.editTextPassword.text.toString()
+
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
+        when (item.itemId) {
+            R.id.home -> finish()
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

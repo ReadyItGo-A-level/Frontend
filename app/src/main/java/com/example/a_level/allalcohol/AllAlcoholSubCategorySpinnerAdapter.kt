@@ -20,6 +20,7 @@ class AllAlcoholSubCategorySpinnerAdapter(
 
     override fun getItem(position: Int) = list[position]
 
+    //스피너 뷰 관련
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val binding =
@@ -34,6 +35,7 @@ class AllAlcoholSubCategorySpinnerAdapter(
         return binding.root
     }
 
+    //스피너 드롭다운 뷰 관련
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
         val binding = ItemAllalcoholsubcategorySpinnerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val model = list[position]

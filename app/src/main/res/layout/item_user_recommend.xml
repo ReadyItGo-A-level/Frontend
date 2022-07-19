@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_recommend_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_recommend_item_rectangle"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/recommend_alcohol"
+            android:layout_width="80dp"
+            android:layout_height="91dp"
+            android:src="@drawable/allalcoholsubcategory_item_testimage"
+            app:layout_constraintBottom_toBottomOf="@+id/const_recommend_user"
+            app:layout_constraintEnd_toEndOf="@+id/const_recommend_user"
+            app:layout_constraintStart_toStartOf="@+id/const_recommend_user"
+            app:layout_constraintTop_toTopOf="@+id/const_recommend_user">
+        </ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/recommend_alcohol_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="오이스터 베이"
+        android:textColor="#818181"
+        android:textSize="8.5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/const_recommend_user"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/recommend_alcohol_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소비뇽 블랑"
+        android:textColor="#433E50"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_place"
+        tools:ignore="MissingConstraints">
+
+    </TextView>
+</androidx.constraintlayout.widget.ConstraintLayout>

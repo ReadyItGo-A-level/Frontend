@@ -18,284 +18,124 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollView"
-                    android:layout_width="407dp"
-                    android:layout_height="210dp"
-                    android:layout_marginTop="12dp"
-                    app:layout_constraintStart_toStartOf="@+id/textView38"
-                    app:layout_constraintTop_toBottomOf="@+id/textView38"
-                    tools:ignore="MissingConstraints">
-
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/constraintlayout_recommendalcohol_item"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="15dp"
-                                android:background="@drawable/allalcoholsubcategory_item_rectangle"
-                                android:paddingLeft="10dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/imageview_allalcoholsubcategory_item_liquor"
-                                    android:layout_width="70dp"
-                                    android:layout_height="120dp"
-                                    android:layout_gravity="center"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/allalcoholsubcategory_item_testimage"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    tools:layout_editor_absoluteY="10dp" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="7dp"
-                                    android:text="오이스터 베이"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/imageview_allalcoholsubcategory_item_liquor"
-                                    app:layout_constraintStart_toStartOf="@+id/imageview_allalcoholsubcategory_item_liquor"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageview_allalcoholsubcategory_item_liquor" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_subtitle"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="소비뇽 블랑"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/recommend_alcohol_title"
-                                    app:layout_constraintStart_toStartOf="@+id/recommend_alcohol_title"
-                                    app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_title" />
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/constraintlayout_recommendalcohol_item2"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="15dp"
-                                android:background="@drawable/allalcoholsubcategory_item_rectangle"
-                                android:paddingLeft="10dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/imageview_allalcoholsubcategory_item_liquor2"
-                                    android:layout_width="70dp"
-                                    android:layout_height="120dp"
-                                    android:layout_gravity="center"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/allalcoholsubcategory_item_testimage"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    tools:layout_editor_absoluteY="10dp" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_title2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="7dp"
-                                    android:text="보야"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/imageview_allalcoholsubcategory_item_liquor2"
-                                    app:layout_constraintStart_toStartOf="@+id/imageview_allalcoholsubcategory_item_liquor2"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageview_allalcoholsubcategory_item_liquor2" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_subtitle2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="피노누아"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/recommend_alcohol_title2"
-                                    app:layout_constraintStart_toStartOf="@+id/recommend_alcohol_title2"
-                                    app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_title2" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/constraintlayout_recommendalcohol_item3"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="15dp"
-                                android:background="@drawable/allalcoholsubcategory_item_rectangle"
-                                android:paddingLeft="10dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/imageview_allalcoholsubcategory_item_liquor3"
-                                    android:layout_width="70dp"
-                                    android:layout_height="120dp"
-                                    android:layout_gravity="center"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/allalcoholsubcategory_item_testimage"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    tools:layout_editor_absoluteY="10dp" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_title3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="7dp"
-                                    android:text="엠"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/imageview_allalcoholsubcategory_item_liquor3"
-                                    app:layout_constraintStart_toStartOf="@+id/imageview_allalcoholsubcategory_item_liquor3"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageview_allalcoholsubcategory_item_liquor3" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_subtitle3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="로제"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/recommend_alcohol_title3"
-                                    app:layout_constraintStart_toStartOf="@+id/recommend_alcohol_title3"
-                                    app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_title3" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/constraintlayout_recommendalcohol_item4"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="15dp"
-                                android:background="@drawable/allalcoholsubcategory_item_rectangle"
-                                android:paddingLeft="10dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/imageview_allalcoholsubcategory_item_liquor4"
-                                    android:layout_width="70dp"
-                                    android:layout_height="120dp"
-                                    android:layout_gravity="center"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/allalcoholsubcategory_item_testimage"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    tools:layout_editor_absoluteY="10dp" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_title4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="7dp"
-                                    android:text="칸티"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/imageview_allalcoholsubcategory_item_liquor4"
-                                    app:layout_constraintStart_toStartOf="@+id/imageview_allalcoholsubcategory_item_liquor4"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageview_allalcoholsubcategory_item_liquor4" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_subtitle4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="모스카토 다스티"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/recommend_alcohol_title4"
-                                    app:layout_constraintStart_toStartOf="@+id/recommend_alcohol_title4"
-                                    app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_title4" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/constraintlayout_recommendalcohol_item5"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="15dp"
-                                android:background="@drawable/allalcoholsubcategory_item_rectangle"
-                                android:paddingLeft="10dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="10dp"
-                                android:paddingBottom="10dp"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <ImageView
-                                    android:id="@+id/imageview_allalcoholsubcategory_item_liquor5"
-                                    android:layout_width="70dp"
-                                    android:layout_height="120dp"
-                                    android:layout_gravity="center"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/allalcoholsubcategory_item_testimage"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    tools:layout_editor_absoluteY="10dp" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_title5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="7dp"
-                                    android:text="간치아"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/imageview_allalcoholsubcategory_item_liquor5"
-                                    app:layout_constraintStart_toStartOf="@+id/imageview_allalcoholsubcategory_item_liquor5"
-                                    app:layout_constraintTop_toBottomOf="@+id/imageview_allalcoholsubcategory_item_liquor5" />
-
-                                <TextView
-                                    android:id="@+id/recommend_alcohol_subtitle5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="모스카토 로제"
-                                    android:textColor="#333333"
-                                    app:layout_constraintEnd_toEndOf="@+id/recommend_alcohol_title5"
-                                    app:layout_constraintStart_toStartOf="@+id/recommend_alcohol_title5"
-                                    app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_title5" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </LinearLayout>
-                    </ScrollView>
-                </HorizontalScrollView>
-
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="#오늘의 술"
-                    android:textColor="#F48129"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView38"
-                    app:layout_constraintStart_toEndOf="@+id/textView38" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:text="채오니"
+                    android:textColor="#F37413"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView38"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="24dp"
-                    android:text="채오니님에게 추천하는 "
-                    android:textColor="#333333"
-                    android:textSize="16sp"
+                    android:text="님이"
+                    android:textColor="#433E50"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView"
+                    app:layout_constraintStart_toEndOf="@+id/textView" />
+
+                <TextView
+                    android:id="@+id/textView41"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="좋아하실만한 술을 골라봤어요."
+                    android:textColor="#433E50"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+                <TabHost
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView41">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <FrameLayout
+                            android:id="@android:id/tabcontent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:id="@+id/tab1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <HorizontalScrollView
+                                    android:id="@+id/horizontalScrollView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    tools:ignore="MissingConstraints">
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/recyclerview_user_recommend"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:orientation="horizontal"
+                                        android:scrollbars="horizontal" />
+                                </HorizontalScrollView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tab2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tab3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tab4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tab5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                            </LinearLayout>
+
+                        </FrameLayout>
+                    </LinearLayout>
+                </TabHost>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -306,18 +146,20 @@
                     android:id="@+id/textView48"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="17dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
                     android:text="내 취향과 비슷한 유저들의 추천"
                     android:textColor="#333333"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="17dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView48">
 
@@ -771,10 +613,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="17dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="32dp"
                     android:text="지금 인기 있는 게시글"
                     android:textColor="#333333"
-                    android:textSize="16sp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -782,7 +625,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="17dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView47"

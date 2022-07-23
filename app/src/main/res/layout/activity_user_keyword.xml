@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".keyword.UserKeywordActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:text="관심있는 주류 키워드를\n모두 선택해주세요."
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/wine"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="47dp"
+            app:layout_constraintEnd_toStartOf="@+id/beer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/wine"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="와인"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/wine"
+            app:layout_constraintStart_toStartOf="@+id/wine"
+            app:layout_constraintTop_toBottomOf="@+id/wine"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/beer"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wine"
+            app:srcCompat="@drawable/beer"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="맥주"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/beer"
+            app:layout_constraintStart_toStartOf="@+id/beer"
+            app:layout_constraintTop_toBottomOf="@+id/beer"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/traditional"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/tradition"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/liquor"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginEnd="47dp"
+            app:layout_constraintEnd_toStartOf="@+id/traditional"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/liquor"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="양주"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/liquor"
+            app:layout_constraintStart_toStartOf="@+id/liquor"
+            app:layout_constraintTop_toBottomOf="@+id/liquor"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="전통주"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/traditional"
+            app:layout_constraintStart_toStartOf="@+id/traditional"
+            app:layout_constraintTop_toBottomOf="@+id/traditional"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="328dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="#F37413"
+        android:text="NEXT"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

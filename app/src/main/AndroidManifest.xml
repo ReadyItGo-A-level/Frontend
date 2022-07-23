@@ -25,8 +25,7 @@
             android:exported="false" />
         <activity
             android:name=".login.StartActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".mypage.ChangePwActivity"
             android:exported="false" />
@@ -56,6 +55,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".mypage.ChangePwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.MyAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.ScrapActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.WrittenPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.WrittenCommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.AddAlcoholActivity"
+            android:exported="false" />
+        <activity
+            android:name=".common.MainActivity"
+            android:exported="false" />
         <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
     </application>
 

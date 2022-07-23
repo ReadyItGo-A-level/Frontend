@@ -40,7 +40,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/button_start_stroke"
+        android:background="@drawable/start_button_stroke"
         android:gravity="center"
         android:text="이메일로 시작하기"
         android:textColor="#191919"

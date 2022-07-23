@@ -12,20 +12,25 @@ class StartActivity : AppCompatActivity() {
     private lateinit var binding: ActivityStartBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityStartBinding.inflate(layoutInflater)
+        binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var content=SpannableString(binding.login.text.toString())
+        var content = SpannableString(binding.textViewStartLogin.text.toString())
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
-        binding.login.text=content
+        binding.textViewStartLogin.text = content
 
-        binding.login.setOnClickListener{
+        binding.buttonStartKakaoLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-            }
+        }
 
-        binding.emailSignUP.setOnClickListener{
+        binding.buttonStartSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.textViewStartLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }

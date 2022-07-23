@@ -9,7 +9,7 @@
 
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_signup"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@color/white"
@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteY="-1dp">
 
         <TextView
-            android:id="@+id/sign_up"
+            android:id="@+id/textView_signup_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -31,15 +31,15 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_alarm"
+        android:id="@+id/constraintLayout_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="19dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_signup">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView_signup_greet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -52,7 +52,7 @@
             tools:layout_editor_absoluteY="3dp" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayout_start_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -61,10 +61,10 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toBottomOf="@+id/textView_signup_greet">
 
             <EditText
-                android:id="@+id/edNickname"
+                android:id="@+id/editText_signup_name"
                 android:layout_width="196dp"
                 android:layout_height="40dp"
                 android:layout_weight="2"
@@ -78,7 +78,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/btnIdRepeated"
+                android:id="@+id/button_signup_idRepeated"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_gravity="center_vertical"
@@ -95,7 +95,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/possibleId"
+            android:id="@+id/textView_signup_possibleId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -103,11 +103,11 @@
             android:textColor="#F37413"
             android:textSize="12sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintStart_toStartOf="@+id/linearLayout_start_id"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_start_id" />
 
         <LinearLayout
-            android:id="@+id/LinearLayout2"
+            android:id="@+id/LinearLayout_signup_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -115,10 +115,10 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/possibleId">
+            app:layout_constraintTop_toBottomOf="@+id/textView_signup_possibleId">
 
             <EditText
-                android:id="@+id/edEmail"
+                android:id="@+id/editText_signup_email"
                 android:layout_width="245dp"
                 android:layout_height="40dp"
                 android:layout_weight="2"
@@ -128,44 +128,44 @@
                 android:inputType="textEmailAddress"
                 android:paddingStart="15dp"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/edCertificationNum"
-                app:layout_constraintTop_toBottomOf="@+id/edNickname"
+                app:layout_constraintStart_toStartOf="@+id/editText_signup_certificationNum"
+                app:layout_constraintTop_toBottomOf="@+id/editText_signup_name"
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/btnEmailCertification"
+                android:id="@+id/button_signup_emailCertification"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/round_button"
                 android:backgroundTint="#F37413"
                 android:minHeight="0dp"
                 android:text="인증 확인"
-                android:textSize="12sp"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/edEmail"
-                app:layout_constraintEnd_toEndOf="@+id/edCertificationNum"
-                app:layout_constraintStart_toEndOf="@+id/edEmail"
-                app:layout_constraintTop_toTopOf="@+id/edEmail"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText_signup_email"
+                app:layout_constraintEnd_toEndOf="@+id/editText_signup_certificationNum"
+                app:layout_constraintStart_toEndOf="@+id/editText_signup_email"
+                app:layout_constraintTop_toTopOf="@+id/editText_signup_email"
                 tools:ignore="MissingConstraints" />
 
         </LinearLayout>
 
         <TextView
-            android:id="@+id/sendCertificationNum"
+            android:id="@+id/textView_signup_sendCertification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:text="이메일로 인증번호를 전송하였습니다."
-            android:visibility="gone"
             android:textColor="#F37413"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/LinearLayout2" />
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout_start_id"
+            app:layout_constraintTop_toBottomOf="@+id/LinearLayout_signup_email" />
 
         <LinearLayout
-            android:id="@+id/LinearLayout3"
+            android:id="@+id/LinearLayout_signup_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -173,10 +173,10 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sendCertificationNum">
+            app:layout_constraintTop_toBottomOf="@+id/textView_signup_sendCertification">
 
             <EditText
-                android:id="@+id/edCertificationNum"
+                android:id="@+id/editText_signup_certificationNum"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
@@ -189,52 +189,62 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sendCertificationNum"
+                app:layout_constraintTop_toBottomOf="@+id/textView_signup_sendCertification"
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/btnCompleteCertification"
+                android:id="@+id/button_signup_completeCertification"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/round_button"
                 android:backgroundTint="#F37413"
                 android:minHeight="0dp"
                 android:text="인증 완료"
-                android:textSize="12sp"
                 android:textColor="#FFFFFF"
-                android:layout_gravity="center_vertical"
-                app:layout_constraintBottom_toBottomOf="@+id/edEmail"
-                app:layout_constraintEnd_toEndOf="@+id/edCertificationNum"
-                app:layout_constraintStart_toEndOf="@+id/edEmail"
-                app:layout_constraintTop_toTopOf="@+id/edEmail"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/editText_signup_email"
+                app:layout_constraintEnd_toEndOf="@+id/editText_signup_certificationNum"
+                app:layout_constraintStart_toEndOf="@+id/editText_signup_email"
+                app:layout_constraintTop_toTopOf="@+id/editText_signup_email"
                 tools:ignore="MissingConstraints" />
 
         </LinearLayout>
 
 
         <EditText
-            android:id="@+id/edPassword"
+            android:id="@+id/editText_signup_password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/edittext_all_background"
             android:ems="10"
             android:hint="비밀번호"
             android:inputType="textPassword"
             android:paddingStart="15dp"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/edPasswordConfirm"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/LinearLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/LinearLayout3"
+            app:layout_constraintStart_toStartOf="@+id/LinearLayout_signup_number"
+            app:layout_constraintTop_toBottomOf="@+id/LinearLayout_signup_number"
             tools:ignore="MissingConstraints" />
 
+        <TextView
+            android:id="@+id/textView_signup_passwordLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="비밀번호는 8자리 이상이어야 합니다."
+            android:textColor="#F37413"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/LinearLayout_signup_number"
+            app:layout_constraintTop_toBottomOf="@+id/editText_signup_password" />
+
         <EditText
-            android:id="@+id/edPasswordConfirm"
+            android:id="@+id/editText_signup_passwordConfirm"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -247,51 +257,52 @@
             android:paddingStart="15dp"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/edPassword"
-            app:layout_constraintTop_toBottomOf="@+id/edPassword"
+            app:layout_constraintStart_toStartOf="@+id/editText_signup_password"
+            app:layout_constraintTop_toBottomOf="@+id/textView_signup_passwordLength"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/samePwd"
+            android:id="@+id/textView_signup_samePwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:text="비밀번호가 일치합니다."
-            android:visibility="gone"
             android:textColor="#F37413"
             android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="@+id/LinearLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/edPasswordConfirm" />
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/LinearLayout_signup_number"
+            app:layout_constraintTop_toBottomOf="@+id/editText_signup_passwordConfirm" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/textView_signup_agree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="25dp"
             android:text="약관 동의"
-            android:textSize="13sp"
             android:textColor="#433E50"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/samePwd"
+            app:layout_constraintTop_toBottomOf="@+id/textView_signup_samePwd"
             tools:ignore="MissingConstraints" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/radioButton_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="9dp"
-            android:textSize="13sp"
-            android:textColor="#433E50"
+            android:buttonTint="#F37413"
             android:text="[필수] 만 19세 이상이며 모두 동의합니다."
+            android:textColor="#433E50"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView_signup_agree"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/terms"
+            android:id="@+id/textView_signup_terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -299,16 +310,15 @@
             android:textColor="#433E50"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/edPasswordConfirm"
-            app:layout_constraintTop_toTopOf="@+id/radioButton"
+            app:layout_constraintEnd_toEndOf="@+id/editText_signup_passwordConfirm"
+            app:layout_constraintTop_toTopOf="@+id/radioButton_signup"
             tools:ignore="MissingConstraints" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/completeSignUp"
+        android:id="@+id/button_signup_completeSignup"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"

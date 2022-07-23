@@ -4,37 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".login.LoginActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_login"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="@color/white"
         tools:ignore="MissingConstraints">
 
-    <TextView
-        android:id="@+id/toolbarTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="로그인"
-        android:textColor="#4E4E4E"
-        android:layout_gravity="center"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/textView_login_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="로그인"
+            android:textColor="#4E4E4E"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_alarm"
+        android:id="@+id/constraintLayout_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:layout_marginTop="36dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_login">
 
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/editText_login_email"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="16dp"
@@ -51,54 +51,54 @@
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textView_login_or"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:text="또는"
             android:textColor="#191919"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView12"
-            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_login_searchPassword"
+            app:layout_constraintEnd_toStartOf="@+id/textView_login_searchPassword"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/signup"
+            android:id="@+id/textView_login_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="회원가입"
             android:textColor="#F37413"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView10"
-            app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_login_searchId"
+            app:layout_constraintStart_toStartOf="@+id/editText_login_password"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textView_login_searchPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="11dp"
             android:text="비밀번호 찾기"
             android:textColor="#F37413"
             android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
-            app:layout_constraintTop_toBottomOf="@+id/wrongPassword"
+            app:layout_constraintEnd_toEndOf="@+id/editText_login_password"
+            app:layout_constraintTop_toBottomOf="@+id/textView_login_wrongPassword"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textView_login_searchId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:text="ID 찾기"
             android:textColor="#F37413"
             android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView11"
-            app:layout_constraintEnd_toStartOf="@+id/textView11"
+            app:layout_constraintBottom_toBottomOf="@+id/textView_login_or"
+            app:layout_constraintEnd_toStartOf="@+id/textView_login_or"
             tools:ignore="MissingConstraints" />
 
         <EditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editText_login_password"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginStart="16dp"
@@ -112,11 +112,11 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/wrongEmail"
+            app:layout_constraintTop_toBottomOf="@+id/textView_login_wrongEmail"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/wrongEmail"
+            android:id="@+id/textView_login_wrongEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -126,10 +126,10 @@
             android:textSize="12sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_login_email" />
 
         <TextView
-            android:id="@+id/wrongPassword"
+            android:id="@+id/textView_login_wrongPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -139,12 +139,12 @@
             android:textSize="12sp"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/editText_login_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/completeSignUp"
+        android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_gravity="center_horizontal"

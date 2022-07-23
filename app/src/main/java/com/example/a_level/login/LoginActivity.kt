@@ -18,45 +18,39 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-        val tb=supportActionBar!!
+        setSupportActionBar(binding.toolbarLogin)
+        val tb = supportActionBar!!
         tb.setDisplayShowTitleEnabled(false)
         tb.setDisplayHomeAsUpEnabled(true)
 
-        binding.signup.setOnClickListener{
+        binding.textViewLoginSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
-        binding.completeSignUp.setOnClickListener {
-            val email=binding.editTextEmail.text.toString()
-            val pwd=binding.editTextPassword.text.toString()
+        binding.buttonLogin.setOnClickListener {
+            var wrongEmail = binding.textViewLoginWrongEmail
+            var wrongPwd = binding.textViewLoginWrongPassword
+            if (!Patterns.EMAIL_ADDRESS.matcher(binding.editTextLoginEmail.text.toString()).matches()) {
+                if (!wrongEmail.isVisible)
+                    wrongEmail.visibility = View.VISIBLE
+            } else
+                wrongEmail.visibility = View.GONE
 
-            val wrongEmail=binding.wrongEmail
-            val wrongPwd=binding.wrongPassword
-            if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                if(!wrongEmail.isVisible)
-                    wrongEmail.visibility= View.VISIBLE
-            }
-            else
-                wrongEmail.visibility= View.GONE
-
-            if(pwd=="1234"){
-                wrongPwd.visibility=View.GONE
-            }
-            else{
-                wrongPwd.visibility=View.VISIBLE
+            if (binding.editTextLoginPassword.text.toString() == "1234") {
+                wrongPwd.visibility = View.GONE
+            } else {
+                wrongPwd.visibility = View.VISIBLE
             }
 //            val intent = Intent(this, UserKeywordActivity::class.java)
 //            startActivity(intent)
         }
 
 
-        val pwd=binding.editTextPassword.text.toString()
-
+        val pwd = binding.editTextLoginPassword.text.toString()
 
 
     }

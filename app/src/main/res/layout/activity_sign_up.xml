@@ -196,7 +196,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login_btn"
         android:layout_width="342dp"
         android:layout_height="65dp"
         android:layout_gravity="center_horizontal"

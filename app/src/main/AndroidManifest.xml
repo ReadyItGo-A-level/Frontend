@@ -8,7 +8,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.Alevel">
+        <activity
+            android:name=".common.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".keyword.UserStyleActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".keyword.UserKeywordActivity"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".login.SignUpActivity"
             android:exported="false" />
@@ -17,8 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".login.StartActivity"
-            android:exported="true">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".mypage.ChangePwActivity"
             android:exported="false" />
@@ -40,17 +55,10 @@
         <activity
             android:name=".mypage.AddAlcoholActivity"
             android:exported="false" />
-        <activity
-            android:name=".common.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".allalcohol.AllAlcoholSearchActivity"/>
         <activity android:name=".common.AlcoholDetailActivity"/>
         <activity android:name=".feed.FeedDetailActivity"/>
+
     </application>
 
 </manifest>

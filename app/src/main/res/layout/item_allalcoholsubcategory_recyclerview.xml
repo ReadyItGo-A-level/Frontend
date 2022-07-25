@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    tools:context=".allalcohol.AllAlcoholSubCategoryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_allalcoholsubcategory_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/allalcoholsubcategory_item_rectangle"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/imageview_allalcoholsubcategory_item_liquor"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/allalcoholsubcategory_item_testimage"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"/>
+
+        <ImageView
+            android:id="@+id/imageview_allalcoholsubcategory_item_scrap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/allalcoholsubcategory_item_scrapicon"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toEndOf="@+id/imageview_allalcoholsubcategory_item_liquor" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textview_allalcoholsubcategory_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="술 이름"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/textview_allalcoholsubcategory_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00원"
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_title"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_allalcoholsubcategory_volume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="(00ml)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/textview_allalcoholsubcategory_price"
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_title" />
+
+    <TextView
+        android:id="@+id/textview_allalcoholsubcategory_abv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00(ºC)"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_price"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

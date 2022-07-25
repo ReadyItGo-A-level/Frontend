@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mypage.MyAccountActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="내 계정"
+            android:textSize="22sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="가입 정보"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="별명"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info" />
+
+    <TextView
+        android:id="@id/nickname2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="와인러버"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/nickname"
+        app:layout_constraintStart_toEndOf="@+id/emailSignUP"
+        app:layout_constraintTop_toTopOf="@id/nickname" />
+
+    <Button
+        android:id="@+id/btn_nickname"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:padding="0dp"
+        android:text="변경"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/nickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/nickname" />
+
+    <TextView
+        android:id="@+id/emailSignUP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="이메일주소"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nickname" />
+
+    <TextView
+        android:id="@+id/email2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="lwieu24@naver.com"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/emailSignUP"
+        app:layout_constraintStart_toEndOf="@id/emailSignUP"
+        app:layout_constraintTop_toTopOf="@id/emailSignUP" />
+
+    <TextView
+        android:id="@+id/pw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="비밀번호"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emailSignUP" />
+
+    <TextView
+        android:id="@+id/pw2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="*********"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/pw"
+        app:layout_constraintStart_toEndOf="@id/emailSignUP"
+        app:layout_constraintTop_toTopOf="@id/pw" />
+
+    <Button
+        android:id="@+id/btn_pw"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:padding="0dp"
+        android:text="변경"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/pw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pw" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/div_line1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="24dp"
+        android:background="#e8e8e8"
+        app:layout_constraintTop_toBottomOf="@id/pw" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/div_line1">
+
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="로그아웃"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/const_logout"
+            app:layout_constraintStart_toStartOf="@id/const_logout"
+            app:layout_constraintTop_toTopOf="@id/const_logout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text=">"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@id/logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/logout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/div_line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e8e8e8"
+        app:layout_constraintTop_toBottomOf="@+id/const_logout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_secession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/div_line2">
+
+        <TextView
+            android:id="@+id/secession"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="회원탈퇴"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/const_secession"
+            app:layout_constraintStart_toStartOf="@id/const_secession"
+            app:layout_constraintTop_toTopOf="@id/const_secession" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text=">"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@id/secession"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/secession" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

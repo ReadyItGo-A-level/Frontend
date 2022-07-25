@@ -18,48 +18,48 @@ class UserKeywordActivity : AppCompatActivity() {
         binding = ActivityUserKeywordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.wine.setOnClickListener {
+        binding.imageviewKeywordWine.setOnClickListener {
             if(!click_wine){
-                binding.wine.setImageResource(R.drawable.userkeyword_wine_clicked);
+                binding.imageviewKeywordWine.setImageResource(R.drawable.userkeyword_wine_clicked);
                 click_wine=true;
             }
             else{
-                binding.wine.setImageResource(R.drawable.userkeyword_wine);
+                binding.imageviewKeywordWine.setImageResource(R.drawable.userkeyword_wine);
                 click_wine=false;
             }
         }
-        binding.beer.setOnClickListener {
+        binding.imageviewKeywordBeer.setOnClickListener {
             if(!click_beer){
-                binding.beer.setImageResource(R.drawable.userkeyword_beer_cilcked);
+                binding.imageviewKeywordBeer.setImageResource(R.drawable.userkeyword_beer_cilcked);
                 click_beer=true;
             }
             else{
-                binding.beer.setImageResource(R.drawable.userkeyword_beer);
+                binding.imageviewKeywordBeer.setImageResource(R.drawable.userkeyword_beer);
                 click_beer=false;
             }
         }
-        binding.liquor.setOnClickListener {
+        binding.imageviewKeywordLiquor.setOnClickListener {
             if(!click_liq){
-                binding.liquor.setImageResource(R.drawable.userkeyword_liq_clicked);
+                binding.imageviewKeywordLiquor.setImageResource(R.drawable.userkeyword_liq_clicked);
                 click_liq=true;
             }
             else{
-                binding.liquor.setImageResource(R.drawable.userkeyword_liquor);
+                binding.imageviewKeywordLiquor.setImageResource(R.drawable.userkeyword_liquor);
                 click_liq=false;
             }
         }
-        binding.traditional.setOnClickListener {
+        binding.imageviewKeywordTraditional.setOnClickListener {
             if(!click_trad){
-                binding.traditional.setImageResource(R.drawable.userkeyword_tradition_clicked);
+                binding.imageviewKeywordTraditional.setImageResource(R.drawable.userkeyword_tradition_clicked);
                 click_trad=true;
             }
             else{
-                binding.traditional.setImageResource(R.drawable.userkeyword_tradition);
+                binding.imageviewKeywordTraditional.setImageResource(R.drawable.userkeyword_tradition);
                 click_trad=false;
             }
         }
 
-        binding.next.setOnClickListener{
+        binding.buttonKeywordNext.setOnClickListener{
             val intent = Intent(this, UserStyleActivity::class.java)
             startActivity(intent)
         }

@@ -77,9 +77,6 @@ class AllAlcoholSearchAdapter(
 
             @SuppressLint("NotifyDataSetChanged")
             override fun publishResults(p0: CharSequence, p1: FilterResults) {
-                if (p1.count == 0) {
-                    Toast.makeText(context, "검색 결과가 없습니다.", Toast.LENGTH_SHORT).show()
-                }
                 searchInterface.setCount(p1.count)
                 filteredList.clear()
                 filteredList.addAll(p1.values as ArrayList<AllAlcoholSubCategoryRecyclerViewData>)

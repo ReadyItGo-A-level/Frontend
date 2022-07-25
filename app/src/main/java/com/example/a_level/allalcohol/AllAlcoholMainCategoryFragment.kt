@@ -44,9 +44,9 @@ class AllAlcoholMainCategoryFragment : Fragment(R.layout.fragment_allalcoholmain
     }
 
     private fun loadSubCategoryList(category: Int) {
-        subCategoryList.add("웅앵1")
-        subCategoryList.add("웅앵2")
-        subCategoryList.add("웅앵3")
+        subCategoryList.add("테스트1")
+        subCategoryList.add("테스트2")
+        subCategoryList.add("테스트3")
     }
 
     private fun setTabTitle() {

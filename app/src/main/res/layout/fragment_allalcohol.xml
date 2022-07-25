@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".allalcohol.AllAlcoholFragment">
+
     <TextView
         android:id="@+id/textview_allalcohol_searchbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="44dp"
         android:background="@drawable/allalcohol_rectangle"
         android:padding="10dp"
-        android:text="원하는 술을 검색하세요"
+        android:textSize="12dp"
+        android:text="이름을 입력해주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/allalcohol_searchicon"
+        android:src="@drawable/all_searchicon"
         app:layout_constraintBottom_toBottomOf="@+id/textview_allalcohol_searchbar"
         app:layout_constraintEnd_toEndOf="@+id/textview_allalcohol_searchbar"
         app:layout_constraintTop_toTopOf="@+id/textview_allalcohol_searchbar" />
@@ -32,10 +35,14 @@
         android:id="@+id/tablayout_allalcohol_maincategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/allalcohol_tablayout_bottomsolid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_allalcohol_searchbar">
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcohol_searchbar"
+        app:tabIndicatorColor="@color/orange"
+        app:tabSelectedTextColor="@color/orange"
+        app:tabTextColor="@color/black">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -70,14 +77,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tablayout_allalcohol_maincategory"/>
-<!--
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager2_allalcohol_fragmentcontainer"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tablayout_allalcohol_maincategory"/> -->
+        app:layout_constraintTop_toBottomOf="@+id/tablayout_allalcohol_maincategory" />
+    <!--
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager2_allalcohol_fragmentcontainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tablayout_allalcohol_maincategory"/> -->
 </androidx.constraintlayout.widget.ConstraintLayout>

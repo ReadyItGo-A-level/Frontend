@@ -7,8 +7,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string-array name="spinner_allalcoholsubcategory">
         <item>조회순</item>
-        <item>리뷰많은순</item>
-        <item>낮은도수순</item>
-        <item>낮은가격순</item>
+        <item>리뷰 많은 순</item>
+        <item>낮은 도수 순</item>
+        <item>낮은 가격 순</item>
     </string-array>
 </resources>

@@ -21,29 +21,29 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbarSignup)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
 
-        var content = SpannableString(binding.textViewSignupTerms.text.toString())
+        var content = SpannableString(binding.textviewSignupTerms.text.toString())
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
-        binding.textViewSignupTerms.text = content
+        binding.textviewSignupTerms.text = content
 
-        var possibleId = binding.textViewSignupPossibleId
-        var sendCertificationNum = binding.textViewSignupSendCertification
-        var edPassword = binding.editTextSignupPassword.text.toString()
-        var samePwd = binding.textViewSignupSamePwd
-        var pwd=binding.textViewSignupPasswordLength
+        var possibleId = binding.textviewSignupPossibleid
+        var sendCertificationNum = binding.textviewSignupSendcertification
+        var editTextPassword = binding.edittextSignupPassword.text.toString()
+        var samePassword = binding.textviewSignupSamepassword
+        var password=binding.textviewSignupPasswordlength
 
         binding.buttonSignupIdRepeated.setOnClickListener {
-            if (binding.editTextSignupName.text.toString().length < 2) {
+            if (binding.edittextSignupName.text.toString().length < 2) {
                 possibleId.text = "2글자 이상이어야 합니다."
                 possibleId.visibility = View.VISIBLE
-            } else if (binding.editTextSignupName.text.toString() == "채오니") {
+            } else if (binding.edittextSignupName.text.toString() == "채오니") {
                 print("중복된 아이디")
                 possibleId.text = "중복된 아이디입니다."
                 possibleId.visibility = View.VISIBLE
-            } else if (binding.editTextSignupName.text.toString() != "채오니") {
+            } else if (binding.edittextSignupName.text.toString() != "채오니") {
                 possibleId.text = "사용 가능한 아이디입니다."
                 print("사용 가능")
                 possibleId.visibility = View.VISIBLE
@@ -51,7 +51,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.buttonSignupEmailCertification.setOnClickListener {
-            if (!Patterns.EMAIL_ADDRESS.matcher(binding.editTextSignupEmail.text.toString())
+            if (!Patterns.EMAIL_ADDRESS.matcher(binding.edittextSignupEmail.text.toString())
                     .matches()
             ) {
                 sendCertificationNum.text = "올바른 이메일 형식이 아닙니다."
@@ -62,15 +62,15 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-        binding.editTextSignupPassword.addTextChangedListener(object : TextWatcher {
+        binding.edittextSignupPassword.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(binding.editTextSignupPassword.text.toString().length==0){
-                    samePwd.visibility = View.GONE
-                    pwd.visibility = View.GONE
+                if(binding.edittextSignupPassword.text.toString().length==0){
+                    samePassword.visibility = View.GONE
+                    password.visibility = View.GONE
                 }
 //                else if (binding.editTextSignupPasswordConfirm.text.toString() == binding.editTextSignupPassword.text.toString()) {
 //                    samePwd.text = "비밀번호가 일치합니다"
@@ -82,53 +82,53 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if(binding.editTextSignupPassword.text.toString().length == 0){
-                    pwd.visibility = View.GONE
-                    samePwd.visibility = View.GONE
+                if(binding.edittextSignupPassword.text.toString().length == 0){
+                    password.visibility = View.GONE
+                    samePassword.visibility = View.GONE
                 }
-                else if (binding.editTextSignupPassword.text.toString().length < 8) {
-                    pwd.visibility = View.VISIBLE
+                else if (binding.edittextSignupPassword.text.toString().length < 8) {
+                    password.visibility = View.VISIBLE
                 }
-                else if(binding.editTextSignupPasswordConfirm.text.toString().length==0){
-                    pwd.visibility = View.GONE
-                    samePwd.visibility=View.GONE
+                else if(binding.edittextSignupPasswordconfirm.text.toString().length==0){
+                    password.visibility = View.GONE
+                    samePassword.visibility=View.GONE
                 }
-                else if (binding.editTextSignupPasswordConfirm.text.toString() == binding.editTextSignupPassword.text.toString()) {
-                    pwd.visibility = View.GONE
-                    samePwd.text="비밀번호가 일치합니다"
-                    samePwd.visibility = View.VISIBLE
+                else if (binding.edittextSignupPasswordconfirm.text.toString() == binding.edittextSignupPassword.text.toString()) {
+                    password.visibility = View.GONE
+                    samePassword.text="비밀번호가 일치합니다"
+                    samePassword.visibility = View.VISIBLE
                 } else {
-                    pwd.visibility = View.GONE
-                    samePwd.text="비밀번호가 일치하지 않습니다."
-                    samePwd.visibility = View.VISIBLE
+                    password.visibility = View.GONE
+                    samePassword.text="비밀번호가 일치하지 않습니다."
+                    samePassword.visibility = View.VISIBLE
                 }
             }
         })
 
-        binding.editTextSignupPasswordConfirm.addTextChangedListener(object : TextWatcher {
+        binding.edittextSignupPasswordconfirm.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (binding.editTextSignupPasswordConfirm.text.toString() == binding.editTextSignupPassword.text.toString()) {
-                    samePwd.text = "비밀번호가 일치합니다"
-                    samePwd.visibility = View.VISIBLE
+                if (binding.edittextSignupPasswordconfirm.text.toString() == binding.edittextSignupPassword.text.toString()) {
+                    samePassword.text = "비밀번호가 일치합니다"
+                    samePassword.visibility = View.VISIBLE
                 } else {
-                    samePwd.text = "비밀번호가 일치하지 않습니다."
-                    samePwd.visibility = View.VISIBLE
+                    samePassword.text = "비밀번호가 일치하지 않습니다."
+                    samePassword.visibility = View.VISIBLE
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (binding.editTextSignupPasswordConfirm.text.toString().length == 0) {
-                    samePwd.visibility = View.GONE
-                } else if (binding.editTextSignupPasswordConfirm.text.toString() == binding.editTextSignupPassword.text.toString()) {
-                    samePwd.setText("비밀번호가 일치합니다")
-                    samePwd.visibility = View.VISIBLE
+                if (binding.edittextSignupPasswordconfirm.text.toString().length == 0) {
+                    samePassword.visibility = View.GONE
+                } else if (binding.edittextSignupPasswordconfirm.text.toString() == binding.edittextSignupPassword.text.toString()) {
+                    samePassword.setText("비밀번호가 일치합니다")
+                    samePassword.visibility = View.VISIBLE
                 } else {
-                    samePwd.setText("비밀번호가 일치하지 않습니다.")
-                    samePwd.visibility = View.VISIBLE
+                    samePassword.setText("비밀번호가 일치하지 않습니다.")
+                    samePassword.visibility = View.VISIBLE
                 }
             }
         })

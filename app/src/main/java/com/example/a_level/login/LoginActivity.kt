@@ -22,35 +22,35 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbarLogin)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
 
-        binding.textViewLoginSignup.setOnClickListener {
+        binding.textviewLoginSignup.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
 
         binding.buttonLogin.setOnClickListener {
-            var wrongEmail = binding.textViewLoginWrongEmail
-            var wrongPwd = binding.textViewLoginWrongPassword
-            if (!Patterns.EMAIL_ADDRESS.matcher(binding.editTextLoginEmail.text.toString()).matches()) {
+            var wrongEmail = binding.textViewLoginWrongemail
+            var wrongPassword = binding.textviewLoginWrongpassword
+            if (!Patterns.EMAIL_ADDRESS.matcher(binding.edittextLoginEmail.text.toString()).matches()) {
                 if (!wrongEmail.isVisible)
                     wrongEmail.visibility = View.VISIBLE
             } else
                 wrongEmail.visibility = View.GONE
 
-            if (binding.editTextLoginPassword.text.toString() == "1234") {
-                wrongPwd.visibility = View.GONE
+            if (binding.edittextLoginPassword.text.toString() == "1234") {
+                wrongPassword.visibility = View.GONE
             } else {
-                wrongPwd.visibility = View.VISIBLE
+                wrongPassword.visibility = View.VISIBLE
             }
 //            val intent = Intent(this, UserKeywordActivity::class.java)
 //            startActivity(intent)
         }
 
 
-        val pwd = binding.editTextLoginPassword.text.toString()
+        val password = binding.edittextLoginPassword.text.toString()
 
 
     }

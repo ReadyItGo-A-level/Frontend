@@ -15,9 +15,9 @@ class StartActivity : AppCompatActivity() {
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var content = SpannableString(binding.textViewStartLogin.text.toString())
+        var content = SpannableString(binding.textviewStartLogin.text.toString())
         content.setSpan(UnderlineSpan(), 0, content.length, 0)
-        binding.textViewStartLogin.text = content
+        binding.textviewStartLogin.text = content
 
         binding.buttonStartKakaoLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
@@ -29,7 +29,7 @@ class StartActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.textViewStartLogin.setOnClickListener {
+        binding.textviewStartLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }

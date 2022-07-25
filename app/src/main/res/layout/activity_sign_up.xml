@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteY="-1dp">
 
         <TextView
-            android:id="@+id/textView_signup_title"
+            android:id="@+id/textview_signup_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -31,7 +31,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout_login"
+        android:id="@+id/constraintlayout_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar_signup">
 
         <TextView
-            android:id="@+id/textView_signup_greet"
+            android:id="@+id/textview_signup_greet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -52,7 +52,7 @@
             tools:layout_editor_absoluteY="3dp" />
 
         <LinearLayout
-            android:id="@+id/linearLayout_start_id"
+            android:id="@+id/linearlayout_start_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -61,10 +61,10 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_signup_greet">
+            app:layout_constraintTop_toBottomOf="@+id/textview_signup_greet">
 
             <EditText
-                android:id="@+id/editText_signup_name"
+                android:id="@+id/edittext_signup_name"
                 android:layout_width="196dp"
                 android:layout_height="40dp"
                 android:layout_weight="2"
@@ -78,7 +78,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/button_signup_idRepeated"
+                android:id="@+id/button_signup_id_repeated"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_gravity="center_vertical"
@@ -95,7 +95,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView_signup_possibleId"
+            android:id="@+id/textview_signup_possibleid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -103,11 +103,11 @@
             android:textColor="#F37413"
             android:textSize="12sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout_start_id"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout_start_id" />
+            app:layout_constraintStart_toStartOf="@+id/linearlayout_start_id"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout_start_id" />
 
         <LinearLayout
-            android:id="@+id/LinearLayout_signup_email"
+            android:id="@+id/linearlayout_signup_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -115,10 +115,10 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_signup_possibleId">
+            app:layout_constraintTop_toBottomOf="@+id/textview_signup_possibleid">
 
             <EditText
-                android:id="@+id/editText_signup_email"
+                android:id="@+id/edittext_signup_email"
                 android:layout_width="245dp"
                 android:layout_height="40dp"
                 android:layout_weight="2"
@@ -128,12 +128,12 @@
                 android:inputType="textEmailAddress"
                 android:paddingStart="15dp"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/editText_signup_certificationNum"
-                app:layout_constraintTop_toBottomOf="@+id/editText_signup_name"
+                app:layout_constraintStart_toStartOf="@+id/edittext_signup_certification_num"
+                app:layout_constraintTop_toBottomOf="@+id/edittext_signup_name"
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/button_signup_emailCertification"
+                android:id="@+id/button_signup_email_certification"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_gravity="center_vertical"
@@ -153,7 +153,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView_signup_sendCertification"
+            android:id="@+id/textview_signup_sendcertification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -161,11 +161,11 @@
             android:textColor="#F37413"
             android:textSize="12sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/linearLayout_start_id"
-            app:layout_constraintTop_toBottomOf="@+id/LinearLayout_signup_email" />
+            app:layout_constraintStart_toStartOf="@+id/linearlayout_start_id"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout_signup_email" />
 
         <LinearLayout
-            android:id="@+id/LinearLayout_signup_number"
+            android:id="@+id/linearlayout_signup_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -173,10 +173,10 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_signup_sendCertification">
+            app:layout_constraintTop_toBottomOf="@+id/textview_signup_sendcertification">
 
             <EditText
-                android:id="@+id/editText_signup_certificationNum"
+                android:id="@+id/edittext_signup_certification_num"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
@@ -189,11 +189,11 @@
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_signup_sendCertification"
+                app:layout_constraintTop_toBottomOf="@+id/textview_signup_sendcertification"
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/button_signup_completeCertification"
+                android:id="@+id/button_signup_complete_certification"
                 android:layout_width="wrap_content"
                 android:layout_height="38dp"
                 android:layout_gravity="center_vertical"
@@ -214,7 +214,7 @@
 
 
         <EditText
-            android:id="@+id/editText_signup_password"
+            android:id="@+id/edittext_signup_password"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -227,12 +227,12 @@
             android:paddingStart="15dp"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/LinearLayout_signup_number"
-            app:layout_constraintTop_toBottomOf="@+id/LinearLayout_signup_number"
+            app:layout_constraintStart_toStartOf="@+id/linearlayout_signup_number"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout_signup_number"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView_signup_passwordLength"
+            android:id="@+id/textview_signup_passwordlength"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -240,11 +240,11 @@
             android:textColor="#F37413"
             android:textSize="12sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/LinearLayout_signup_number"
-            app:layout_constraintTop_toBottomOf="@+id/editText_signup_password" />
+            app:layout_constraintStart_toStartOf="@+id/linearlayout_signup_number"
+            app:layout_constraintTop_toBottomOf="@+id/edittext_signup_password" />
 
         <EditText
-            android:id="@+id/editText_signup_passwordConfirm"
+            android:id="@+id/edittext_signup_passwordconfirm"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
@@ -257,12 +257,12 @@
             android:paddingStart="15dp"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/editText_signup_password"
-            app:layout_constraintTop_toBottomOf="@+id/textView_signup_passwordLength"
+            app:layout_constraintStart_toStartOf="@+id/edittext_signup_password"
+            app:layout_constraintTop_toBottomOf="@+id/textview_signup_passwordlength"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView_signup_samePwd"
+            android:id="@+id/textview_signup_samepassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
@@ -270,11 +270,11 @@
             android:textColor="#F37413"
             android:textSize="12sp"
             android:visibility="gone"
-            app:layout_constraintStart_toStartOf="@+id/LinearLayout_signup_number"
-            app:layout_constraintTop_toBottomOf="@+id/editText_signup_passwordConfirm" />
+            app:layout_constraintStart_toStartOf="@+id/linearlayout_signup_number"
+            app:layout_constraintTop_toBottomOf="@+id/edittext_signup_passwordconfirm" />
 
         <TextView
-            android:id="@+id/textView_signup_agree"
+            android:id="@+id/textview_signup_agree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -283,11 +283,11 @@
             android:textColor="#433E50"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_signup_samePwd"
+            app:layout_constraintTop_toBottomOf="@+id/textview_signup_samepassword"
             tools:ignore="MissingConstraints" />
 
         <RadioButton
-            android:id="@+id/radioButton_signup"
+            android:id="@+id/radiobutton_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -298,11 +298,11 @@
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView_signup_agree"
+            app:layout_constraintTop_toBottomOf="@+id/textview_signup_agree"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView_signup_terms"
+            android:id="@+id/textview_signup_terms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -310,15 +310,15 @@
             android:textColor="#433E50"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/editText_signup_passwordConfirm"
-            app:layout_constraintTop_toTopOf="@+id/radioButton_signup"
+            app:layout_constraintEnd_toEndOf="@+id/edittext_signup_passwordconfirm"
+            app:layout_constraintTop_toTopOf="@+id/radiobutton_signup"
             tools:ignore="MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button_signup_completeSignup"
+        android:id="@+id/button_signup_complete_signup"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"

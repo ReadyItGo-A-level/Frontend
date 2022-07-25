@@ -1,8 +1,10 @@
 package com.example.a_level.keyword
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.SeekBar
+import com.example.a_level.common.MainActivity
 import com.example.a_level.databinding.ActivityUserStyleBinding
 
 class UserStyleActivity : AppCompatActivity() {
@@ -25,5 +27,10 @@ class UserStyleActivity : AppCompatActivity() {
               binding.textviewStyleMoney.text="${seekBar!!.progress}"
           }
       })
+
+        binding.buttonStyleNext.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

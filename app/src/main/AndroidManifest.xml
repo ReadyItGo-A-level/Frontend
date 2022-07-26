@@ -30,6 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
+            android:parentActivityName=".login.StartActivity"
             android:exported="false" />
         <activity
             android:name=".login.StartActivity"
@@ -62,6 +63,7 @@
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:name=".common.AlcoholDetailWriteReviewActivity"/>
         <activity android:name=".feed.WriteFeedActivity"/>
+
     </application>
 
 </manifest>

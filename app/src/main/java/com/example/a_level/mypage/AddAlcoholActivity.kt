@@ -15,8 +15,8 @@ class AddAlcoholActivity : AppCompatActivity() {
         binding = ActivityAddalcoholBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val summit = binding.summit
-        summit.setOnClickListener {
+        val summitDialog = binding.summit
+        summitDialog.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("등록 완료")
                 .setMessage("제보해주셔서 감사합니다!")
@@ -28,9 +28,9 @@ class AddAlcoholActivity : AppCompatActivity() {
         }
 
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

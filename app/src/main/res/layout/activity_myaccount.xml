@@ -22,124 +22,138 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="내 계정"
-            android:textSize="22sp" />
+            android:textColor="#4E4E4E"
+            android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
-
-    <TextView
-        android:id="@+id/info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="가입 정보"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
         android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="별명"
-        android:textSize="16sp"
+        android:textColor="#383838"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@id/nickname2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="19dp"
+        android:background="@drawable/mypage_text"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:inputType="textPersonName"
+        android:paddingStart="14dp"
         android:text="와인러버"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/nickname"
-        app:layout_constraintStart_toEndOf="@+id/email"
-        app:layout_constraintTop_toTopOf="@id/nickname" />
+        android:textColor="#999999"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_nickname"
+        app:layout_constraintStart_toStartOf="@+id/nickname"
+        app:layout_constraintTop_toBottomOf="@+id/nickname" />
 
     <Button
         android:id="@+id/btn_nickname"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="54dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/myaccount_button"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:padding="0dp"
         android:text="변경"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/nickname"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/nickname" />
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3" />
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
         android:text="이메일주소"
-        android:textSize="16sp"
+        android:textColor="#383838"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nickname" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
 
     <TextView
         android:id="@+id/email2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/mypage_text"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
         android:text="lwieu24@naver.com"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/email"
-        app:layout_constraintStart_toEndOf="@id/email"
-        app:layout_constraintTop_toTopOf="@id/email" />
+        android:textColor="#999999"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"
+        app:layout_constraintStart_toStartOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
         android:id="@+id/pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
         android:text="비밀번호"
-        android:textSize="16sp"
+        android:textColor="#383838"
+        android:textSize="13sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email2" />
 
     <TextView
         android:id="@+id/pw2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="19dp"
+        android:background="@drawable/mypage_text"
+        android:gravity="center_vertical"
+        android:paddingStart="14dp"
         android:text="*********"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/pw"
-        app:layout_constraintStart_toEndOf="@id/email"
-        app:layout_constraintTop_toTopOf="@id/pw" />
+        android:textColor="#999999"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_password"
+        app:layout_constraintStart_toStartOf="@+id/pw"
+        app:layout_constraintTop_toBottomOf="@+id/pw" />
 
     <Button
-        android:id="@+id/btn_pw"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/button_password"
+        android:layout_width="54dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/myaccount_button"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:padding="0dp"
         android:text="변경"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/pw"
+        app:layout_constraintBottom_toBottomOf="@+id/pw2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/pw" />
+        app:layout_constraintTop_toTopOf="@+id/pw2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/div_line1"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="24dp"
-        android:background="#e8e8e8"
-        app:layout_constraintTop_toBottomOf="@id/pw" />
+        android:layout_height="18dp"
+        android:layout_marginTop="18dp"
+        android:background="#F6F6F6"
+        app:layout_constraintTop_toBottomOf="@+id/pw2" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/const_logout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/div_line1">
@@ -148,11 +162,10 @@
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="37dp"
             android:text="로그아웃"
-            android:textSize="20sp"
+            android:textColor="#383838"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@id/const_logout"
             app:layout_constraintStart_toStartOf="@id/const_logout"
             app:layout_constraintTop_toTopOf="@id/const_logout" />
@@ -160,9 +173,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             android:text=">"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/logout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/logout" />
@@ -171,14 +184,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/div_line2"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#e8e8e8"
+        android:layout_height="1.2dp"
+        android:background="#EAEAEA"
         app:layout_constraintTop_toBottomOf="@+id/const_logout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/const_secession"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/div_line2">
@@ -187,11 +200,10 @@
             android:id="@+id/secession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:text="회원탈퇴"
-            android:textSize="20sp"
+            android:layout_marginStart="37dp"
+            android:text="회원 탈퇴"
+            android:textColor="#383838"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@id/const_secession"
             app:layout_constraintStart_toStartOf="@id/const_secession"
             app:layout_constraintTop_toTopOf="@id/const_secession" />
@@ -199,11 +211,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="16dp"
             android:text=">"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/secession"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/secession" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/div_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:background="#EAEAEA"
+        app:layout_constraintTop_toBottomOf="@+id/const_secession" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

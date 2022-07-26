@@ -10,8 +10,6 @@
         android:layout_height="72dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
@@ -22,39 +20,50 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="기념일 와인 추천해주세요 제가.."
-        android:textSize="15dp"
+        android:textColor="#383838"
+        android:textSize="13dp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/spost_img"
         app:layout_constraintTop_toTopOf="@id/spost_img" />
 
-	<TextView
-		android:id="@+id/spost_main"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:layout_marginTop="8dp"
-		android:text="본문 어쩌구 저쩌구"
-		android:textSize="12dp"
-		app:layout_constraintStart_toEndOf="@+id/spost_img"
-		app:layout_constraintTop_toBottomOf="@+id/spost_title" />
+    <TextView
+        android:id="@+id/spost_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="본문 어쩌구 저쩌구 몇줄까지 추가가 가능한지 모르겠지만 줄이 바뀌면 어떻게 될란지 모르겠군요"
+        android:textColor="#818181"
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spost_img"
+        app:layout_constraintTop_toBottomOf="@+id/spost_title" />
 
-	<TextView
+    <TextView
         android:id="@+id/spost_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="2022.04.28"
-        app:layout_constraintBottom_toBottomOf="@id/spost_img"
+        android:textColor="#AAAAAA"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/spost_img"
-        app:layout_constraintTop_toBottomOf="@id/spost_main" />
+        app:layout_constraintTop_toBottomOf="@+id/spost_main"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/spost_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="10dp"
         android:text="댓글"
+        android:textColor="#AAAAAA"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/spost_date"
         app:layout_constraintStart_toEndOf="@id/spost_date"
         app:layout_constraintTop_toTopOf="@id/spost_date" />
 
@@ -62,8 +71,10 @@
         android:id="@+id/spost_ncomment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="3dp"
         android:text="7"
+        android:textColor="#AAAAAA"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="@id/spost_comment"
         app:layout_constraintStart_toEndOf="@id/spost_comment"
         app:layout_constraintTop_toTopOf="@id/spost_comment" />

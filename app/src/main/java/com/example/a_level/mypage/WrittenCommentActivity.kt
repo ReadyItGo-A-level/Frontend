@@ -22,19 +22,19 @@ class WrittenCommentActivity : AppCompatActivity() {
 
         //툴바
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
 
         // 작성 댓글 리스트 조회
-        val writtencommentList = arrayListOf(
+        val writtenCommentList = arrayListOf(
             WrittenCommentData(R.drawable.ic_launcher_background, "블랑 너무 맛없어 우웩", "2022.06.21", 7)
         )
 
-        val rv_wcomment = binding.rvWcomment
-        rv_wcomment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val recyclerviewWrittenComment = binding.recyclerviewWrittenComment
+        recyclerviewWrittenComment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        rv_wcomment.adapter = WrittenCommentAdapter(writtencommentList)
+        recyclerviewWrittenComment.adapter = WrittenCommentAdapter(writtenCommentList)
 
         // 레트로핏
         val retrofit = Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")

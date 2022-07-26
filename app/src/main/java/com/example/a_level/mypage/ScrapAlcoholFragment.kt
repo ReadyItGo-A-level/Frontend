@@ -27,11 +27,11 @@ class ScrapAlcoholFragment : Fragment() {
             ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%")
         )
 
-        val rv_salcohol = binding.rvSalcohol
+        val recyclerviewScrapAlcohol = binding.recyclerviewScrapAlcohol
         val gridLayoutManager = GridLayoutManager(context, 2)
-        rv_salcohol.layoutManager = gridLayoutManager
+        recyclerviewScrapAlcohol.layoutManager = gridLayoutManager
 
-        rv_salcohol.adapter = ScrapAlcoholAdapter(scrapalcoholList)
+        recyclerviewScrapAlcohol.adapter = ScrapAlcoholAdapter(scrapalcoholList)
         return binding.root
     }
 }

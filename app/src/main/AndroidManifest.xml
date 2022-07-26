@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mypage.ChangePwActivity"
+            android:name=".mypage.ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.MyAccountActivity"

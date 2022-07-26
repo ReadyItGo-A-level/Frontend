@@ -22,10 +22,10 @@ class ScrapPostFragment : Fragment() {
             ScrapPostData(R.drawable.ic_launcher_background, "오늘은 맥주가 땡기는 걸", "이슬톡톡 어때", "2022.06.21", 7)
         )
 
-        val rv_spost = binding.rvSpost
-        rv_spost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val recyclerviewScrapPost = binding.recyclerviewScrapPost
+        recyclerviewScrapPost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        rv_spost.adapter = ScrapPostAdapter(scrappostList)
+        recyclerviewScrapPost.adapter = ScrapPostAdapter(scrappostList)
         return binding.root
     }
 }

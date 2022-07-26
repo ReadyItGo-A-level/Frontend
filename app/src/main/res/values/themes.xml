@@ -19,4 +19,12 @@
     </style>
     <style name="Theme.Alevel.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Alevel.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="tabTextSizeBold" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="CustomRadioButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">#F37413</item>
+        <item name="colorControlNormal">#CECECE</item>
+    </style>
 </resources>

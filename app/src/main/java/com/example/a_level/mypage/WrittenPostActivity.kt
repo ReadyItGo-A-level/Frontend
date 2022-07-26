@@ -1,8 +1,8 @@
 package com.example.a_level.mypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.R
 import com.example.a_level.databinding.ActivityWrittenpostBinding
@@ -15,18 +15,25 @@ class WrittenPostActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
 
-        val writtenpostList = arrayListOf(
-            WrittenPostData(R.drawable.ic_launcher_background, "오늘은 맥주가 땡기는 걸", "이슬톡톡 어때", "2022.06.21", 7)
+        val writtenPostList = arrayListOf(
+            WrittenPostData(
+                R.drawable.ic_launcher_background,
+                "오늘은 맥주가 땡기는 걸",
+                "이슬톡톡 어때",
+                "2022.06.21",
+                7
+            )
         )
 
-        val rv_wpost = binding.rvWpost
-        rv_wpost.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        val recyclerviewWrittenPost = binding.recyclerviewWrittenPost
+        recyclerviewWrittenPost.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        rv_wpost.adapter = WrittenPostAdapter(writtenpostList)
+        recyclerviewWrittenPost.adapter = WrittenPostAdapter(writtenPostList)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

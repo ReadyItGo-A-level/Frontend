@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.example.a_level.databinding.ActivityMyaccountBinding
-import com.example.a_level.databinding.ActivityWrittenpostBinding
 
 class MyAccountActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMyaccountBinding
@@ -15,13 +14,13 @@ class MyAccountActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
 
-        val btn_pw = binding.btnPw
-        btn_pw.setOnClickListener {
-            val intent = Intent(this, ChangePwActivity::class.java)
+        val buttonPassword = binding.buttonPassword
+        buttonPassword.setOnClickListener {
+            val intent = Intent(this, ChangePasswordActivity::class.java)
             startActivity(intent)
         }
     }

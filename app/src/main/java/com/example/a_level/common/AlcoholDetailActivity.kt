@@ -2,6 +2,7 @@ package com.example.a_level.common
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.databinding.ActivityAlcoholdetailBinding
+import com.example.a_level.login.StartActivity
 
 class AlcoholDetailActivity : AppCompatActivity() {
 
@@ -158,6 +160,9 @@ class AlcoholDetailActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
+        binding.textviewAlcoholdetailWriteshortreview.setOnClickListener {
+            startActivity(Intent(applicationContext, AlcoholDetailWriteReviewActivity::class.java))
+        }
         binding.textviewAlcoholdetailWritepostreview.setOnClickListener {
 
         }

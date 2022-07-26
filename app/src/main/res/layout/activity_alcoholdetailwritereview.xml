@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageview_alcoholdetailwritereview_thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_thumbup_test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_alcoholdetailwritereview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        app:layout_constraintStart_toEndOf="@+id/imageview_alcoholdetailwritereview_thumbnail"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edittext_alcoholdetailwritereview_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="해당 술에 대한 리뷰를 100자 이내로 작성해주세요."
+        android:maxLength="100"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_alcoholdetailwritereview_thumbnail" />
+
+    <TextView
+        android:id="@+id/textview_alcoholdetailwritereview_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100자 이내로 작성해주세요"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_alcoholdetailwritereview_input" />
+
+    <Button
+        android:id="@+id/button_alcoholdetailwritereview_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="등록"
+        app:layout_constraintTop_toBottomOf="@id/textview_alcoholdetailwritereview_warning" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

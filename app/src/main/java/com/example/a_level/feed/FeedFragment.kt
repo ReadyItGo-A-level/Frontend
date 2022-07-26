@@ -33,6 +33,7 @@ class FeedFragment : Fragment() {
         loadData()
         initToolBar()
         initRecyclerView()
+        initUi()
     }
 
     private fun loadData() {
@@ -69,6 +70,12 @@ class FeedFragment : Fragment() {
         binding.recyclerviewFeed.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = feedRecyclerViewAdapter
+        }
+    }
+
+    private fun initUi() {
+        binding.floatingbuttonFeed.setOnClickListener {
+            startActivity(Intent(requireContext(), WriteFeedActivity::class.java))
         }
     }
 }

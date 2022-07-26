@@ -58,7 +58,10 @@
         <activity android:name=".allalcohol.AllAlcoholSearchActivity"/>
         <activity android:name=".common.AlcoholDetailActivity"/>
         <activity android:name=".feed.FeedDetailActivity"/>
-
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name=".common.AlcoholDetailWriteReviewActivity"/>
+        <activity android:name=".feed.WriteFeedActivity"/>
     </application>
 
 </manifest>

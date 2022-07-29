@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="스크랩"
-            android:textColor="#4E4E4E"
+            android:textColor="#111111"
             android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -37,7 +37,7 @@
         app:tabIndicatorColor="#F37413"
         app:tabSelectedTextColor="#F37413"
         app:tabTextAppearance="@style/tabTextSizeBold"
-        app:tabTextColor="#767676">
+        app:tabTextColor="#B2B2B2">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

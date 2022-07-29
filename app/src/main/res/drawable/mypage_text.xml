@@ -3,13 +3,17 @@
     <item android:state_focused="true">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <stroke android:width="1dp" android:color="#DEDEDE" />
-            <solid android:color="#F1F1F5" />
+            <solid android:color="#F8F8F8" />
+            <corners android:radius="6dp"/>
+            <padding android:bottom="13dp" android:top="13dp" android:left="14dp" />
         </shape>
     </item>
     <item android:state_focused="false">
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <stroke android:width="1dp" android:color="#DEDEDE" />
-            <solid android:color="#F1F1F5" />
+            <solid android:color="#F8F8F8" />
+            <corners android:radius="6dp"/>
+            <padding android:bottom="13dp" android:top="13dp" android:left="14dp" />
         </shape>
     </item>
 </selector>

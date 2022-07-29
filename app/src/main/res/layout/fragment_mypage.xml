@@ -21,32 +21,40 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="마이페이지"
-            android:textColor="#4E4E4E"
+            android:textColor="#111111"
             android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/myaccount"
+        android:id="@+id/constraintlayout_mypage_line"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_mypage_myaccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
         android:onClick="MyAccount"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
-            android:id="@+id/nickname"
+            android:id="@+id/textview_mypage_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="14dp"
             android:text="와인러버"
             android:textColor="#F37413"
-            android:textSize="13sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,46 +62,42 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/nickname2"
+            android:id="@+id/textview_mypage_nickname2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="님 환영합니다."
-            android:textColor="#383838"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@+id/nickname"
-            app:layout_constraintStart_toEndOf="@+id/nickname"
-            app:layout_constraintTop_toTopOf="@+id/nickname" />
+            android:layout_marginStart="2dp"
+            android:text="님 환영합니다"
+            android:textColor="#433E50"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_mypage_nickname"
+            app:layout_constraintStart_toEndOf="@+id/textview_mypage_nickname"
+            app:layout_constraintTop_toTopOf="@+id/textview_mypage_nickname" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text=">"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/nickname2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/nickname2" />
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textview_mypage_nickname2"
+            app:layout_constraintStart_toEndOf="@+id/textview_mypage_nickname2"
+            app:layout_constraintTop_toTopOf="@+id/textview_mypage_nickname2"
+            app:srcCompat="@drawable/mypage_next16" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line1"
+        android:id="@+id/constraintlayout_mypage_post"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#F6F6F6"
-        app:layout_constraintTop_toBottomOf="@+id/myaccount" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_post"
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/mypage_constraintlayout_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_line1">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_myaccount">
 
         <LinearLayout
-            android:id="@+id/linear_post"
+            android:id="@+id/linearlayout_mypage_information"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
@@ -102,7 +106,7 @@
             tools:layout_editor_absoluteY="1dp">
 
             <LinearLayout
-                android:id="@+id/scrap"
+                android:id="@+id/linearlayout_mypage_scrap"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -110,25 +114,30 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/num_scrap"
+                    android:id="@+id/textview_mypage_scrap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="18"
                     android:textColor="#383838"
-                    android:textSize="15sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/text_scrap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="1dp"
                     android:text="스크랩"
                     android:textColor="#383838"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/post"
+                android:layout_width="1dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:background="#E6E6E6" />
+
+            <LinearLayout
+                android:id="@+id/linearlayout_mypage_post"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -136,25 +145,30 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/num_post"
+                    android:id="@+id/textview_mypage_writtenpost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8"
                     android:textColor="#383838"
-                    android:textSize="15sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/text_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="1dp"
                     android:text="작성한 글"
                     android:textColor="#383838"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/comment"
+                android:layout_width="1dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center"
+                android:background="#E6E6E6" />
+
+            <LinearLayout
+                android:id="@+id/linearlayout_mypage_comment"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -162,110 +176,122 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/num_comment"
+                    android:id="@+id/textview_mypage_writtencomment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23"
                     android:textColor="#383838"
-                    android:textSize="15sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/text_comment"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="1dp"
                     android:text="작성한 댓글"
                     android:textColor="#383838"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line2"
-        android:layout_width="match_parent"
-        android:layout_height="18dp"
-        android:background="#F6F6F6"
-        app:layout_constraintTop_toBottomOf="@+id/constraint_post" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/setting"
+        android:id="@+id/constraintlayout_mypage_setting"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_line2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_post">
 
-        <TextView
-            android:id="@+id/text_alarm"
+        <ImageView
+            android:id="@+id/imageview_mypage_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="설정"
-            android:textColor="#383838"
-            android:textSize="15sp"
+            android:layout_marginStart="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mypage_setting" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text=">"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/text_alarm"
+            android:layout_marginStart="8dp"
+            android:text="설정"
+            android:textColor="#111111"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_mypage_setting"
+            app:layout_constraintStart_toEndOf="@+id/imageview_mypage_setting"
+            app:layout_constraintTop_toTopOf="@+id/imageview_mypage_setting" />
+
+        <ImageView
+            android:id="@+id/imageview_mypage_nextsetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/text_alarm" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mypage_next18" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line3"
+        android:id="@+id/constraintlayout_mypage_line1"
         android:layout_width="match_parent"
         android:layout_height="1.2dp"
-        android:background="#EAEAEA"
-        app:layout_constraintTop_toBottomOf="@+id/setting"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_setting"
         tools:layout_editor_absoluteX="-30dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/addalcohol"
+        android:id="@+id/constraintlayout_mypage_addnewalcohol"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setting">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_setting">
+
+        <ImageView
+            android:id="@+id/imageview_mypage_addnewalcohol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mypage_addnewalcohol" />
 
         <TextView
             android:id="@+id/text_add_alcohol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:text="신규 술 등록"
-            android:textColor="#383838"
+            android:textColor="#111111"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_mypage_addnewalcohol"
+            app:layout_constraintStart_toEndOf="@+id/imageview_mypage_addnewalcohol"
+            app:layout_constraintTop_toTopOf="@+id/imageview_mypage_addnewalcohol" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/imageview_mypage_nextaddnewalcohol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:text=">"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@+id/text_add_alcohol"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/text_add_alcohol" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mypage_next18" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line4"
+        android:id="@+id/constraintlayout_mypage_line2"
         android:layout_width="match_parent"
         android:layout_height="1.2dp"
-        android:background="#EAEAEA"
-        app:layout_constraintTop_toBottomOf="@+id/addalcohol"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_addnewalcohol"
         tools:layout_editor_absoluteX="-30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

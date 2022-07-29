@@ -22,24 +22,56 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="작성한 글"
-            android:textColor="#4E4E4E"
+            android:textColor="#111111"
             android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line1"
+        android:id="@+id/constraintlayout_writtenpost_line"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#F6F6F6"
+        android:layout_height="1dp"
+        android:background="#F2F2F2"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_written_post"
+        android:id="@+id/recyclerview_writtenpost"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_line1" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_writtenpost_line" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_writtenpost_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_writtenpost_line">
+
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/mypage_writtenpost_thumbnail" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="아직 작성한 게시글이 없습니다."
+            android:textAlignment="center"
+            android:textColor="#767676"
+            android:textSize="14dp" />
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

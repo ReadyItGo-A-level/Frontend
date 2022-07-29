@@ -2,6 +2,7 @@ package com.example.a_level.mypage
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.R
@@ -21,7 +22,7 @@ class WrittenPostActivity : AppCompatActivity() {
 
         val writtenPostList = arrayListOf(
             WrittenPostData(
-                R.drawable.ic_launcher_background,
+                R.drawable.mypage_post_noimage,
                 "오늘은 맥주가 땡기는 걸",
                 "이슬톡톡 어때",
                 "2022.06.21",
@@ -29,11 +30,17 @@ class WrittenPostActivity : AppCompatActivity() {
             )
         )
 
-        val recyclerviewWrittenPost = binding.recyclerviewWrittenPost
+        val recyclerviewWrittenPost = binding.recyclerviewWrittenpost
         recyclerviewWrittenPost.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        recyclerviewWrittenPost.adapter = WrittenPostAdapter(writtenPostList)
+        val writtenPostList_empty = binding.linearlayoutWrittenpostNodata
+        if (WrittenPostAdapter(writtenPostList).itemCount == 0) {
+            writtenPostList_empty.visibility = View.VISIBLE
+        } else {
+            writtenPostList_empty.visibility = View.INVISIBLE
+            recyclerviewWrittenPost.adapter = WrittenPostAdapter(writtenPostList)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

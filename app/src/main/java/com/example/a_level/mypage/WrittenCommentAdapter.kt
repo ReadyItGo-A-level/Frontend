@@ -24,7 +24,6 @@ class WrittenCommentAdapter(val writtencommentList: ArrayList<WrittenCommentData
         holder.img.setImageResource(writtencommentList.get(position).img)
         holder.main.text = writtencommentList.get(position).main
         holder.date.text = writtencommentList.get(position).date
-        holder.comment.text = writtencommentList.get(position).comment.toString()
     }
 
     override fun getItemCount(): Int {
@@ -32,9 +31,8 @@ class WrittenCommentAdapter(val writtencommentList: ArrayList<WrittenCommentData
     }
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img = itemView.findViewById<ImageView>(R.id.wcomment_img)
-        val main = itemView.findViewById<TextView>(R.id.wcomment_main)
-        val date = itemView.findViewById<TextView>(R.id.wcomment_date)
-        val comment = itemView.findViewById<TextView>(R.id.wcomment_ncomment)
+        val img = itemView.findViewById<ImageView>(R.id.imageview_writtencomment_image)
+        val main = itemView.findViewById<TextView>(R.id.textview_writtencomment_main)
+        val date = itemView.findViewById<TextView>(R.id.textview_writtencomment_date)
     }
 }

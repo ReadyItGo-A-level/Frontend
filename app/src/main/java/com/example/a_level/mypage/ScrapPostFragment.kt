@@ -19,7 +19,7 @@ class ScrapPostFragment : Fragment() {
         binding = FragmentScrappostBinding.inflate(layoutInflater)
 
         val scrappostList = arrayListOf(
-            ScrapPostData(R.drawable.ic_launcher_background, "오늘은 맥주가 땡기는 걸", "이슬톡톡 어때", "2022.06.21", 7)
+            ScrapPostData(R.drawable.mypage_post_noimage, "오늘은 맥주가 땡기는 걸", "이슬톡톡 어때", "2022.06.21", 7)
         )
 
         val recyclerviewScrapPost = binding.recyclerviewScrapPost

@@ -17,7 +17,7 @@ class MyPageFragment : Fragment() {
     ): View? {
         binding = FragmentMypageBinding.inflate(layoutInflater)
 
-        val myaccount = binding.myaccount
+        val myaccount = binding.constraintlayoutMypageMyaccount
         myaccount.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, MyAccountActivity::class.java)
@@ -25,7 +25,7 @@ class MyPageFragment : Fragment() {
             }
         }
 
-        val scrap = binding.scrap
+        val scrap = binding.linearlayoutMypageScrap
         scrap.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, ScrapActivity::class.java)
@@ -33,7 +33,7 @@ class MyPageFragment : Fragment() {
             }
         }
 
-        val post = binding.post
+        val post = binding.linearlayoutMypagePost
         post.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, WrittenPostActivity::class.java)
@@ -41,7 +41,7 @@ class MyPageFragment : Fragment() {
             }
         }
 
-        val comment = binding.comment
+        val comment = binding.linearlayoutMypageComment
         comment.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, WrittenCommentActivity::class.java)
@@ -49,7 +49,7 @@ class MyPageFragment : Fragment() {
             }
         }
 
-        val setting = binding.setting
+        val setting = binding.constraintlayoutMypageSetting
         setting.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingActivity::class.java)
@@ -57,7 +57,7 @@ class MyPageFragment : Fragment() {
             }
         }
 
-        val addalcohol = binding.addalcohol
+        val addalcohol = binding.constraintlayoutMypageAddnewalcohol
         addalcohol.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, AddAlcoholActivity::class.java)

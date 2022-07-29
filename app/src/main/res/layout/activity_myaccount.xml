@@ -57,12 +57,12 @@
         app:layout_constraintStart_toEndOf="@+id/textview_myaccount_email"
         app:layout_constraintTop_toTopOf="@id/textview_myaccount_nickname" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_myaccount_changenickname"
         android:layout_width="48dp"
         android:layout_height="26dp"
         android:layout_marginEnd="16dp"
-        android:background="#00FFFFFF"
+        android:background="@drawable/myaccount_button"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:padding="0dp"
@@ -72,9 +72,7 @@
         app:cornerRadius="3dp"
         app:layout_constraintBottom_toBottomOf="@id/textview_myaccount_nickname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textview_myaccount_nickname"
-        app:strokeColor="#D3D3D3"
-        app:strokeWidth="1dp" />
+        app:layout_constraintTop_toTopOf="@id/textview_myaccount_nickname" />
 
     <TextView
         android:id="@+id/textview_myaccount_email"
@@ -124,12 +122,12 @@
         app:layout_constraintStart_toEndOf="@id/textview_myaccount_email"
         app:layout_constraintTop_toTopOf="@id/textview_myaccount_password" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_myaccount_changepassword"
         android:layout_width="48dp"
         android:layout_height="26dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@drawable/myaccount_button"
+        android:background="@drawable/myaccount_button"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:padding="0dp"

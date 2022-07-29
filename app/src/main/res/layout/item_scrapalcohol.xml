@@ -31,10 +31,10 @@
 
         <ImageView
             android:id="@+id/imageview_scrapalcohol_scrap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="14dp"
             android:src="@drawable/mypage_scrap"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

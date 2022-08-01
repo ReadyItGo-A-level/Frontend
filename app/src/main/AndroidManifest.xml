@@ -26,7 +26,8 @@
             android:exported="false" />
         <activity
             android:name=".login.StartActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".mypage.ChangePwActivity"
             android:exported="false" />

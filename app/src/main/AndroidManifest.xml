@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.Alevel">
         <activity
             android:name=".keyword.UserStyleActivity"
             android:exported="false">
@@ -22,10 +22,12 @@
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
+            android:parentActivityName=".login.StartActivity"
             android:exported="false" />
         <activity
             android:name=".login.StartActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".mypage.ChangePwActivity"
             android:exported="false" />
@@ -55,30 +57,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".mypage.ChangePwActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.MyAccountActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.ScrapActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.WrittenPostActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.WrittenCommentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.SettingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.AddAlcoholActivity"
-            android:exported="false" />
-        <activity
-            android:name=".common.MainActivity"
-            android:exported="false" />
         <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
     </application>
 

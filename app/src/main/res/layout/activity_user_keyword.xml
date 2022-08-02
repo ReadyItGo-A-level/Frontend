@@ -7,69 +7,99 @@
     tools:context=".keyword.UserKeywordActivity">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView_keyword_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
-        android:text="관심있는 주류 키워드를\n모두 선택해주세요."
+        android:text="채오니"
+        android:textColor="#F37413"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+    <TextView
+        android:id="@+id/textView_keyword_interest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:text="님이 관심있는 술을"
+        android:textColor="#433E50"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView_keyword_user"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView_keyword_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="모두 선택해주세요"
+        android:textColor="#433E50"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_keyword_user"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_keyword_wine_beer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView_keyword_select"
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/wine"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/imageview_keyword_wine"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginEnd="47dp"
-            app:layout_constraintEnd_toStartOf="@+id/beer"
+            app:layout_constraintEnd_toStartOf="@+id/imageview_keyword_beer"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/wine"
+            app:srcCompat="@drawable/userkeyword_wine"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/textview_keyword_wine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:text="와인"
+            android:textColor="#433E50"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/wine"
-            app:layout_constraintStart_toStartOf="@+id/wine"
-            app:layout_constraintTop_toBottomOf="@+id/wine"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_keyword_wine"
+            app:layout_constraintStart_toStartOf="@+id/imageview_keyword_wine"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_keyword_wine"
             tools:ignore="MissingConstraints" />
 
         <ImageView
-            android:id="@+id/beer"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/imageview_keyword_beer"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/wine"
-            app:srcCompat="@drawable/beer"
+            app:layout_constraintTop_toTopOf="@+id/imageview_keyword_wine"
+            app:srcCompat="@drawable/userkeyword_beer"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/textview_keyword_beer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:text="맥주"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/beer"
-            app:layout_constraintStart_toStartOf="@+id/beer"
-            app:layout_constraintTop_toBottomOf="@+id/beer"
+            android:textColor="#433E50"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_keyword_beer"
+            app:layout_constraintStart_toStartOf="@+id/imageview_keyword_beer"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_keyword_beer"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -80,62 +110,64 @@
         android:layout_marginTop="21dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_keyword_wine_beer"
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/traditional"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/imageview_keyword_traditional"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/tradition"
+            app:srcCompat="@drawable/userkeyword_tradition"
             tools:ignore="MissingConstraints" />
 
         <ImageView
-            android:id="@+id/liquor"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:id="@+id/imageview_keyword_liquor"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_marginEnd="47dp"
-            app:layout_constraintEnd_toStartOf="@+id/traditional"
+            app:layout_constraintEnd_toStartOf="@+id/imageview_keyword_traditional"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/liquor"
+            app:srcCompat="@drawable/userkeyword_liquor"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textview_keyword_liquor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:text="양주"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/liquor"
-            app:layout_constraintStart_toStartOf="@+id/liquor"
-            app:layout_constraintTop_toBottomOf="@+id/liquor"
+            android:textColor="#433E50"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_keyword_liquor"
+            app:layout_constraintStart_toStartOf="@+id/imageview_keyword_liquor"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_keyword_liquor"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textview_keyword_tradition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
             android:text="전통주"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/traditional"
-            app:layout_constraintStart_toStartOf="@+id/traditional"
-            app:layout_constraintTop_toBottomOf="@+id/traditional"
+            android:textColor="#433E50"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/imageview_keyword_traditional"
+            app:layout_constraintStart_toStartOf="@+id/imageview_keyword_traditional"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_keyword_traditional"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/next"
+        android:id="@+id/button_keyword_next"
         android:layout_width="328dp"
-        android:layout_height="60dp"
+        android:layout_height="49dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#F37413"
-        android:text="NEXT"
+        android:text="다음(1/2)"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         android:textStyle="bold"

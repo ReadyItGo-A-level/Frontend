@@ -23,7 +23,9 @@
         <activity
             android:name=".login.LoginActivity"
             android:parentActivityName=".login.StartActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".login.StartActivity"
             android:exported="false">

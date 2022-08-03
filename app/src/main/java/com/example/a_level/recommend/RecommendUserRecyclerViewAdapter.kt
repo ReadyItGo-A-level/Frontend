@@ -15,8 +15,8 @@ class RecommendUserRecyclerViewAdapter(
 ): RecyclerView.Adapter<RecommendUserRecyclerViewAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val place: TextView = itemView.findViewById(R.id.recommend_alcohol_place)
-        val name: TextView = itemView.findViewById(R.id.recommend_alcohol_name)
+        val place: TextView = itemView.findViewById(R.id.textview_userrecommend_place)
+        val name: TextView = itemView.findViewById(R.id.textview_userrecommend_name)
 
         fun bind(data:RecommendUserRecyclerViewData){
             place.text=data.place

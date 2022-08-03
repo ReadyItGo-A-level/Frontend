@@ -66,9 +66,22 @@
         <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_login.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
-        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_start.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_start.xml" value="0.264" />
         <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_user_keyword.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/activity_user_style.xml" value="0.264" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/fragment_allalcoholsubcategory.xml" value="0.12132725430597771" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/fragment_recommend.xml" value="0.18297101449275363" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/fragment_recommend_beer.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/fragment_recommend_tradition.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/fragment_recommend_wine.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_alcohol_recommend.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_allalcoholsubcategory_recyclerview.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_scrapalcohol.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_scrappost.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_similar_recommend.xml" value="0.264" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_user_recommend.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_writtencomment.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/songf/Desktop/A-level/app/src/main/res/layout/item_writtenpost.xml" value="0.24947916666666667" />
         <entry key="..\:p/A-level/app/src/main/res/layout/activity_user_keyword.xml" value="0.2" />
       </map>
     </option>

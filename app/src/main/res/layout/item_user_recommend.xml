@@ -7,7 +7,7 @@
     android:padding="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_recommend_user"
+        android:id="@+id/constraintlayout_recommend_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/user_recommend_item_rectangle"
@@ -23,15 +23,15 @@
             android:layout_width="80dp"
             android:layout_height="91dp"
             android:src="@drawable/allalcoholsubcategory_item_testimage"
-            app:layout_constraintBottom_toBottomOf="@+id/const_recommend_user"
-            app:layout_constraintEnd_toEndOf="@+id/const_recommend_user"
-            app:layout_constraintStart_toStartOf="@+id/const_recommend_user"
-            app:layout_constraintTop_toTopOf="@+id/const_recommend_user">
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_recommend_user"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_recommend_user"
+            app:layout_constraintStart_toStartOf="@+id/constraintlayout_recommend_user"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_recommend_user">
         </ImageView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/recommend_alcohol_place"
+        android:id="@+id/textview_userrecommend_place"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
@@ -40,13 +40,13 @@
         android:textSize="8.5sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/const_recommend_user"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_recommend_user"
         tools:ignore="MissingConstraints">
 
     </TextView>
 
     <TextView
-        android:id="@+id/recommend_alcohol_name"
+        android:id="@+id/textview_userrecommend_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="소비뇽 블랑"
@@ -55,7 +55,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_place"
+        app:layout_constraintTop_toBottomOf="@+id/textview_userrecommend_place"
         tools:ignore="MissingConstraints">
 
     </TextView>

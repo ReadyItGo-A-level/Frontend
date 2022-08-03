@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_recommend_similar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/user_recommend_item_rectangle"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        android:elevation="5dp">
+
+        <ImageView
+            android:id="@+id/recommend_alcohol"
+            android:layout_width="80dp"
+            android:layout_height="91dp"
+            android:src="@drawable/allalcoholsubcategory_item_testimage"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_recommend_similar"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_recommend_similar"
+            app:layout_constraintStart_toStartOf="@+id/constraintlayout_recommend_similar"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_recommend_similar">
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="title"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_recommend_similar">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_similarrecommend_title" />
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_love"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="짠"
+        android:textColor="#818181"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_similarrecommend_content" />
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_lovenum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="1"
+        android:textColor="#818181"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textview_similarrecommend_love"
+        app:layout_constraintTop_toTopOf="@+id/textview_similarrecommend_love" />
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_scrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="스크랩"
+        android:textColor="#818181"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textview_similarrecommend_lovenum"
+        app:layout_constraintTop_toTopOf="@+id/textview_similarrecommend_lovenum" />
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="댓글"
+        android:textColor="#818181"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textview_similarrecommend_scrapnum"
+        app:layout_constraintTop_toTopOf="@+id/textview_similarrecommend_scrapnum" />
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_commentnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="3"
+        android:textColor="#818181"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textview_similarrecommend_comment"
+        app:layout_constraintTop_toTopOf="@+id/textview_similarrecommend_comment" />
+
+    <TextView
+        android:id="@+id/textview_similarrecommend_scrapnum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:text="3"
+        android:textColor="#818181"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/textview_similarrecommend_scrap"
+        app:layout_constraintTop_toTopOf="@+id/textview_similarrecommend_scrap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

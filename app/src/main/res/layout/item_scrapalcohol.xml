@@ -31,7 +31,7 @@
             android:id="@+id/scrap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/allalcoholsubcategory_item_scrapicon"
+            android:src="@drawable/all_scrapicon"
             app:layout_constraintBottom_toBottomOf="@+id/const_alcohol"
             app:layout_constraintEnd_toEndOf="@+id/const_alcohol"
             app:layout_constraintHorizontal_bias="1"

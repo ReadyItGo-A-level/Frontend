@@ -2,15 +2,13 @@ package com.example.a_level.login
 
 import android.R
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
-import com.example.a_level.databinding.ActivityLoginBinding
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import java.util.regex.Pattern
+import com.example.a_level.databinding.ActivityLoginBinding
 
 //import com.example.a_level.keyword.UserKeywordActivity
 
@@ -34,7 +32,9 @@ class LoginActivity : AppCompatActivity() {
         binding.buttonLogin.setOnClickListener {
             var wrongEmail = binding.textViewLoginWrongemail
             var wrongPassword = binding.textviewLoginWrongpassword
-            if (!Patterns.EMAIL_ADDRESS.matcher(binding.edittextLoginEmail.text.toString()).matches()) {
+            if (!Patterns.EMAIL_ADDRESS.matcher(binding.edittextLoginEmail.text.toString())
+                    .matches()
+            ) {
                 if (!wrongEmail.isVisible)
                     wrongEmail.visibility = View.VISIBLE
             } else
@@ -51,8 +51,6 @@ class LoginActivity : AppCompatActivity() {
 
 
         val password = binding.edittextLoginPassword.text.toString()
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

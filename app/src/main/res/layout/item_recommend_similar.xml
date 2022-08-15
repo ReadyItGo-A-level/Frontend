@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginTop="10dp"
+android:layout_marginEnd="10dp"
+android:clipToOutline="true"
+android:background="@drawable/allalcoholsubcategory_item_rectangle">
+
+<ImageView
+    android:id="@+id/imageview_alcoholdetail_item"
+    android:layout_width="170dp"
+    android:layout_height="100dp"
+    android:scaleType="centerCrop"
+    android:src="@drawable/common_alcohol_test"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/textview_alcoholdetail_item_title"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:text="게시글 제목"
+    android:textColor="@color/black"
+    android:textStyle="bold"
+    app:layout_constraintHorizontal_bias="0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/imageview_alcoholdetail_item" />
+
+<TextView
+    android:id="@+id/textview_alcoholdetail_item_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:text="게시글 내용"
+    android:textColor="@color/black"
+    android:textSize="12dp"
+    app:layout_constraintHorizontal_bias="0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_item_title" />
+
+    <TextView
+        android:id="@+id/textview_alcoholdetail_item_likecount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="짠 0개"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textview_alcoholdetail_item_scrapcount"
+        app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_item_content" />
+
+    <TextView
+        android:id="@+id/textview_alcoholdetail_item_scrapcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="스크랩 0개"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textview_alcoholdetail_item_commentcount"
+        app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_item_content" />
+
+    <TextView
+        android:id="@+id/textview_alcoholdetail_item_commentcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="댓글 0개"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_item_content" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

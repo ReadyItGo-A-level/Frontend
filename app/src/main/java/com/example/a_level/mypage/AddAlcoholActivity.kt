@@ -15,22 +15,21 @@ class AddAlcoholActivity : AppCompatActivity() {
         binding = ActivityAddalcoholBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val summit = binding.summit
-        summit.setOnClickListener {
-            val builder = AlertDialog.Builder(this)
-            builder.setTitle("등록 완료")
-                .setMessage("제보해주셔서 감사합니다!")
-                .setPositiveButton("확인",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        finish()
-                    })
-            builder.show()
+        val summitDialog = binding.buttonAddalcoholSummit
+        summitDialog.setOnClickListener {
+            val dialog = AddAlcoholDialog(this@AddAlcoholActivity)
+            dialog.listener = object: AddAlcoholDialog.SummitDialogClickedListener {
+                override fun onSummitClicked() {
+                    finish()
+                }
+            }
+            dialog.start()
         }
 
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

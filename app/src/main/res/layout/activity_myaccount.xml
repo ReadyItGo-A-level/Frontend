@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".mypage.MyAccountActivity">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -22,188 +21,228 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="내 계정"
-            android:textSize="22sp" />
+            android:textColor="#111111"
+            android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_myaccount_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
     <TextView
-        android:id="@+id/info"
+        android:id="@+id/textview_myaccount_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="가입 정보"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="닉네임"
+        android:textColor="#111111"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
-        android:id="@+id/nickname"
+        android:id="@+id/textview_myaccount_nickname2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="별명"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/info" />
+        android:layout_marginStart="14dp"
+        android:text="와인러버"
+        android:textColor="#6A6A6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/textview_myaccount_nickname"
+        app:layout_constraintStart_toEndOf="@+id/textview_myaccount_email"
+        app:layout_constraintTop_toTopOf="@id/textview_myaccount_nickname" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_myaccount_changenickname"
+        android:layout_width="48dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/myaccount_button"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:padding="0dp"
+        android:text="변경"
+        android:textColor="#6A6A6A"
+        android:textSize="12sp"
+        app:cornerRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/textview_myaccount_nickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textview_myaccount_nickname" />
 
     <TextView
-        android:id="@id/nickname2"
+        android:id="@+id/textview_myaccount_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="와인러버"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/nickname"
-        app:layout_constraintStart_toEndOf="@+id/emailSignUP"
-        app:layout_constraintTop_toTopOf="@id/nickname" />
-
-    <Button
-        android:id="@+id/btn_nickname"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
-        android:padding="0dp"
-        android:text="변경"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/nickname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/nickname" />
-
-    <TextView
-        android:id="@+id/emailSignUP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="이메일주소"
-        android:textSize="16sp"
+        android:textColor="#111111"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nickname" />
+        app:layout_constraintTop_toBottomOf="@id/textview_myaccount_nickname" />
 
     <TextView
-        android:id="@+id/email2"
+        android:id="@+id/textview_myaccount_email2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:text="lwieu24@naver.com"
+        android:textColor="#6A6A6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/textview_myaccount_email"
+        app:layout_constraintStart_toEndOf="@id/textview_myaccount_email"
+        app:layout_constraintTop_toTopOf="@id/textview_myaccount_email" />
+
+    <TextView
+        android:id="@+id/textview_myaccount_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="lwieu24@naver.com"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/emailSignUP"
-        app:layout_constraintStart_toEndOf="@id/emailSignUP"
-        app:layout_constraintTop_toTopOf="@id/emailSignUP" />
-
-    <TextView
-        android:id="@+id/pw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="비밀번호"
-        android:textSize="16sp"
+        android:textColor="#111111"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailSignUP" />
+        app:layout_constraintTop_toBottomOf="@id/textview_myaccount_email" />
 
     <TextView
-        android:id="@+id/pw2"
+        android:id="@+id/textview_myaccount_password2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="14dp"
         android:text="*********"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/pw"
-        app:layout_constraintStart_toEndOf="@id/emailSignUP"
-        app:layout_constraintTop_toTopOf="@id/pw" />
+        android:textColor="#6A6A6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/textview_myaccount_password"
+        app:layout_constraintStart_toEndOf="@id/textview_myaccount_email"
+        app:layout_constraintTop_toTopOf="@id/textview_myaccount_password" />
 
-    <Button
-        android:id="@+id/btn_pw"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_myaccount_changepassword"
+        android:layout_width="48dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/myaccount_button"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
         android:padding="0dp"
         android:text="변경"
+        android:textColor="#6A6A6A"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/pw"
+        app:cornerRadius="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/textview_myaccount_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/pw" />
+        app:layout_constraintTop_toTopOf="@id/textview_myaccount_password" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line1"
+        android:id="@+id/constraintlayout_myaccount_line1"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="8dp"
         android:layout_marginTop="24dp"
-        android:background="#e8e8e8"
-        app:layout_constraintTop_toBottomOf="@id/pw" />
+        android:background="#F8F8F8"
+        app:layout_constraintTop_toBottomOf="@id/textview_myaccount_password" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_logout"
+        android:id="@+id/constraintlayout_myaccount_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_line1">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_myaccount_line1">
 
         <TextView
-            android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="14dp"
             android:text="로그아웃"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/const_logout"
-            app:layout_constraintStart_toStartOf="@id/const_logout"
-            app:layout_constraintTop_toTopOf="@id/const_logout" />
+            android:textColor="#111111"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageview_myaccount_logout"
+            app:layout_constraintStart_toEndOf="@+id/imageview_myaccount_logout"
+            app:layout_constraintTop_toTopOf="@+id/imageview_myaccount_logout" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:text=">"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@id/logout"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/logout" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mypage_next18" />
+
+        <ImageView
+            android:id="@+id/imageview_myaccount_logout"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/myaccount_logout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line2"
+        android:id="@+id/constraintlayout_myaccount_line2"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#e8e8e8"
-        app:layout_constraintTop_toBottomOf="@+id/const_logout" />
+        android:layout_height="1.2dp"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_myaccount_logout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_secession"
+        android:id="@+id/constraintlayout_myaccount_sucession"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_line2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_myaccount_line2">
 
         <TextView
-            android:id="@+id/secession"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="14dp"
             android:text="회원탈퇴"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/const_secession"
-            app:layout_constraintStart_toStartOf="@id/const_secession"
-            app:layout_constraintTop_toTopOf="@id/const_secession" />
+            android:textColor="#111111"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/imageView4"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <TextView
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            android:text=">"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@id/secession"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/secession" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/mypage_next18" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/myaccount_withdrawal" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_myaccount_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_myaccount_sucession" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

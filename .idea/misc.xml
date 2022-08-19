@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/A_level/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/A_level/app/src/main/res/layout/fragment_allalcohol.xml" value="0.30724417426545086" />
+        <entry key="..\:/A_level/app/src/main/res/layout/fragment_feed.xml" value="0.30724417426545086" />
+        <entry key="..\:/A_level/app/src/main/res/layout/fragment_mypage.xml" value="0.30724417426545086" />
+        <entry key="..\:/A_level/app/src/main/res/layout/fragment_recommend.xml" value="0.30724417426545086" />
+        <entry key="..\:/A_level/app/src/main/res/menu/menu_bnav.xml" value="0.5259259259259259" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable-v24/all_edittext_background.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable-v24/edittext.xml" value="0.259" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalchol_radiobutton_unchecked.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalcohol_dialog_background.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalcohol_dialog_button.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalcohol_dialog_top.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalcohol_intro.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalcohol_radiobutton.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/addalcohol_radiobutton_checked.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/allalcohol_rectangle.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/edittext.xml" value="0.2585" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1235" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/myaccount_button.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/myaccount_edittext_correct.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/myaccount_edittext_wrong.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/myaccount_plain_text.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/mypage_constraintlayout_informationbackground.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/mypage_edittext.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/mypage_text.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/round_button.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/scrap_tablayout.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/scrap_textsize.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/scrapalcohol_constraintlayout_background.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/setting_switch_off.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/setting_switch_on.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/setting_switch_thumb.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/setting_swtich.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/drawable/setting_swtich_track_selector.xml" value="0.199" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_addalcohol.xml" value="0.176" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_changenickname.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_changepassword.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_changepw.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_changepw2.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_myaccount.xml" value="0.264" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_scrap.xml" value="0.264" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_scrap2.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_setting.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_setting2.xml" value="0.2390625" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_start.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_writtencomment.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_writtencomment2.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_writtenpost.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/activity_writtenpost2.xml" value="0.22644927536231885" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/dialog_addalcohol.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_feed.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_mypage.xml" value="0.264" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_recommend.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_scrap.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_scrapalcohol.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/fragment_scrappost.xml" value="0.22546296296296298" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/item_allalcoholsubcategory_recyclerview.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/item_scrapalcohol.xml" value="0.4" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/item_scrapcomment.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/item_scrappost.xml" value="0.264" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/item_writtencomment.xml" value="0.4" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/item_writtenpost.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/layout/test.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/JIYOUNG/AndroidStudioProjects/A-LEVEL/A-level/app/src/main/res/menu/menu_bnav.xml" value="0.25364583333333335" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

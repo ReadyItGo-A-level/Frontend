@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.viewpager2.widget.ViewPager2
 import com.example.a_level.databinding.ActivityScrapBinding
-import com.example.a_level.databinding.ActivityWrittenpostBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class ScrapActivity : AppCompatActivity() {
@@ -18,16 +17,16 @@ class ScrapActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
 
-        val vp = binding.viewpager
-        vp.adapter = TabViewAdapter(this)
-        vp.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        val viewPager = binding.viewpager
+        viewPager.adapter = TabViewAdapter(this)
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
         // 뷰페이저와 탭레이아웃을 붙임
-        TabLayoutMediator(binding.tab, vp) { tab, position ->
+        TabLayoutMediator(binding.tab, viewPager) { tab, position ->
             tab.text = tabTextList[position]
         }.attach()
     }

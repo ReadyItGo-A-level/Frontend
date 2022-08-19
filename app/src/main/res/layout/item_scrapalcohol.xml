@@ -1,79 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_alcohol"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/allalcoholsubcategory_item_rectangle"
-        android:padding="20dp"
+        android:id="@+id/constraintlayout_scrapalcohol_background"
+        android:layout_width="160dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/mypage_constraintlayout_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/alcohol"
-            android:layout_width="100dp"
+            android:id="@+id/imageview_scrapalcohol_alcohol"
+            android:layout_width="160dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             android:src="@drawable/allalcoholsubcategory_item_testimage"
-            app:layout_constraintBottom_toBottomOf="@+id/const_alcohol"
-            app:layout_constraintEnd_toEndOf="@+id/const_alcohol"
-            app:layout_constraintStart_toStartOf="@+id/const_alcohol"
-            app:layout_constraintTop_toTopOf="@+id/const_alcohol" />
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_scrapalcohol_background"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_scrapalcohol_background"
+            app:layout_constraintStart_toStartOf="@+id/constraintlayout_scrapalcohol_background"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_scrapalcohol_background" />
 
         <ImageView
-            android:id="@+id/scrap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/all_scrapicon"
-            app:layout_constraintBottom_toBottomOf="@+id/const_alcohol"
-            app:layout_constraintEnd_toEndOf="@+id/const_alcohol"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@+id/alcohol" />
+            android:id="@+id/imageview_scrapalcohol_scrap"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="14dp"
+            android:src="@drawable/scrapalcohol_scrap"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/textview_scrapalcohol_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="술 이름"
+        android:layout_marginTop="8dp"
+        android:text="오이스터베이"
+        android:textColor="#B2B2B2"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/const_alcohol" />
+        app:layout_constraintStart_toStartOf="@+id/constraintlayout_scrapalcohol_background"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_scrapalcohol_background" />
 
     <TextView
-        android:id="@+id/price"
+        android:id="@+id/textview_scrapalcohol_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00원"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
-
-    <TextView
-        android:id="@+id/volume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="(00ml)"
+        android:text="소비뇽 블랑"
+        android:textColor="#111111"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toEndOf="@+id/price"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintStart_toStartOf="@+id/textview_scrapalcohol_type"
+        app:layout_constraintTop_toBottomOf="@+id/textview_scrapalcohol_type" />
 
     <TextView
-        android:id="@+id/abv"
+        android:id="@+id/textview_scrapalcohol_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00(ºC)"
+        android:layout_marginTop="4dp"
+        android:text="24,800원・750ml"
+        android:textColor="#6A6A6A"
+        android:textSize="12sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/price" />
+        app:layout_constraintStart_toStartOf="@+id/textview_scrapalcohol_name"
+        app:layout_constraintTop_toBottomOf="@+id/textview_scrapalcohol_name" />
+
+    <ImageView
+        android:id="@+id/imageview_scrapalcohol_abv"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textview_scrapalcohol_price"
+        app:layout_constraintTop_toBottomOf="@+id/textview_scrapalcohol_price"
+        app:srcCompat="@drawable/scrapalcohol_abv" />
+
+    <TextView
+        android:id="@+id/textview_scrapalcohol_abv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:text="13%"
+        android:textColor="#6A6A6A"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_scrapalcohol_abv"
+        app:layout_constraintStart_toEndOf="@+id/imageview_scrapalcohol_abv"
+        app:layout_constraintTop_toTopOf="@+id/imageview_scrapalcohol_abv" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

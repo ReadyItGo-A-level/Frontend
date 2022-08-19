@@ -20,18 +20,45 @@ class ScrapAlcoholFragment : Fragment() {
         binding = FragmentScrapalcoholBinding.inflate(layoutInflater)
 
         val scrapalcoholList = arrayListOf(
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%")
+            ScrapAlcoholData(
+                R.drawable.allalcoholsubcategory_item_testimage,
+                "이슬톡톡",
+                "2500원",
+                "3%"
+            ),
+            ScrapAlcoholData(
+                R.drawable.allalcoholsubcategory_item_testimage,
+                "이슬톡톡",
+                "2500원",
+                "3%"
+            ),
+            ScrapAlcoholData(
+                R.drawable.allalcoholsubcategory_item_testimage,
+                "이슬톡톡",
+                "2500원",
+                "3%"
+            ),
+            ScrapAlcoholData(
+                R.drawable.allalcoholsubcategory_item_testimage,
+                "이슬톡톡",
+                "2500원",
+                "3%"
+            ),
+            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "3%")
         )
 
-        val rv_salcohol = binding.rvSalcohol
+        val recyclerviewScrapAlcohol = binding.recyclerviewScrapAlcohol
         val gridLayoutManager = GridLayoutManager(context, 2)
-        rv_salcohol.layoutManager = gridLayoutManager
+        recyclerviewScrapAlcohol.layoutManager = gridLayoutManager
 
-        rv_salcohol.adapter = ScrapAlcoholAdapter(scrapalcoholList)
+        val scrapAlcoholList_empty = binding.linearlayoutScrapalcoholNodata
+        if (ScrapAlcoholAdapter(scrapalcoholList).itemCount == 0) {
+            scrapAlcoholList_empty.visibility = View.VISIBLE
+        } else {
+            scrapAlcoholList_empty.visibility = View.INVISIBLE
+            recyclerviewScrapAlcohol.adapter = ScrapAlcoholAdapter(scrapalcoholList)
+        }
+
         return binding.root
     }
 }

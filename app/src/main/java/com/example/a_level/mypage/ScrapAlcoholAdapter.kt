@@ -24,7 +24,6 @@ class ScrapAlcoholAdapter(val scrapalcoholList: ArrayList<ScrapAlcoholData>) :
         holder.img.setImageResource(scrapalcoholList.get(position).img)
         holder.name.text = scrapalcoholList.get(position).name
         holder.price.text = scrapalcoholList.get(position).price
-        holder.volume.text = scrapalcoholList.get(position).volume
         holder.abv.text = scrapalcoholList.get(position).abv
     }
 
@@ -33,10 +32,9 @@ class ScrapAlcoholAdapter(val scrapalcoholList: ArrayList<ScrapAlcoholData>) :
     }
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img = itemView.findViewById<ImageView>(R.id.alcohol)
-        val name = itemView.findViewById<TextView>(R.id.name)
-        val price = itemView.findViewById<TextView>(R.id.price)
-        val volume = itemView.findViewById<TextView>(R.id.volume)
-        val abv = itemView.findViewById<TextView>(R.id.abv)
+        val img = itemView.findViewById<ImageView>(R.id.imageview_scrapalcohol_alcohol)
+        val name = itemView.findViewById<TextView>(R.id.textview_scrapalcohol_name)
+        val price = itemView.findViewById<TextView>(R.id.textview_scrapalcohol_price)
+        val abv = itemView.findViewById<TextView>(R.id.textview_scrapalcohol_abv)
     }
 }

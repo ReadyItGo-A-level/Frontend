@@ -14,9 +14,9 @@ class SettingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
-        val tb = supportActionBar!!
-        tb.setDisplayShowTitleEnabled(false)
-        tb.setDisplayHomeAsUpEnabled(true)
+        val toolbar = supportActionBar!!
+        toolbar.setDisplayShowTitleEnabled(false)
+        toolbar.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

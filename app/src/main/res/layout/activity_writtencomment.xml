@@ -22,23 +22,51 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="작성한 댓글"
-            android:textSize="22sp" />
+            android:textColor="#111111"
+            android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/div_line1"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#e8e8e8"
+        android:layout_height="1dp"
+        android:background="#F2F2F2"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_wcomment"
+        android:id="@+id/recyclerview_written_comment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/div_line1" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout_writtencomment_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/mypage_writtenpost_thumbnail" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="아직 작성한 댓글이 없습니다"
+            android:textAlignment="center"
+            android:textColor="#767676"
+            android:textSize="14dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

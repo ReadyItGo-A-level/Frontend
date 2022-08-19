@@ -19,25 +19,21 @@
         </activity>
         <activity
             android:name=".keyword.UserStyleActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".keyword.UserKeywordActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".login.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
-            android:parentActivityName=".login.StartActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"
+            android:parentActivityName=".login.StartActivity"></activity>
 
         <activity
             android:name=".login.StartActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".mypage.ChangePasswordActivity"
             android:exported="false" />
@@ -57,15 +53,18 @@
             android:name=".mypage.SettingActivity"
             android:exported="false" />
         <activity
+            android:name=".mypage.ChangeNicknameActivity"
+            android:exported="false" />
+        <activity
             android:name=".mypage.AddAlcoholActivity"
             android:exported="false" />
-        <activity android:name=".allalcohol.AllAlcoholSearchActivity"/>
-        <activity android:name=".common.AlcoholDetailActivity"/>
-        <activity android:name=".feed.FeedDetailActivity"/>
+        <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
+        <activity android:name=".common.AlcoholDetailActivity" />
+        <activity android:name=".feed.FeedDetailActivity" />
         <activity
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:name=".common.AlcoholDetailWriteReviewActivity"/>
-        <activity android:name=".feed.WriteFeedActivity"/>
+            android:name=".common.AlcoholDetailWriteReviewActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        <activity android:name=".feed.WriteFeedActivity" />
 
     </application>
 

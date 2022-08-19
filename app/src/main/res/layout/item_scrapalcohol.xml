@@ -35,18 +35,18 @@
             android:layout_height="24dp"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="14dp"
-            android:src="@drawable/mypage_scrap"
+            android:src="@drawable/scrapalcohol_scrap"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textview_scrapalcohol_name"
+        android:id="@+id/textview_scrapalcohol_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="소비뇽 블랑 750ml"
-        android:textColor="#6A6A6A"
+        android:text="오이스터베이"
+        android:textColor="#B2B2B2"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -54,12 +54,26 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_scrapalcohol_background" />
 
     <TextView
+        android:id="@+id/textview_scrapalcohol_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소비뇽 블랑"
+        android:textColor="#111111"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/textview_scrapalcohol_type"
+        app:layout_constraintTop_toBottomOf="@+id/textview_scrapalcohol_type" />
+
+    <TextView
         android:id="@+id/textview_scrapalcohol_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="24,800"
-        android:textColor="#111111"
-        android:textSize="18sp"
+        android:layout_marginTop="4dp"
+        android:text="24,800원・750ml"
+        android:textColor="#6A6A6A"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
@@ -68,21 +82,22 @@
 
     <ImageView
         android:id="@+id/imageview_scrapalcohol_abv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textview_scrapalcohol_price"
         app:layout_constraintTop_toBottomOf="@+id/textview_scrapalcohol_price"
-        app:srcCompat="@drawable/mypage_abv" />
+        app:srcCompat="@drawable/scrapalcohol_abv" />
 
     <TextView
         android:id="@+id/textview_scrapalcohol_abv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="13 (℃)"
-        android:textColor="#767676"
+        android:layout_marginStart="1dp"
+        android:text="13%"
+        android:textColor="#6A6A6A"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageview_scrapalcohol_abv"
         app:layout_constraintStart_toEndOf="@+id/imageview_scrapalcohol_abv"

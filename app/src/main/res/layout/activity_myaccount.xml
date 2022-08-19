@@ -192,7 +192,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_myaccount_line2"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.2dp"
         android:background="#F2F2F2"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_myaccount_logout" />
 
@@ -241,7 +241,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_myaccount_line3"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1.2dp"
         android:background="#F2F2F2"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_myaccount_sucession" />
 

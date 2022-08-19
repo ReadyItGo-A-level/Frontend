@@ -55,7 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_writtenpost_line">
 
-
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -65,12 +64,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:text="아직 작성한 게시글이 없습니다."
+            android:text="아직 작성한 게시글이 없습니다"
             android:textAlignment="center"
             android:textColor="#767676"
             android:textSize="14dp" />
-
-
     </LinearLayout>
 
 

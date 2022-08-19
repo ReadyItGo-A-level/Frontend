@@ -118,7 +118,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="18"
-                    android:textColor="#383838"
+                    android:textColor="#111111"
                     android:textSize="20sp" />
 
                 <TextView
@@ -126,8 +126,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:text="스크랩"
-                    android:textColor="#383838"
-                    android:textSize="12sp" />
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="8"
-                    android:textColor="#383838"
+                    android:textColor="#111111"
                     android:textSize="20sp" />
 
                 <TextView
@@ -157,8 +157,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:text="작성한 글"
-                    android:textColor="#383838"
-                    android:textSize="12sp" />
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -180,7 +180,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="23"
-                    android:textColor="#383838"
+                    android:textColor="#111111"
                     android:textSize="20sp" />
 
                 <TextView
@@ -188,8 +188,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
                     android:text="작성한 댓글"
-                    android:textColor="#383838"
-                    android:textSize="12sp" />
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -198,8 +198,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_mypage_setting"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_post">
@@ -208,7 +208,9 @@
             android:id="@+id/imageview_mypage_setting"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -217,10 +219,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:text="설정"
             android:textColor="#111111"
-            android:textSize="15sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageview_mypage_setting"
             app:layout_constraintStart_toEndOf="@+id/imageview_mypage_setting"
             app:layout_constraintTop_toTopOf="@+id/imageview_mypage_setting" />
@@ -247,7 +249,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_mypage_addnewalcohol"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_mypage_setting">
@@ -256,7 +258,9 @@
             android:id="@+id/imageview_mypage_addnewalcohol"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -266,10 +270,10 @@
             android:id="@+id/text_add_alcohol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="10dp"
             android:text="신규 술 등록"
             android:textColor="#111111"
-            android:textSize="15sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageview_mypage_addnewalcohol"
             app:layout_constraintStart_toEndOf="@+id/imageview_mypage_addnewalcohol"
             app:layout_constraintTop_toTopOf="@+id/imageview_mypage_addnewalcohol" />

@@ -18,8 +18,14 @@ class MyAccountActivity : AppCompatActivity() {
         toolbar.setDisplayShowTitleEnabled(false)
         toolbar.setDisplayHomeAsUpEnabled(true)
 
-        val buttonPassword = binding.buttonMyaccountChangepassword
-        buttonPassword.setOnClickListener {
+        val buttonChangeNickname = binding.buttonMyaccountChangenickname
+        buttonChangeNickname.setOnClickListener {
+            val intent = Intent(this, ChangeNicknameActivity::class.java)
+            startActivity(intent)
+        }
+
+        val buttonChangePassword = binding.buttonMyaccountChangepassword
+        buttonChangePassword.setOnClickListener {
             val intent = Intent(this, ChangePasswordActivity::class.java)
             startActivity(intent)
         }

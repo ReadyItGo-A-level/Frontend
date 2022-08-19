@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.R
 import com.example.a_level.databinding.ActivityWrittencommentBinding
@@ -28,13 +29,24 @@ class WrittenCommentActivity : AppCompatActivity() {
 
         // 작성 댓글 리스트 조회
         val writtenCommentList = arrayListOf(
-            WrittenCommentData(R.drawable.mypage_comment, "블랑 너무 맛없어 우웩", "2022.06.21")
+            WrittenCommentData(
+                R.drawable.mypage_comment,
+                "블랑 너무 맛없어 우웩",
+                "2022.06.21"
+            )
         )
 
         val recyclerviewWrittenComment = binding.recyclerviewWrittenComment
-        recyclerviewWrittenComment.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerviewWrittenComment.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        recyclerviewWrittenComment.adapter = WrittenCommentAdapter(writtenCommentList)
+        val writtenCommentList_empty = binding.linearlayoutWrittencommentNodata
+        if (WrittenCommentAdapter(writtenCommentList).itemCount == 0) {
+            writtenCommentList_empty.visibility = View.VISIBLE
+        } else {
+            writtenCommentList_empty.visibility = View.INVISIBLE
+            recyclerviewWrittenComment.adapter = WrittenCommentAdapter(writtenCommentList)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

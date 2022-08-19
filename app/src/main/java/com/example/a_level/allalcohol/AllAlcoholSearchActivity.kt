@@ -1,14 +1,18 @@
 package com.example.a_level.allalcohol
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.a_level.common.AlcoholDetailActivity
 import com.example.a_level.databinding.ActivityAllalcoholsearchBinding
+import com.example.a_level.mypage.AddAlcoholActivity
 
 class AllAlcoholSearchActivity : AppCompatActivity() {
     lateinit var binding: ActivityAllalcoholsearchBinding
@@ -73,29 +77,45 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
         binding.recyclerviewAllalcoholsearch.apply {
             layoutManager =
                 GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
-            adapter = allAlcoholSearchAdapter
+            adapter = allAlcoholSearchAdapter.apply {
+                setOnItemClickListener(object :
+                    AllAlcoholSearchAdapter.OnItemClickListener {
+                    override fun onItemClick(v: View, item: AllAlcoholSubCategoryRecyclerViewData) {
+                        startActivity(Intent(applicationContext, AlcoholDetailActivity::class.java))
+                    }
+                })
+            }
         }
     }
 
     private fun initSearchViewListener() {
-        binding.searchviewAllalcoholsearch.setOnQueryTextListener(object :
-            androidx.appcompat.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                allAlcoholSearchAdapter.filter.filter(query)
-                return false
+        binding.searchviewAllalcoholsearch.setOnEditorActionListener { textView, id, keyEvent ->
+            if (id == EditorInfo.IME_ACTION_SEARCH){
+                allAlcoholSearchAdapter.filter.filter(binding.searchviewAllalcoholsearch.text)
+                true
             }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
-            }
-
-        })
+            false
+        }
     }
 
     inner class SearchInterface {
         fun setCount(count: Int) {
-            binding.textviewAllalcoholsearchCount.visibility = View.VISIBLE
-            binding.textviewAllalcoholsearchCount.text = "총 " + count.toString() + "개의 제품"
+            if (count == 0){
+                binding.recyclerviewAllalcoholsearch.visibility = View.GONE
+                binding.linearlayoutAllalcoholsearchCount.visibility = View.GONE
+                binding.textviewAllalcoholsearchNoresult.visibility = View.VISIBLE
+                binding.textviewAllalcoholsearchAddalcohol.visibility = View.VISIBLE
+                binding.textviewAllalcoholsearchAddalcohol.setOnClickListener {
+                    startActivity(Intent(applicationContext, AddAlcoholActivity::class.java))
+                }
+            }
+            else {
+                binding.textviewAllalcoholsearchNoresult.visibility = View.GONE
+                binding.textviewAllalcoholsearchAddalcohol.visibility = View.GONE
+                binding.linearlayoutAllalcoholsearchCount.visibility = View.VISIBLE
+                binding.recyclerviewAllalcoholsearch.visibility = View.VISIBLE
+                binding.textviewAllalcoholsearchCount.text = count.toString()
+            }
         }
     }
 

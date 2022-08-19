@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    tools:context=".allalcohol.AllAlcoholSubCategoryFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_allalcoholsubcategory_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/allalcoholsubcategory_item_rectangle"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/imageview_allalcoholsubcategory_item_liquor"
+            android:layout_width="70dp"
+            android:layout_height="100dp"
+            android:src="@drawable/allalcoholsubcategory_item_testimage"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/recommend_alcohol_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오이스터 베이"
+        app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item" />
+
+    <TextView
+        android:id="@+id/recommend_alcohol_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소비뇽 블랑"
+        app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
+        app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"
+        app:layout_constraintTop_toBottomOf="@+id/recommend_alcohol_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Alevel">
         <activity
+            android:name=".common.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".keyword.UserStyleActivity"
             android:exported="false">
         </activity>
@@ -23,10 +31,13 @@
         <activity
             android:name=".login.LoginActivity"
             android:parentActivityName=".login.StartActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".login.StartActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".mypage.ChangePasswordActivity"
             android:exported="false" />
@@ -48,15 +59,14 @@
         <activity
             android:name=".mypage.AddAlcoholActivity"
             android:exported="false" />
+        <activity android:name=".allalcohol.AllAlcoholSearchActivity"/>
+        <activity android:name=".common.AlcoholDetailActivity"/>
+        <activity android:name=".feed.FeedDetailActivity"/>
         <activity
-            android:name=".common.MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:name=".common.AlcoholDetailWriteReviewActivity"/>
+        <activity android:name=".feed.WriteFeedActivity"/>
+
     </application>
 
 </manifest>

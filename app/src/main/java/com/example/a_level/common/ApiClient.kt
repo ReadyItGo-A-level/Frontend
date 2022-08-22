@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
     private const val BASE_URL =
-        "수정될 예정"
+        "http://13.125.232.247:8080"
 
     //HTTP 통신시 통신 정보를 인터셉트하여 로그로 출력
     private val okHttpClient = OkHttpClient.Builder()
@@ -19,7 +19,7 @@ object ApiClient {
         .build()
 
     //리트로핏 정의
-    private fun getRetrofit(): Retrofit {
+    fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)

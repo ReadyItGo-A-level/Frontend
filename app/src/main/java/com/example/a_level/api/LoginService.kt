@@ -1,0 +1,22 @@
+package com.example.a_level.api
+
+import com.example.a_level.common.ApiClient
+import retrofit2.Call
+import retrofit2.http.*
+
+interface LoginService {
+    @GET("users/login")
+//    @Headers("accept: application/json",
+//        "content-type: application/json"
+//    )
+    fun getLogin(
+        @Query("email") email: String,
+        @Query("password") password: String
+    ): Call<LoginResponse>
+
+    companion object{
+        fun getRetrofitLogin(): LoginService{
+            return ApiClient.create(LoginService::class.java)
+        }
+    }
+}

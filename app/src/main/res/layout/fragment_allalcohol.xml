@@ -40,8 +40,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_allalcohol_searchbar"
-        app:tabIndicatorColor="@color/orange"
-        app:tabSelectedTextColor="@color/orange"
+        app:tabIndicatorColor="@color/primary"
+        app:tabSelectedTextColor="@color/primary"
         app:tabTextColor="@color/black">
 
         <com.google.android.material.tabs.TabItem

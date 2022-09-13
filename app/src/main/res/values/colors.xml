@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#F37413</color>
+    <color name="error">#FF0808</color>
+    <color name="correct">#1BB40E</color>
+    <color name="text">#111111</color>
 </resources>

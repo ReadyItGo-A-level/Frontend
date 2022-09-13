@@ -15,8 +15,8 @@ interface LoginService {
     ): Call<LoginResponse>
 
     companion object{
-        fun getRetrofitLogin(): LoginService{
-            return ApiClient.create(LoginService::class.java)
+        fun getRetrofitLogin(email: String, password: String): Call<LoginResponse>{
+            return ApiClient.create(LoginService::class.java).getLogin(email, password)
         }
     }
 }

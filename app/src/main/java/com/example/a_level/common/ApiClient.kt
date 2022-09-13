@@ -19,7 +19,7 @@ object ApiClient {
         .build()
 
     //리트로핏 정의
-    fun getRetrofit(): Retrofit {
+    private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(okHttpClient)

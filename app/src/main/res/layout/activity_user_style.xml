@@ -6,484 +6,572 @@
     android:layout_height="match_parent"
     tools:context=".keyword.UserStyleActivity">
 
-    <Button
-        android:id="@+id/button_style_next"
-        android:layout_width="328dp"
-        android:layout_height="49dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="#F37413"
-        android:text="작성 완료"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textview_style_recommend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:text="좋아하실만한 술을 추천해드릴게요 :)"
-        android:textColor="#707071"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_user"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_tell" />
-
-    <TextView
-        android:id="@+id/textview_style_alcohol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="원하는 도수"
-        android:textColor="#433E50"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_recommend"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_recommend" />
-
-    <SeekBar
-        android:id="@+id/seekbar_style_alcohol"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="16dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="35dp"
-        android:max="2"
-        android:progressTint="#F37413"
-        android:thumb="@drawable/userstyle_seekbar_thumb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_alcohol" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textview_style_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="채오니"
+                    android:textColor="#111111"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_style_tell"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="님의 취향을"
+                    android:textColor="#433E50"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/textview_style_user"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview_style_tell2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:text="알려주세요!"
+                android:textColor="#433E50"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textview_style_user"
+                app:layout_constraintTop_toBottomOf="@+id/textview_style_user" />
+
+            <TextView
+                android:id="@+id/textview_style_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="10dp"
+                android:text="좋아하실만한 술을 추천해드릴게요 :)"
+                android:textColor="#707071"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/textview_style_user"
+                app:layout_constraintTop_toBottomOf="@+id/textview_style_tell2" />
+
+            <TextView
+                android:id="@+id/textview_style_alcohol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="50dp"
+                android:text="원하는 도수"
+                android:textColor="#111111"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+<!--            <SeekBar-->
+<!--                android:id="@+id/seekbar_style_percent"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="18dp"-->
+<!--                android:max="2"-->
+<!--                android:progressTint="#F37413"-->
+<!--                android:thumb="@drawable/userstyle_seekbar_thumb" />-->
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_style_percent"
+                android:theme="@style/SliderTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp"
+                android:valueFrom="1"
+                android:valueTo="5"
+                android:stepSize="1"
+                app:values="@array/initial_slider_values"
+                app:trackColorActive="#F37423"
+                app:trackColorInactive="#E6E6E6"
+                app:thumbColor="#F37423"
+                app:tickColor="@color/white"
+                app:thumbRadius="15dp"
+                app:labelBehavior="gone"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearlayout_style_percent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintlayout_style_degree"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/textview_style_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="낮은"
+                    android:textAlignment="center"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textview_style_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="보통"
+                    android:textAlignment="center"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintlayout_style_degree"
+                    app:layout_constraintStart_toStartOf="@+id/constraintlayout_style_degree"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textview_style_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="높은"
+                    android:textAlignment="center"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview_style_sugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="40dp"
+                android:text="원하는 당도"
+                android:textColor="#111111"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/linearlayout_style_percent"
+                app:layout_constraintTop_toBottomOf="@+id/linearlayout_style_percent" />
+
+<!--            <SeekBar-->
+<!--                android:id="@+id/seekbar_style_sugar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="18dp"-->
+<!--                android:max="2"-->
+<!--                android:progressTint="#F37413"-->
+<!--                android:thumb="@drawable/userstyle_seekbar_thumb" />-->
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/slider_style_sugar"
+                android:theme="@style/SliderTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp"
+                android:valueFrom="1"
+                android:valueTo="5"
+                android:stepSize="1"
+                app:values="@array/initial_slider_values"
+                app:trackColorActive="#F37423"
+                app:trackColorInactive="#E6E6E6"
+                app:thumbColor="#F37423"
+                app:tickColor="@color/white"
+                app:thumbRadius="15dp"
+                app:labelBehavior="gone"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearlayout_style_sugar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintlayout_style_sweet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textview_style_sugar_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="씁쓸한"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textview_style_sugar_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="중간"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/constraintlayout_style_sweet"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintlayout_style_sweet"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textview_style_sugar_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="매우 달달한"
+                    android:textColor="#6A6A6A"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textview_style_taste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:text="좋아하는 맛"
+                android:textColor="#111111"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textview_style_sugar"
+                app:layout_constraintTop_toBottomOf="@+id/textview_style_sugar_middle" />
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipgroup_style_first"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                app:chipSpacingHorizontal="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_style_taste">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_carbon"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="탄산"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipIconVisible="false"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    app:closeIconVisible="false"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_fruit"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="과일향"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_sweet_sour"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="새콤달콤"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_flower"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="꽃향"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipgroup_style_second"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                app:chipSpacingHorizontal="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipgroup_style_first">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_refresh"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="7dp"
+                    android:text="청량감"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipIconVisible="false"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    app:closeIconVisible="false"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_soft"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="부드러움"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_bitter"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="씁쓸함"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_rose"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="로제"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipgroup_style_third"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chipgroup_style_second">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_heavy"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="묵직함"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_style_light"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="10dp"
+                    android:text="가벼움"
+                    android:textAlignment="center"
+                    android:textColor="@color/checked_chip_textcolor"
+                    android:textSize="12sp"
+                    android:theme="@style/Theme.MaterialComponents.Light"
+                    app:checkedIcon="@null"
+                    app:checkedIconTint="#FFFFFF"
+                    app:chipBackgroundColor="@color/checked_chip_color"
+                    app:chipStrokeColor="@color/checked_chip_stroke"
+                    app:chipStrokeWidth="1dp"
+                    tools:ignore="MissingConstraints" />
+            </com.google.android.material.chip.ChipGroup>
+
+
+            <TextView
+                android:id="@+id/textview_style_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:text="원하는 가격대"
+                android:textColor="#111111"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginHorizontal="20dp">
+            <TextView
+                android:id="@+id/textview_style_moneystart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#6A6A6A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/textview_style_price"
+                app:layout_constraintTop_toBottomOf="@+id/textview_style_price" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="만원~"
+                android:textColor="#6A6A6A"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textview_style_money"
+                app:layout_constraintStart_toEndOf="@+id/textview_style_money" />
     <TextView
-        android:id="@+id/textview_style_middle"
+        android:id="@+id/textview_style_moneyend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="보통"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/seekbar_style_alcohol"
-        app:layout_constraintStart_toStartOf="@+id/seekbar_style_alcohol"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar_style_alcohol" />
-
+        android:text="100"
+        android:textColor="#6A6A6A"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_style_money"
+        app:layout_constraintStart_toEndOf="@+id/textview_style_money" />
     <TextView
-        android:id="@+id/textview_style_high"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="높은"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/seekbar_style_alcohol"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar_style_alcohol" />
-
-    <TextView
-        android:id="@+id/textview_style_low"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="낮은"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/seekbar_style_alcohol"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar_style_alcohol" />
-
-    <TextView
-        android:id="@+id/textview_style_price_low"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1만원"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/pricebar_style"
-        app:layout_constraintTop_toBottomOf="@+id/pricebar_style" />
-
-    <TextView
-        android:id="@+id/textview_style_price_high"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100만원"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/pricebar_style"
-        app:layout_constraintTop_toBottomOf="@+id/pricebar_style" />
-
-    <SeekBar
-        android:id="@+id/pricebar_style"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="17dp"
-        android:max="100"
-        android:min="1"
-        android:progressTint="#F37413"
-        android:thumb="@drawable/userstyle_seekbar_thumb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_price"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_money" />
-
-    <TextView
-        android:id="@+id/textview_style_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="원하는 가격대"
-        android:textColor="#433E50"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_sugar"
-        app:layout_constraintTop_toBottomOf="@+id/chipgroup_style_third" />
-
-    <TextView
-        android:id="@+id/textview_style_tell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="님의 취향을 알려주세요:)"
-        android:textColor="#433E50"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textview_style_user"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textview_style_taste"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="좋아하는 맛"
-        android:textColor="#433E50"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_sugar"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_sugar_middle" />
-
-    <TextView
-        android:id="@+id/textview_style_sugar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="원하는 당도"
-        android:textColor="#433E50"
-        android:textSize="13sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_alcohol"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_middle" />
-
-    <SeekBar
-        android:id="@+id/seekbar_style_sugar"
-        android:layout_width="match_parent"
-        android:layout_height="16dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="35dp"
-        android:max="2"
-        android:progressTint="#F37413"
-        android:thumb="@drawable/userstyle_seekbar_thumb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_sugar"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_sugar" />
-
-    <TextView
-        android:id="@+id/textview_style_sugar_middle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="중간"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/seekbar_style_sugar"
-        app:layout_constraintStart_toStartOf="@+id/seekbar_style_sugar"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar_style_sugar" />
-
-    <TextView
-        android:id="@+id/textview_style_sugar_high"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="달달한"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/seekbar_style_alcohol"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar_style_sugar" />
-
-    <TextView
-        android:id="@+id/textview_style_sugar_low"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="씁쓸한"
-        android:textAlignment="center"
-        android:textColor="#433E50"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/seekbar_style_alcohol"
-        app:layout_constraintTop_toBottomOf="@+id/seekbar_style_sugar" />
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup_style_first"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="16dp"
-        app:chipSpacingHorizontal="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_taste">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_carbon"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="탄산"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipIconVisible="false"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            app:closeIconVisible="false"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_fruit"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="과일향"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_sweet_sour"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="새콤달콤"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_flower"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="꽃향"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-    </com.google.android.material.chip.ChipGroup>
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup_style_second"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:chipSpacingHorizontal="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipgroup_style_first">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_refresh"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="7dp"
-            android:text="청량감"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipIconVisible="false"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            app:closeIconVisible="false"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_soft"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="부드러움"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_bitter"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="씁쓸함"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_rose"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="로제"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-    </com.google.android.material.chip.ChipGroup>
-
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup_style_third"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipgroup_style_second">
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_heavy"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="묵직함"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/chip_style_light"
-            style="@style/Widget.MaterialComponents.Chip.Filter"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="10dp"
-            android:text="가벼움"
-            android:textAlignment="center"
-            android:textColor="@color/checked_chip_textcolor"
-            android:textSize="12sp"
-            android:theme="@style/Theme.MaterialComponents.Light"
-            app:checkedIconTint="#FFFFFF"
-            app:chipBackgroundColor="@color/checked_chip_color"
-            app:chipStrokeColor="#999999"
-            app:chipStrokeWidth="1dp"
-            tools:ignore="MissingConstraints" />
-    </com.google.android.material.chip.ChipGroup>
-
-    <TextView
-        android:id="@+id/textview_style_max"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="최대 "
-        android:textColor="#433E50"
-        android:textSize="13sp"
-        app:layout_constraintStart_toStartOf="@+id/textview_style_price"
-        app:layout_constraintTop_toBottomOf="@+id/textview_style_price" />
-
-    <TextView
-        android:id="@+id/textview_style_money"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:textColor="#F37413"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textview_style_max"
-        app:layout_constraintStart_toEndOf="@+id/textview_style_max" />
-
-    <TextView
-        android:id="@+id/textview_style_won"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="만원"
-        android:textColor="#F37413"
-        android:textSize="13sp"
+        android:textColor="#6A6A6A"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/textview_style_money"
         app:layout_constraintStart_toEndOf="@+id/textview_style_money" />
+</LinearLayout>
 
-    <TextView
-        android:id="@+id/textview_style_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="24dp"
-        android:text="채오니"
-        android:textColor="#F37413"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/slider_style_money"
+                android:theme="@style/SliderTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="18dp"
+                android:valueFrom="0"
+                android:valueTo="100"
+                android:stepSize="1"
+                app:values="@array/initial_slider_values"
+                app:trackColorActive="#F37423"
+                app:trackColorInactive="#E6E6E6"
+                app:thumbColor="#F37423"
+                app:tickVisible="false"
+                app:thumbRadius="15dp"
 
+                />
+<!--            <SeekBar-->
+<!--                android:id="@+id/seekbar_stylepricebar_style"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginHorizontal="20dp"-->
+<!--                android:layout_marginTop="18dp"-->
+<!--                android:max="100"-->
+<!--                android:min="1"-->
+<!--                android:progressTint="#F37413"-->
+<!--                android:thumb="@drawable/userstyle_seekbar_thumb"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="1.0"-->
+<!--                app:layout_constraintStart_toStartOf="@+id/textview_style_price"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/textview_style_money" />-->
+            <Button
+                android:id="@+id/button_style_next"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/userkeyword_button_orange"
+                android:text="작성 완료"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

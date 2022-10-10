@@ -32,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -57,4 +58,5 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
 
     implementation 'org.conscrypt:conscrypt-android:2.5.2'
+    implementation 'com.google.android.material:material:1.6.1'
 }

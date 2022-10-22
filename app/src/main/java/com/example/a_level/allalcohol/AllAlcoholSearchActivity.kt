@@ -1,23 +1,26 @@
 package com.example.a_level.allalcohol
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.a_level.allalcohol.model.response.Alcohol
+import com.example.a_level.allalcohol.service.AllAlcoholService
 import com.example.a_level.common.AlcoholDetailActivity
 import com.example.a_level.databinding.ActivityAllalcoholsearchBinding
 import com.example.a_level.mypage.AddAlcoholActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AllAlcoholSearchActivity : AppCompatActivity() {
     lateinit var binding: ActivityAllalcoholsearchBinding
     private lateinit var allAlcoholSearchAdapter: AllAlcoholSearchAdapter
-    private lateinit var allAlcoholSubCategoryRecyclerViewData: ArrayList<AllAlcoholSubCategoryRecyclerViewData>
+    private lateinit var alcohols: ArrayList<Alcohol>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +28,6 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
         setContentView(binding.root)
         initActionBar()
         loadDataList()
-        initRecyclerView()
-        initSearchViewListener()
     }
 
     private fun initActionBar() {
@@ -36,51 +37,41 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
     }
 
     private fun loadDataList() {
-        allAlcoholSubCategoryRecyclerViewData = arrayListOf()
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름1",
-                10000,
-                300,
-                20
-            )
-        )
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름2",
-                20000,
-                200,
-                40
-            )
-        )
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름3",
-                30000,
-                500,
-                10
-            )
-        )
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름4",
-                40000,
-                400,
-                30
-            )
-        )
+        alcohols = arrayListOf()
+        AllAlcoholService.searchAlcohol(keyword = "")
+            .enqueue(object : Callback<ArrayList<Alcohol>> {
+                override fun onResponse(
+                    call: Call<ArrayList<Alcohol>>,
+                    response: Response<ArrayList<Alcohol>>
+                ) {
+                    if (response.code() == 200) {
+                        val body = response.body()
+                        if (body != null) {
+                            alcohols = body
+                            initRecyclerView()
+                            initSearchViewListener()
+                        }
+                    } else {
+                        Log.e("AllAlcoholSearch", "${response.code()} error")
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<Alcohol>>, t: Throwable) {
+                    Log.e("AllAlcoholSearch", t.localizedMessage)
+                }
+            })
     }
 
     private fun initRecyclerView() {
         allAlcoholSearchAdapter =
-            AllAlcoholSearchAdapter(this, allAlcoholSubCategoryRecyclerViewData, SearchInterface())
+            AllAlcoholSearchAdapter(this, alcohols, SearchInterface())
         binding.recyclerviewAllalcoholsearch.apply {
             layoutManager =
                 GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
             adapter = allAlcoholSearchAdapter.apply {
                 setOnItemClickListener(object :
                     AllAlcoholSearchAdapter.OnItemClickListener {
-                    override fun onItemClick(v: View, item: AllAlcoholSubCategoryRecyclerViewData) {
+                    override fun onItemClick(v: View, item: Alcohol) {
                         startActivity(Intent(applicationContext, AlcoholDetailActivity::class.java))
                     }
                 })
@@ -89,8 +80,8 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
     }
 
     private fun initSearchViewListener() {
-        binding.searchviewAllalcoholsearch.setOnEditorActionListener { textView, id, keyEvent ->
-            if (id == EditorInfo.IME_ACTION_SEARCH){
+        binding.searchviewAllalcoholsearch.setOnEditorActionListener { _, id, _ ->
+            if (id == EditorInfo.IME_ACTION_SEARCH) {
                 allAlcoholSearchAdapter.filter.filter(binding.searchviewAllalcoholsearch.text)
                 true
             }
@@ -100,7 +91,7 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
 
     inner class SearchInterface {
         fun setCount(count: Int) {
-            if (count == 0){
+            if (count == 0) {
                 binding.recyclerviewAllalcoholsearch.visibility = View.GONE
                 binding.linearlayoutAllalcoholsearchCount.visibility = View.GONE
                 binding.textviewAllalcoholsearchNoresult.visibility = View.VISIBLE
@@ -108,8 +99,7 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
                 binding.textviewAllalcoholsearchAddalcohol.setOnClickListener {
                     startActivity(Intent(applicationContext, AddAlcoholActivity::class.java))
                 }
-            }
-            else {
+            } else {
                 binding.textviewAllalcoholsearchNoresult.visibility = View.GONE
                 binding.textviewAllalcoholsearchAddalcohol.visibility = View.GONE
                 binding.linearlayoutAllalcoholsearchCount.visibility = View.VISIBLE

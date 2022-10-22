@@ -1,7 +1,9 @@
 package com.example.a_level.feed
 
+import android.animation.Animator
 import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
@@ -10,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.a_level.R
 import com.example.a_level.common.OnSwipeTouchListener
 import com.example.a_level.databinding.ActivityFeeddetailBinding
+
 
 class FeedDetailActivity : AppCompatActivity() {
 
@@ -51,6 +54,21 @@ class FeedDetailActivity : AppCompatActivity() {
 
     private fun initUI() {
         setOnSwipeListener(binding.nestedscrollviewFeeddetail)
+        binding.lottieView.addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animator: Animator) {
+            }
+            override fun onAnimationEnd(animator: Animator) {
+                binding.lottieView.visibility = View.GONE
+            }
+            override fun onAnimationCancel(animator: Animator) {}
+            override fun onAnimationRepeat(animator: Animator) {}
+        })
+        binding.imageviewFeeddetailPhoto.setOnLongClickListener {
+            Log.d("zopal", "click")
+            binding.lottieView.visibility = View.VISIBLE;
+            binding.lottieView.playAnimation();
+            return@setOnLongClickListener (true)
+        }
     }
 
 

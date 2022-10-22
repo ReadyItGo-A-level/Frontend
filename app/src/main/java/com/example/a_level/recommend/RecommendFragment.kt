@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TabHost
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.R
-import com.example.a_level.allalcohol.AllAlcoholSubCategoryRecyclerViewAdapter
-import com.example.a_level.allalcohol.AllAlcoholSubCategoryRecyclerViewData
 import com.example.a_level.databinding.FragmentRecommendBinding
 import com.google.android.material.tabs.TabLayout
 

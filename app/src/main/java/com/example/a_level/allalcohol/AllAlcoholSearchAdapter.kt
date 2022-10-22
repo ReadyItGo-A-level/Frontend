@@ -11,16 +11,17 @@ import android.widget.Filterable
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a_level.allalcohol.model.response.Alcohol
 import com.example.a_level.databinding.ItemAllalcoholsubcategoryRecyclerviewBinding
 
 class AllAlcoholSearchAdapter(
     private val context: Context,
-    private var list: ArrayList<AllAlcoholSubCategoryRecyclerViewData>,
+    private var list: ArrayList<Alcohol>,
     var searchInterface: AllAlcoholSearchActivity.SearchInterface
 ) :
     RecyclerView.Adapter<AllAlcoholSearchAdapter.Holder>(), Filterable {
 
-    private var filteredList = ArrayList<AllAlcoholSubCategoryRecyclerViewData>()
+    private var filteredList = ArrayList<Alcohol>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemAllalcoholsubcategoryRecyclerviewBinding.inflate(
@@ -44,14 +45,14 @@ class AllAlcoholSearchAdapter(
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(list: ArrayList<AllAlcoholSubCategoryRecyclerViewData>) {
+    fun setData(list: ArrayList<Alcohol>) {
         this.list = list
         filteredList.addAll(list)
         notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
-        fun onItemClick(v: View, item: AllAlcoholSubCategoryRecyclerViewData)
+        fun onItemClick(v: View, item: Alcohol)
     }
 
     private var listener: OnItemClickListener? = null
@@ -64,9 +65,9 @@ class AllAlcoholSearchAdapter(
             override fun performFiltering(p0: CharSequence): FilterResults {
                 val filterString = p0.toString()
                 val results = FilterResults()
-                val filtered = ArrayList<AllAlcoholSubCategoryRecyclerViewData>()
+                val filtered = ArrayList<Alcohol>()
                 for (data in list) {
-                    if (data.title.contains(filterString)) {
+                    if (data.name!!.contains(filterString)) {
                         filtered.add(data)
                     }
                 }
@@ -79,7 +80,7 @@ class AllAlcoholSearchAdapter(
             override fun publishResults(p0: CharSequence, p1: FilterResults) {
                 searchInterface.setCount(p1.count)
                 filteredList.clear()
-                filteredList.addAll(p1.values as ArrayList<AllAlcoholSubCategoryRecyclerViewData>)
+                filteredList.addAll(p1.values as ArrayList<Alcohol>)
                 notifyDataSetChanged()
             }
 
@@ -88,11 +89,11 @@ class AllAlcoholSearchAdapter(
 
     inner class Holder(private val binding: ItemAllalcoholsubcategoryRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: AllAlcoholSubCategoryRecyclerViewData) {
-            binding.textviewAllalcoholsubcategoryTitle.text = item.title
+        fun bind(item: Alcohol) {
+            binding.textviewAllalcoholsubcategoryTitle.text = item.name
             binding.textviewAllalcoholsubcategoryPrice.text = item.price.toString() + "원"
-            binding.textviewAllalcoholsubcategoryVolume.text = "(" + item.volume.toString() + "ml)"
-            binding.textviewAllalcoholsubcategoryAbv.text = item.abv.toString() + "(ºC)"
+            binding.textviewAllalcoholsubcategoryVolume.text = "(" + item.size.toString() + "ml)"
+            binding.textviewAllalcoholsubcategoryAbv.text = item.volume.toString() + "(ºC)"
         }
     }
 }

@@ -32,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.example.a_level'
 }
 
 dependencies {
@@ -55,4 +56,12 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.9.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
+
+    //paging3
+    def paging_version = "3.1.1"
+    implementation("androidx.paging:paging-runtime:$paging_version")
+
+    //lottie
+    def lottieVersion = "5.2.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

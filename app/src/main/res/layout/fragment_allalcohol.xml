@@ -11,13 +11,14 @@
         android:id="@+id/textview_allalcohol_searchbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="44dp"
-        android:background="@drawable/allalcohol_rectangle"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/allalcohol_searchrectangle"
         android:padding="10dp"
-        android:textSize="12dp"
         android:text="이름을 입력해주세요"
+        android:textColor="@color/gray2"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:src="@drawable/all_searchicon"
+        android:src="@drawable/all_icon_search"
         app:layout_constraintBottom_toBottomOf="@+id/textview_allalcohol_searchbar"
         app:layout_constraintEnd_toEndOf="@+id/textview_allalcohol_searchbar"
         app:layout_constraintTop_toTopOf="@+id/textview_allalcohol_searchbar" />
@@ -34,15 +35,15 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayout_allalcohol_maincategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/allalcohol_tablayout_bottomsolid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_allalcohol_searchbar"
-        app:tabIndicatorColor="@color/primary"
-        app:tabSelectedTextColor="@color/primary"
-        app:tabTextColor="@color/black">
+        app:tabIndicatorColor="@color/black"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@color/gray5">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
@@ -78,13 +79,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tablayout_allalcohol_maincategory" />
-    <!--
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager2_allalcohol_fragmentcontainer"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tablayout_allalcohol_maincategory"/> -->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -78,11 +78,11 @@ class FeedRecyclerViewAdapter(
     inner class Holder(private val binding: ItemFeedRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: FeedRecyclerViewData) {
-            binding.textviewFeedItemTitle.text = item.title
-            binding.textviewFeedItemContent.text = item.content
-            binding.textviewFeedItemLikecount.text = "짠 " + item.likeCount + "개"
-            binding.textviewFeedItemScrapcount.text = "스크랩 " + item.scrapCount + "개"
-            binding.textviewFeedItemCommentcount.text = "댓글 " + item.commentCount + "개"
+            binding.textviewFeeditemTitle.text = item.title
+            binding.textviewFeeditemContent.text = item.content
+            binding.textviewFeeditemLikecount.text = item.likeCount.toString()
+            binding.textviewFeeditemScrapcount.text = item.scrapCount.toString()
+            binding.textviewFeeditemCommentcount.text = item.commentCount.toString()
         }
     }
 }

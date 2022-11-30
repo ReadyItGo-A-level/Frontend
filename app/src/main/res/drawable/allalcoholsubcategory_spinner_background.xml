@@ -9,8 +9,7 @@
                     </solid>
                 </shape>
             </item>
-            <item android:drawable="@drawable/allalcoholsubcategory_spinnericon"
-
+            <item android:drawable="@drawable/allalcoholsubcategory_icon_spinner"
                 android:gravity="center_vertical|right" android:start="2dp" android:top="1dp" android:bottom="1dp">
             </item>
 

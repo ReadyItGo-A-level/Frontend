@@ -8,83 +8,82 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.a_level.R
+import com.example.a_level.allalcohol.model.response.Alcohol
 import com.example.a_level.common.AlcoholDetailActivity
+import com.example.a_level.common.Const
 import com.example.a_level.databinding.FragmentAllalcoholsubcategoryBinding
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 
-class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubcategory),
-    AdapterView.OnItemSelectedListener {
+class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubcategory) {
     private lateinit var binding: FragmentAllalcoholsubcategoryBinding
-    private lateinit var allAlcoholSubCategoryRecyclerViewData: ArrayList<AllAlcoholSubCategoryRecyclerViewData>
+    private lateinit var pagingAdapter: AllAlcoholSubCategoryPagingAdapter
+    private lateinit var alcohols: List<Alcohol>
+    private var type: Int? = 0
+    private var category: String? = ""
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAllalcoholsubcategoryBinding.inflate(layoutInflater)
+        arguments?.let {
+            type = it.getInt("type")
+            category = it.getString("category")
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadDataList()
         initRecyclerView()
+        loadDataList()
         initSpinner()
     }
 
     private fun loadDataList() {
-        allAlcoholSubCategoryRecyclerViewData = arrayListOf()
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름1",
-                10000,
-                300,
-                20
-            )
-        )
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름2",
-                20000,
-                200,
-                40
-            )
-        )
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름3",
-                30000,
-                500,
-                10
-            )
-        )
-        allAlcoholSubCategoryRecyclerViewData.add(
-            AllAlcoholSubCategoryRecyclerViewData(
-                "test이름4",
-                40000,
-                400,
-                30
-            )
-        )
+        alcohols = listOf()
+        var typeToString = ""
+        when (type) {
+            Const.ALL -> typeToString = ""
+            Const.BEER -> typeToString = "맥주"
+            Const.LIQUOR -> typeToString = "양주"
+            Const.WINE -> typeToString = "와인"
+            Const.TRADITIONAL -> typeToString = "전통주"
+        }
+
+        val pager = Pager(PagingConfig(pageSize = 20)) {
+            PagingSource(typeToString, category!!, binding)
+        }
+
+        lifecycleScope.launch {
+            pager.flow.collectLatest {
+                pagingAdapter.submitData(lifecycle, it)
+            }
+        }
     }
 
     private fun initRecyclerView() {
         binding.recyclerviewAllalcoholsubcategory.apply {
             layoutManager =
                 GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
-            adapter = AllAlcoholSubCategoryRecyclerViewAdapter(
-                requireContext(),
-                allAlcoholSubCategoryRecyclerViewData
-            ).apply {
+            pagingAdapter = AllAlcoholSubCategoryPagingAdapter().apply {
                 setOnItemClickListener(object :
-                    AllAlcoholSubCategoryRecyclerViewAdapter.OnItemClickListener {
-                    override fun onItemClick(v: View, item: AllAlcoholSubCategoryRecyclerViewData) {
-                        startActivity(Intent(requireContext(), AlcoholDetailActivity::class.java))
+                    AllAlcoholSubCategoryPagingAdapter.OnItemClickListener {
+                    override fun onItemClick(v: View, item: Alcohol) {
+                        val intent = Intent(requireContext(), AlcoholDetailActivity::class.java)
+                        intent.putExtra("alcoholId", item.id)
+                        startActivity(intent)
                     }
                 })
             }
+            adapter = pagingAdapter
         }
     }
 
@@ -110,11 +109,15 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
                 position: Int,
                 id: Long
             ) {
-                val data = spinner.getItemAtPosition(position) as AllAlcoholSubCategorySpinnerData
+                val data =
+                    spinner.getItemAtPosition(position) as AllAlcoholSubCategorySpinnerData
                 list[previousPosition] =
                     AllAlcoholSubCategorySpinnerData(null, list[previousPosition].name)
                 list[position] =
-                    AllAlcoholSubCategorySpinnerData(R.drawable.allalcoholsubcategory_spinnerdropdownicon, data.name)
+                    AllAlcoholSubCategorySpinnerData(
+                        R.drawable.allalcoholsubcategory_icon_spinnerdropdown,
+                        data.name
+                    )
                 adapter.notifyDataSetChanged()
                 previousPosition = position
             }
@@ -124,12 +127,6 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
             }
 
         }
-    }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
     }
 
 }

@@ -4,23 +4,38 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.a_level.R
+import com.example.a_level.allalcohol.model.response.Alcohol
+import com.example.a_level.common.AlcoholDetailPostRecyclerViewAdapter.OnItemClickListener
+import com.example.a_level.common.model.response.AlcoholDetailResponse
+import com.example.a_level.common.model.response.DefaultResponse
+import com.example.a_level.common.model.response.Review
+import com.example.a_level.common.service.CommonService
 import com.example.a_level.databinding.ActivityAlcoholdetailBinding
-import com.example.a_level.login.StartActivity
+import com.example.a_level.feed.model.response.Post
+import com.google.android.material.snackbar.Snackbar
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class AlcoholDetailActivity : AppCompatActivity() {
 
+    private var alcoholId: Long = 0
     private lateinit var binding: ActivityAlcoholdetailBinding
+    private lateinit var reviews: List<Review>
+    private lateinit var recommendationPosts: List<Post>
+    private lateinit var posts: List<Post>
+    private lateinit var alcoholInformation: ArrayList<String>
+    private lateinit var alcohol: Alcohol
+    private var scrapStatus = false
     private lateinit var alcoholDetailReviewRecyclerViewAdapter: AlcoholDetailReviewRecyclerViewAdapter
     private lateinit var alcoholDetailPostReviewRecyclerViewAdapter: AlcoholDetailPostRecyclerViewAdapter
     private lateinit var alcoholDetailRecommendRecyclerViewAdapter: AlcoholDetailPostRecyclerViewAdapter
-    private lateinit var alcoholDetailReviewRecyclerViewData: ArrayList<AlcoholDetailReviewRecyclerViewData>
-    private lateinit var alcoholDetailPostReviewRecyclerViewData: ArrayList<AlcoholDetailPostRecyclerViewData>
-    private lateinit var alcoholDetailRecommendRecyclerViewData: ArrayList<AlcoholDetailPostRecyclerViewData>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,65 +45,58 @@ class AlcoholDetailActivity : AppCompatActivity() {
         loadData()
         //툴바 적용하기
         initActionBar()
-        //뷰에 데이터 적용하기
-        setDataOnView()
-        //리사이클러뷰 설정하기
-        initRecyclerView()
-        //기타 UI 설정하기
-        initUI()
     }
 
     private fun loadData() {
-        alcoholDetailReviewRecyclerViewData = arrayListOf()
-        alcoholDetailReviewRecyclerViewData.add(
-            AlcoholDetailReviewRecyclerViewData(
-                "테스트 리뷰입니다.",
-                "user1",
-                "0000.00.00"
-            )
-        )
-        alcoholDetailReviewRecyclerViewData.add(
-            AlcoholDetailReviewRecyclerViewData(
-                "테스트 리뷰입니다. 오늘은 날씨가 좋습니다.",
-                "user2",
-                "0000.00.00"
-            )
-        )
-        alcoholDetailReviewRecyclerViewData.add(
-            AlcoholDetailReviewRecyclerViewData(
-                "테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 100자입니다 테스트 ",
-                "user3",
-                "0000.00.00"
-            )
-        )
+        val extras = intent.extras
+        if (extras != null) {
+            alcoholId = extras.getLong("alcoholId")
+        }
+        CommonService.findAlcoholDetail(alcoholId, 1)
+            .enqueue(object : Callback<AlcoholDetailResponse> {
+                override fun onResponse(
+                    call: Call<AlcoholDetailResponse>,
+                    response: Response<AlcoholDetailResponse>
+                ) {
+                    if (response.code() == 200) {
+                        val body = response.body()
+                        if (body != null) {
+                            reviews = body.data.reviews ?: listOf()
+                            posts = body.data.recommendationPosts ?: listOf()
+                            recommendationPosts = body.data.recommendationPosts ?: listOf()
+                            alcohol = body.data.alcohol
+                            scrapStatus = body.data.scrapStatus
+                            alcoholInformation = arrayListOf()
+                            if (alcohol.type != null) {
+                                alcoholInformation.add(alcohol.type!!)
+                            }
+                            if (alcohol.food != null) {
+                                alcoholInformation.add(alcohol.food!!)
+                            }
+                            if (alcohol.flavor != null) {
+                                alcoholInformation.add(alcohol.flavor!!)
+                            }
+                            if (alcohol.volume != null) {
+                                alcoholInformation.add(alcohol.volume + "도")
+                            }
+                            //scrapStatus = body.data.//스크랩상태변수
+                            //뷰에 데이터 적용하기
+                            setDataOnView()
+                            //리사이클러뷰 설정하기
+                            initRecyclerView()
+                            //리스너 설정하기
+                            initListener()
+                        }
+                    } else {
+                        Log.e("AlcoholDetail", "response code: ${response.code()}")
+                    }
+                }
 
-        alcoholDetailPostReviewRecyclerViewData = arrayListOf()
-        alcoholDetailPostReviewRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다1", "테스트 입니다.", 1, 2, 3)
-        )
-        alcoholDetailPostReviewRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다2", "테스트 입니다.", 1, 2, 3)
-        )
-        alcoholDetailPostReviewRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다3", "테스트 입니다.", 1, 2, 3)
-        )
-        alcoholDetailPostReviewRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다4", "테스트 입니다.", 1, 2, 3)
-        )
+                override fun onFailure(call: Call<AlcoholDetailResponse>, t: Throwable) {
+                    Log.e("AlcoholDetail", "error: ${t.localizedMessage}")
+                }
 
-        alcoholDetailRecommendRecyclerViewData = arrayListOf()
-        alcoholDetailRecommendRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다1", "테스트 입니다.", 1, 2, 3)
-        )
-        alcoholDetailRecommendRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다2", "테스트 입니다.", 1, 2, 3)
-        )
-        alcoholDetailRecommendRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다3", "테스트 입니다.", 1, 2, 3)
-        )
-        alcoholDetailRecommendRecyclerViewData.add(
-            AlcoholDetailPostRecyclerViewData("테스트입니다4", "테스트 입니다.", 1, 2, 3)
-        )
+            })
     }
 
     private fun initActionBar() {
@@ -98,27 +106,61 @@ class AlcoholDetailActivity : AppCompatActivity() {
     }
 
     private fun setDataOnView() {
-
+        binding.textviewAlcoholdetailName.text = alcohol.name
+        binding.textviewAlcoholdetailPrice.text = "예상 가격 ${alcohol.price}원(${alcohol.size}ml)"
+        binding.textviewAlcoholdetailContent.text = alcohol.info ?: "상세 정보가 없습니다."
+        if (!scrapStatus) {
+            binding.imageviewAlcoholdetailScrap.setImageResource(R.drawable.all_icon_scrap24)
+        } else {
+            binding.imageviewAlcoholdetailScrap.setImageResource(R.drawable.all_icon_scrap24_full)
+        }
     }
 
     private fun initRecyclerView() {
         alcoholDetailReviewRecyclerViewAdapter =
-            AlcoholDetailReviewRecyclerViewAdapter(alcoholDetailReviewRecyclerViewData).apply {
-                setOnItemLongClickListener(object :
+            AlcoholDetailReviewRecyclerViewAdapter(reviews).apply {
+                onItemLongClickListener(object :
                     AlcoholDetailReviewRecyclerViewAdapter.OnItemLongClickListener {
                     override fun onItemLongClick(
                         v: View,
-                        item: AlcoholDetailReviewRecyclerViewData
+                        item: Review
                     ): Boolean? {
                         val builder = AlertDialog.Builder(this@AlcoholDetailActivity)
                         builder.setMessage("리뷰를 삭제하시겠습니까?")
                             .setNegativeButton("취소", DialogInterface.OnClickListener { dialog, id ->
-                                Toast.makeText(applicationContext, "취소했습니다.", Toast.LENGTH_SHORT)
-                                    .show()
+                                Snackbar.make(v, "취소했습니다.", Snackbar.LENGTH_SHORT).show()
                             })
                             .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, id ->
-                                Toast.makeText(applicationContext, "확인했습니다.", Toast.LENGTH_SHORT)
-                                    .show()
+                                CommonService.deleteReview(item.alcoholId, item.id)
+                                    .enqueue(object : Callback<DefaultResponse> {
+                                        override fun onResponse(
+                                            call: Call<DefaultResponse>,
+                                            response: Response<DefaultResponse>
+                                        ) {
+                                            if (response.code() == 200) {
+                                                Snackbar.make(v, "삭제했습니다.", Snackbar.LENGTH_SHORT)
+                                                    .show()
+                                                loadData()
+                                            } else {
+                                                Snackbar.make(
+                                                    v,
+                                                    "오류가 발생했습니다.",
+                                                    Snackbar.LENGTH_SHORT
+                                                ).show()
+                                            }
+
+                                        }
+
+                                        override fun onFailure(
+                                            call: Call<DefaultResponse>,
+                                            t: Throwable
+                                        ) {
+                                            Snackbar.make(v, "오류가 발생했습니다.", Snackbar.LENGTH_SHORT)
+                                                .show()
+                                        }
+
+                                    })
+
                             })
 
                         //데이터 삭제 요청 후 데이터 다시 불러오기
@@ -134,34 +176,81 @@ class AlcoholDetailActivity : AppCompatActivity() {
             this.setHasFixedSize(false)
             adapter = alcoholDetailReviewRecyclerViewAdapter
         }
-        if (alcoholDetailReviewRecyclerViewData != null) {
+        if (reviews.isNotEmpty()) {
             binding.textviewAlcoholdetailShortreviewplaceholder.visibility = View.GONE
             binding.recyclerviewAlcoholdetailReview.visibility = View.VISIBLE
         }
-
-        if (alcoholDetailPostReviewRecyclerViewData != null) {
+        if (posts.isNotEmpty()) {
             binding.textviewAlcoholdetailPostreviewplaceholder.visibility = View.GONE
             binding.recyclerviewAlcoholdetailPostreview.visibility = View.VISIBLE
             alcoholDetailPostReviewRecyclerViewAdapter =
-                AlcoholDetailPostRecyclerViewAdapter(alcoholDetailPostReviewRecyclerViewData)
+                AlcoholDetailPostRecyclerViewAdapter(posts)
             binding.recyclerviewAlcoholdetailPostreview.adapter =
-                alcoholDetailPostReviewRecyclerViewAdapter
+                alcoholDetailPostReviewRecyclerViewAdapter.apply {
+                    onItemClickListener(object : OnItemClickListener {
+                        override fun onItemClick(v: View, item: Post) {
+
+                        }
+                    })
+                }
 
         }
-
-        if (alcoholDetailRecommendRecyclerViewData != null) {
+        if (recommendationPosts.isNotEmpty()) {
             binding.recyclerviewAlcoholdetailRecommend.visibility = View.VISIBLE
             alcoholDetailRecommendRecyclerViewAdapter =
-                AlcoholDetailPostRecyclerViewAdapter(alcoholDetailRecommendRecyclerViewData)
+                AlcoholDetailPostRecyclerViewAdapter(recommendationPosts)
             binding.recyclerviewAlcoholdetailRecommend.adapter =
-                alcoholDetailRecommendRecyclerViewAdapter
+                alcoholDetailRecommendRecyclerViewAdapter.apply {
+                    onItemClickListener(object : OnItemClickListener {
+                        override fun onItemClick(v: View, item: Post) {
 
+                        }
+
+                    })
+                }
+
+        }
+        if (alcoholInformation.isNotEmpty()) {
+            binding.recyclerviewAlcoholdetailAlcoholinformation.adapter =
+                AlcoholDetailAlcoholInformationRecyclerViewAdapter(alcoholInformation)
         }
     }
 
-    private fun initUI() {
+    private fun initListener() {
+        binding.imageviewAlcoholdetailScrap.setOnClickListener {
+            CommonService.requestScrap(alcoholId, 1).enqueue(object : Callback<DefaultResponse> {
+                override fun onResponse(
+                    call: Call<DefaultResponse>,
+                    response: Response<DefaultResponse>
+                ) {
+                    if (response.code() == 200) {
+                        if (!scrapStatus) {
+                            binding.imageviewAlcoholdetailScrap.setImageResource(R.drawable.all_icon_scrap24_full)
+                            scrapStatus = true
+                        } else {
+                            binding.imageviewAlcoholdetailScrap.setImageResource(R.drawable.all_icon_scrap24)
+                            scrapStatus = false
+                        }
+                    } else {
+                        Log.e("AlcoholDetail", "response code : ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                    Log.e("AlcoholDetail", "error : ${t.localizedMessage}")
+                }
+
+            })
+        }
         binding.textviewAlcoholdetailWriteshortreview.setOnClickListener {
-            startActivity(Intent(applicationContext, AlcoholDetailWriteReviewActivity::class.java))
+            val intent = Intent(applicationContext, AlcoholDetailWriteReviewActivity::class.java)
+            intent.putExtra("name", alcohol.name)
+            intent.putExtra("alcoholId", alcohol.id ?: alcoholId)
+            intent.putExtra(
+                "information",
+                "${alcohol.price}원 · ${alcohol.size}ml · ${alcohol.volume}%"
+            )
+            startActivity(intent)
         }
         binding.textviewAlcoholdetailWritepostreview.setOnClickListener {
 
@@ -180,4 +269,8 @@ class AlcoholDetailActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadData()
+    }
 }

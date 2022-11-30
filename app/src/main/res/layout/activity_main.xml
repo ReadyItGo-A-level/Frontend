@@ -18,13 +18,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/constraintlayout_main_bnav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        app:itemIconTint="@drawable/nav_selector_itemicontint"
+        app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
-        app:itemTextColor="@drawable/menu_selector_color"
-        app:itemIconTint="@drawable/menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:theme="@style/Theme.MaterialComponents.Light"
         app:menu="@menu/menu_bnav" />
 </androidx.constraintlayout.widget.ConstraintLayout>

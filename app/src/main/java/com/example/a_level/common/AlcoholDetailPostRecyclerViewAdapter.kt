@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.a_level.databinding.ItemAlcoholdetailRecyclerviewpostBinding
+import com.example.a_level.feed.model.response.Post
 
-class AlcoholDetailPostRecyclerViewAdapter(var list: ArrayList<AlcoholDetailPostRecyclerViewData>) :
+class AlcoholDetailPostRecyclerViewAdapter(var list: List<Post>) :
     RecyclerView.Adapter<AlcoholDetailPostRecyclerViewAdapter.Holder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemAlcoholdetailRecyclerviewpostBinding.inflate(
@@ -19,10 +20,12 @@ class AlcoholDetailPostRecyclerViewAdapter(var list: ArrayList<AlcoholDetailPost
         return Holder(binding)
     }
 
+    private var listener: OnItemClickListener? = null
+
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(list[position])
-        holder.itemView.setOnLongClickListener {
-            listener?.onItemClick(holder.itemView, list[position])!!
+        holder.itemView.setOnClickListener() {
+            listener?.onItemClick(holder.itemView, list[position])
         }
     }
 
@@ -31,28 +34,27 @@ class AlcoholDetailPostRecyclerViewAdapter(var list: ArrayList<AlcoholDetailPost
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(list: ArrayList<AlcoholDetailPostRecyclerViewData>) {
+    fun setData(list: List<Post>) {
         this.list = list
         notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
-        fun onItemClick(v: View, item: AlcoholDetailPostRecyclerViewData): Boolean?
+        fun onItemClick(v: View, item: Post)
     }
 
-    private var listener: OnItemClickListener? = null
-    fun setOnItemLongClickListener(listener: OnItemClickListener) {
+    fun onItemClickListener(listener: OnItemClickListener) {
         this.listener = listener
     }
 
     inner class Holder(private val binding: ItemAlcoholdetailRecyclerviewpostBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: AlcoholDetailPostRecyclerViewData) {
+        fun bind(item: Post) {
             binding.textviewAlcoholdetailItemTitle.text = item.title
             binding.textviewAlcoholdetailItemContent.text = item.content
-            binding.textviewAlcoholdetailItemLikecount.text = "짠 " + item.likeCount + "개"
-            binding.textviewAlcoholdetailItemScrapcount.text = "스크랩 " + item.scrapCount + "개"
-            binding.textviewAlcoholdetailItemCommentcount.text = "댓글 " + item.commentCount + "개"
+            binding.textviewAlcoholdetailItemLikecount.text = item.likeCount.toString()
+            binding.textviewAlcoholdetailItemScrapcount.text = item.scrapCount.toString()
+            binding.textviewAlcoholdetailItemCommentcount.text = item.commentCount.toString()
         }
     }
 }

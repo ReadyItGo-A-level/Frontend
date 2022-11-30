@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_allalcoholsearch"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
         app:contentInsetStartWithNavigation="0dp"
@@ -25,15 +25,13 @@
                 android:id="@+id/searchview_allalcoholsearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="44dp"
-                android:background="@drawable/allalcohol_rectangle"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/allalcohol_searchrectangle"
                 android:hint="원하는 술 이름을 검색하세요"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:padding="10dp"
-                android:textSize="12dp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/all_searchicon"
+                android:src="@drawable/all_icon_search"
                 app:layout_constraintBottom_toBottomOf="@+id/searchview_allalcoholsearch"
                 app:layout_constraintEnd_toEndOf="@+id/searchview_allalcoholsearch"
                 app:layout_constraintTop_toTopOf="@+id/searchview_allalcoholsearch" />
@@ -54,43 +52,48 @@
         android:id="@+id/textview_allalcoholsearch_noresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="126dp"
+        android:layout_marginTop="214dp"
         android:gravity="center"
         android:lineHeight="20dp"
         android:text="검색 결과가 없습니다.\n원하시는 술이 없다면 등록해보세요 :)"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
+        android:textColor="@color/gray6"
+        android:textSize="14dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_allalcoholsearch" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_allalcoholsearch"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textview_allalcoholsearch_addalcohol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/allalcoholsearch_textview_bottomsolid"
-        android:text="새로운 술 등록 →"
-        android:textColor="@color/orange"
-        android:textSize="11dp"
-        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingTop="9dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="9dp"
+        android:text="새로운 술 등록 ＞"
+        android:textColor="@color/primary"
+        android:textSize="14dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsearch_noresult" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsearch_noresult"
+        tools:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/linearlayout_allalcoholsearch_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_allalcoholsearch">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_allalcoholsearch"
+        tools:visibility="visible">
 
         <TextView
             android:id="@+id/textview_allalcoholsearch_text1"
@@ -98,17 +101,17 @@
             android:layout_height="wrap_content"
             android:text="총"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/textview_allalcoholsearch_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:text="0"
             android:textColor="@color/black"
-            android:textSize="12dp"
-            android:textStyle="bold" />
+            android:textSize="14dp"
+            android:textStyle="bold"
+            tools:text="0" />
 
         <TextView
             android:id="@+id/textview_allalcoholsearch_text2"
@@ -117,22 +120,21 @@
             android:layout_marginStart="1dp"
             android:text="개의 제품"
             android:textColor="@color/black"
-            android:textSize="12dp" />
+            android:textSize="14dp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_allalcoholsearch"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout_allalcoholsearch_count"
-        tools:listitem="@layout/item_allalcoholsubcategory_recyclerview" />
+        tools:listitem="@layout/item_allalcoholsubcategory_recyclerview"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

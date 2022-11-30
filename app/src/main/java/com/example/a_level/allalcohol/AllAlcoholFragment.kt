@@ -7,16 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.a_level.R
+import com.example.a_level.common.Const
 import com.example.a_level.databinding.FragmentAllalcoholBinding
 import com.google.android.material.tabs.TabLayout
 
 class AllAlcoholFragment : Fragment(R.layout.fragment_allalcohol) {
     private lateinit var binding: FragmentAllalcoholBinding
-    private val ALL = 0
-    private val BEER = 1
-    private val WINE = 2
-    private val TRADITIONAL = 3
-    private val LIQUOR = 4
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +27,8 @@ class AllAlcoholFragment : Fragment(R.layout.fragment_allalcohol) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         childFragmentManager.beginTransaction()
-            .add(R.id.framelayout_allalcohol_fragmentcontainer, AllAlcoholSubCategoryFragment()).commit()
+            .add(R.id.framelayout_allalcohol_fragmentcontainer, AllAlcoholSubCategoryFragment())
+            .commit()
 
         initListener()
         setTabLayout()
@@ -46,22 +44,21 @@ class AllAlcoholFragment : Fragment(R.layout.fragment_allalcohol) {
         var tabLayout = binding.tablayoutAllalcoholMaincategory
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                val bundle = Bundle()
                 when (tab!!.position) {
-                    ALL -> {
-                        replaceFragment(AllAlcoholSubCategoryFragment(), ALL)
+                    Const.ALL -> {
+                        replaceFragment(AllAlcoholSubCategoryFragment(), Const.ALL)
                     }
-                    BEER -> {
-                        replaceFragment(AllAlcoholMainCategoryFragment(), BEER)
+                    Const.BEER -> {
+                        replaceFragment(AllAlcoholMainCategoryFragment(), Const.BEER)
                     }
-                    WINE -> {
-                        replaceFragment(AllAlcoholMainCategoryFragment(), WINE)
+                    Const.WINE -> {
+                        replaceFragment(AllAlcoholMainCategoryFragment(), Const.WINE)
                     }
-                    TRADITIONAL -> {
-                        replaceFragment(AllAlcoholMainCategoryFragment(), TRADITIONAL)
+                    Const.TRADITIONAL -> {
+                        replaceFragment(AllAlcoholMainCategoryFragment(), Const.TRADITIONAL)
                     }
-                    LIQUOR -> {
-                        replaceFragment(AllAlcoholMainCategoryFragment(), LIQUOR)
+                    Const.LIQUOR -> {
+                        replaceFragment(AllAlcoholMainCategoryFragment(), Const.LIQUOR)
                     }
                 }
             }
@@ -77,9 +74,12 @@ class AllAlcoholFragment : Fragment(R.layout.fragment_allalcohol) {
         })
     }
 
-    private fun replaceFragment(fragment: Fragment, category: Int) {
+    private fun replaceFragment(fragment: Fragment, type: Int) {
         val bundle = Bundle()
-        bundle.putInt("category", category)
+        bundle.putInt("type", type)
+        if (type == Const.ALL){
+            bundle.putString("category", "")
+        }
         fragment.arguments = bundle
         childFragmentManager.beginTransaction()
             .replace(R.id.framelayout_allalcohol_fragmentcontainer, fragment).commit()

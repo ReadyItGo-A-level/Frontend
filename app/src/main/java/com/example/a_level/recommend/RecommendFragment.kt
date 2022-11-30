@@ -195,18 +195,18 @@ class RecommendFragment : Fragment() {
 //        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData("간치아", "모스카토 로제"))
 
         recommendSimilarRecyclerViewData= arrayListOf()
-//        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData("감튀랑 찰떡 궁합인 맛있는 맥주", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대 호프집!","1", "3", "3"))
-//        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData("감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","1", "3", "3"))
-//        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData("감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","1", "3", "3"))
-//        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData("감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","1", "3", "3"))
-//        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData("감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","1", "3", "3"))
+        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(1,"감튀랑 찰떡 궁합인 맛있는 맥주", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대 호프집!","", 3, 3, 1))
+        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(2,"감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","", 3, 3, 1))
+        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(3,"감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","", 3, 3, 1))
+        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(4,"감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","", 3, 3, 1))
+        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(5,"감튀랑 찰떡 궁합인 신본 걸", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대","", 3, 3, 1))
 
         recommendPopularRecyclerViewData= arrayListOf()
-//        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData("와인에 빠져들어보자구", "와인 어렵지?","100", "33", "15"))
-//        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData("오늘 세일하는 와인", "오늘 세일하는 와인 url 모음","93", "99", "87"))
-//        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData("와인 코르크 쉽게 따기", "코르크 따다가 와인에 빠뜨린 게","89", "16", "17"))
-//        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData("더 맛있게 마시기", "술을 더 건강하게 마시기 위해서는!","51", "9", "11"))
-//        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData("글 쓰기 힘들다", "이게 왜 인기에 ...?","31", "3", "34"))
+        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(6,"와인에 빠져들어보자구", "와인 어렵지?","",100, 33, 15))
+        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(7,"오늘 세일하는 와인", "오늘 세일하는 와인 url 모음","",93, 99, 87))
+        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(8,"와인 코르크 쉽게 따기", "코르크 따다가 와인에 빠뜨린 게","",89, 16, 17))
+        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(9,"더 맛있게 마시기", "술을 더 건강하게 마시기 위해서는!","",51, 9, 11))
+        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(10,"글 쓰기 힘들다", "이게 왜 인기에 ...?","",31, 3, 34))
     }
 
     private fun replaceFragment(fragment: Fragment, category: Int) {

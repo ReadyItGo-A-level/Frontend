@@ -61,50 +61,50 @@ class RecommendFragment : Fragment() {
                     val tablayout=binding.tablayoutRecommendAlcohol
                     val tab1: TabLayout.Tab=tablayout.newTab()
 
-                    recommendList=response.body()!!
-                    for (i in 1..recommendList.data.alcohol.alcohols.size){  //전체
-                        var image=recommendList.data.alcohol.alcohols[i].image
-                        var name=recommendList.data.alcohol.alcohols[i].name
-                        var str=name.split(",")
-                        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData(image,str[0], str[1]))
-                    }
-
-                    if(recommendList.data.alcohol.wine.size!=0){
-
-                    }
-                    if(recommendList.data.alcohol.beer.size!=0){
-
-                    }
-                    if(recommendList.data.alcohol.sool.size!=0){
-
-                    }
-                    if(recommendList.data.alcohol.liquor.size!=0){
-
-                    }
-
-                    for(i in 1..recommendList.data.post.size){
-                        var id=recommendList.data.post[i].id
-                        var title=recommendList.data.post[i].title
-                        var content=recommendList.data.post[i].content
-                        var image=recommendList.data.post[i].image
-                        var commentCount=recommendList.data.post[i].commentCount
-                        var scrapCount=recommendList.data.post[i].scrapCount
-                        var likeCount=recommendList.data.post[i].likeCount
-
-                        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
-                    }
-
-                    for(i in 1..recommendList.data.topPost.size){
-                        var id=recommendList.data.topPost[i].id
-                        var title=recommendList.data.topPost[i].title
-                        var content=recommendList.data.topPost[i].content
-                        var image=recommendList.data.topPost[i].image
-                        var commentCount=recommendList.data.topPost[i].commentCount
-                        var scrapCount=recommendList.data.topPost[i].scrapCount
-                        var likeCount=recommendList.data.topPost[i].likeCount
-
-                        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
-                    }
+//                    recommendList=response.body()!!
+//                    for (i in 1..recommendList.data.alcohol.alcohols.size){  //전체
+//                        var image=recommendList.data.alcohol.alcohols[i].image
+//                        var name=recommendList.data.alcohol.alcohols[i].name
+//                        var str=name.split(",")
+//                        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData(image,str[0], str[1]))
+//                    }
+//
+//                    if(recommendList.data.alcohol.wine.size!=0){
+//
+//                    }
+//                    if(recommendList.data.alcohol.beer.size!=0){
+//
+//                    }
+//                    if(recommendList.data.alcohol.sool.size!=0){
+//
+//                    }
+//                    if(recommendList.data.alcohol.liquor.size!=0){
+//
+//                    }
+//
+//                    for(i in 1..recommendList.data.post.size){
+//                        var id=recommendList.data.post[i].id
+//                        var title=recommendList.data.post[i].title
+//                        var content=recommendList.data.post[i].content
+//                        var image=recommendList.data.post[i].image
+//                        var commentCount=recommendList.data.post[i].commentCount
+//                        var scrapCount=recommendList.data.post[i].scrapCount
+//                        var likeCount=recommendList.data.post[i].likeCount
+//
+//                        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
+//                    }
+//
+//                    for(i in 1..recommendList.data.topPost.size){
+//                        var id=recommendList.data.topPost[i].id
+//                        var title=recommendList.data.topPost[i].title
+//                        var content=recommendList.data.topPost[i].content
+//                        var image=recommendList.data.topPost[i].image
+//                        var commentCount=recommendList.data.topPost[i].commentCount
+//                        var scrapCount=recommendList.data.topPost[i].scrapCount
+//                        var likeCount=recommendList.data.topPost[i].likeCount
+//
+//                        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
+//                    }
 
                 }else{
                     try {

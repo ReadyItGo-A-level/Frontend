@@ -1,7 +1,6 @@
 package com.example.a_level.login
 
 import android.content.ContentValues
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -15,10 +14,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.a_level.R
-import com.example.a_level.api.*
 import com.example.a_level.databinding.ActivitySignUpBinding
-import com.google.gson.GsonBuilder
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

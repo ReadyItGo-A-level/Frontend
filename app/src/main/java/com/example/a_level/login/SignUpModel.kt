@@ -1,4 +1,4 @@
-package com.example.a_level.api
+package com.example.a_level.login
 
 import android.provider.ContactsContract
 import com.google.gson.annotations.SerializedName
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class SignUpResponse(
         @SerializedName("status") val status: Int,
         @SerializedName("message") val message: String,
-        @SerializedName("data") val data: String
+        @SerializedName("data") val data: Int
 )
 
 data class CheckUserResponse(

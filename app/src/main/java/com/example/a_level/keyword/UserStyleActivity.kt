@@ -5,17 +5,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.SeekBar
-import android.widget.Toast
+import com.example.a_level.App
 import com.example.a_level.common.MainActivity
 import com.example.a_level.databinding.ActivityUserStyleBinding
+import com.example.a_level.recommend.*
 import com.google.android.material.slider.RangeSlider
 import com.google.android.material.slider.Slider
+import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
+import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
+import java.lang.reflect.Type
 
 class UserStyleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserStyleBinding
@@ -23,6 +26,12 @@ class UserStyleActivity : AppCompatActivity() {
     private var volumne=listOf("낮은, 보통, 높은")
     private var sugarNum=1
     private var flavorList= arrayListOf<String>()
+    private lateinit var recommendAlcoholResponse: RecommendAlcoholResponse
+    private lateinit var recommendPostResponse: RecommendPostResponse
+    private lateinit var recommendTopPostResponse: RecommendTopPostResponse
+    private lateinit var alcoholList: ArrayList<RecommendAlcohol>
+    private lateinit var postList: ArrayList<RecommendPost>
+    private lateinit var topPostList: ArrayList<RecommendTopPost>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,7 +83,8 @@ class UserStyleActivity : AppCompatActivity() {
             Log.e("flavor: ", "$flavor")
             var price=binding.textviewStyleMoneystart.text.toString()+','+binding.textviewStyleMoneyend.text.toString()
             Log.e("price", "$price")
-            var request=PreferenceRequest(1, drink, volumeNum.toString(), sugarNum, flavor, price)
+            var request=PreferenceRequest(App.prefs.userid!!, drink, volumeNum.toString(), sugarNum, flavor, price)
+
             PreferenceService.getRetrofitPreference(request).enqueue(object: Callback<PreferenceResponse> {
                 override fun onResponse(
                     call: Call<PreferenceResponse>,
@@ -84,6 +94,23 @@ class UserStyleActivity : AppCompatActivity() {
                         Log.d("log", response.toString())
                         Log.d("log", response.body().toString())
 
+//                        recommendAlcoholApi(App.prefs.userid!!)
+//                        recommendPostApi(App.prefs.userid!!)
+//                        recommendTopPostApi()
+//
+//                        val gson=GsonBuilder().create()
+//                        val Alcohol=RecommendAlcohol(recommendAlcoholResponse.data)
+//                        val post=RecommendPost(recommendPostResponse.data)
+//                        val TopPost=RecommendTopPost(recommendTopPostResponse.data)
+//                        val groupListType: Type=object: TypeToken<ArrayList<RecommendAlcohol?>?>(){}.type
+////                        App.prefs.recommendPost
+//                        val jsonArray: JSONArray
+//                        val strList=gson.toJson(post, )
+
+//                        var recommend = Recommend(recommendResponse.data.alcohol, recommendResponse.data.post, recommendResponse.data.topPost)
+                        val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
+//                        intent.putExtra("recommendData", recommend)
+                        startActivity(intent)
                     }else{
                         try {
                             val body = response.errorBody()!!.string()
@@ -99,8 +126,6 @@ class UserStyleActivity : AppCompatActivity() {
                     Log.d("TAG", "실패원인: {$t}")
                 }
             })
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }
     }
 
@@ -125,5 +150,92 @@ class UserStyleActivity : AppCompatActivity() {
             flavorList.add("묵직함")
         if(binding.chipStyleLight.isChecked)
             flavorList.add("가벼움")
+    }
+
+    fun recommendAlcoholApi(userid: Long){
+        RecommendService.getRetrofitRecommendAlcohol(userid).enqueue(object: Callback<RecommendAlcoholResponse>{
+            override fun onResponse(
+                call: Call<RecommendAlcoholResponse>,
+                response: Response<RecommendAlcoholResponse>
+            ) {
+                if(response.isSuccessful) {
+                    Log.d("log", response.toString())
+                    Log.d("log", response.body().toString())
+
+                    recommendAlcoholResponse= response.body()!!
+                }else{
+                    try {
+                        val body = response.errorBody()!!.string()
+
+                        Log.e(ContentValues.TAG, "body : $body")
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RecommendAlcoholResponse>, t: Throwable) {
+                Log.d("TAG", "실패원인: {$t}")
+            }
+
+        })
+    }
+
+    fun recommendPostApi(userid: Long){
+        RecommendService.getRetrofitRecommendPost(userid).enqueue(object: Callback<RecommendPostResponse>{
+            override fun onResponse(
+                call: Call<RecommendPostResponse>,
+                response: Response<RecommendPostResponse>
+            ) {
+                if(response.isSuccessful) {
+                    Log.d("log", response.toString())
+                    Log.d("log", response.body().toString())
+
+                    recommendPostResponse = response.body()!!
+                }else{
+                    try {
+                        val body = response.errorBody()!!.string()
+
+                        Log.e(ContentValues.TAG, "body : $body")
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RecommendPostResponse>, t: Throwable) {
+                Log.d("TAG", "실패원인: {$t}")
+            }
+
+        })
+    }
+
+    fun recommendTopPostApi(){
+        RecommendService.getRetrofitRecommendTopPost().enqueue(object: Callback<RecommendTopPostResponse>{
+            override fun onResponse(
+                call: Call<RecommendTopPostResponse>,
+                response: Response<RecommendTopPostResponse>
+            ) {
+                if(response.isSuccessful) {
+                    Log.d("log", response.toString())
+                    Log.d("log", response.body().toString())
+
+                    recommendTopPostResponse= response.body()!!
+                }else{
+                    try {
+                        val body = response.errorBody()!!.string()
+
+                        Log.e(ContentValues.TAG, "body : $body")
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RecommendTopPostResponse>, t: Throwable) {
+                Log.d("TAG", "실패원인: {$t}")
+            }
+
+        })
     }
 }

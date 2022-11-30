@@ -10,10 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import com.example.a_level.api.*
-import com.example.a_level.common.MainActivity
+import com.example.a_level.App
 import com.example.a_level.databinding.ActivityLoginBinding
 import com.example.a_level.keyword.UserKeywordActivity
 import retrofit2.Call
@@ -60,6 +57,8 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("log", response.toString())
                             Log.d("log", response.body().toString())
 
+                            App.prefs.userid = response.body()?.data
+                            Log.e("user_info", "${App.prefs.userid}")
                             val intent=Intent(this@LoginActivity, UserKeywordActivity::class.java)
                             finishAffinity()
                             startActivity(intent)

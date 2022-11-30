@@ -31,6 +31,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="Theme.Alevel.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-    <style name="Theme.Alevel.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+    </style>
+<!--    <style name="Theme.Alevel.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
+<!--    <style name="Theme.Alevel.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 </resources>

@@ -11,10 +11,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/Theme.Alevel">
         <activity
             android:name=".common.MainActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".keyword.UserStyleActivity"
@@ -22,11 +27,8 @@
         </activity>
         <activity
             android:name=".keyword.UserKeywordActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false">
+
         </activity>
         <activity
             android:name=".login.SignUpActivity"
@@ -40,7 +42,6 @@
         <activity
             android:name=".login.StartActivity"
             android:exported="false">
-
         </activity>
         <activity
             android:name=".mypage.ChangePwActivity"

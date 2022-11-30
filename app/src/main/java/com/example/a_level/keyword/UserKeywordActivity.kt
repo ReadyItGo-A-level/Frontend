@@ -77,10 +77,11 @@ class UserKeywordActivity : AppCompatActivity() {
                 Toast.makeText(this, "적어도 하나의 술을 선택해주세요", Toast.LENGTH_SHORT).show()
             else {
                 var list = arrayListOf<String>()
-                if (click_wine)
-                    list.add("와인")
+
                 if (click_beer)
                     list.add("맥주")
+                if (click_wine)
+                    list.add("와인")
                 if (click_liq)
                     list.add("양주")
                 if (click_trad)

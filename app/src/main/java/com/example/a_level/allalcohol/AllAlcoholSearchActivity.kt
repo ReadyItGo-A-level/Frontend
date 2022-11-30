@@ -72,7 +72,9 @@ class AllAlcoholSearchActivity : AppCompatActivity() {
                 setOnItemClickListener(object :
                     AllAlcoholSearchAdapter.OnItemClickListener {
                     override fun onItemClick(v: View, item: Alcohol) {
-                        startActivity(Intent(applicationContext, AlcoholDetailActivity::class.java))
+                        val intent = Intent(applicationContext, AlcoholDetailActivity::class.java)
+                        intent.putExtra("alcoholId", item.id)
+                        startActivity(intent)
                     }
                 })
             }

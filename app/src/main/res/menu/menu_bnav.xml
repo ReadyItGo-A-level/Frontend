@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/recommend"
-        android:title="술 추천"/>
-    <item android:id="@+id/all_alcohol"
-        android:title="술 전체"/>
-    <item android:id="@+id/feed"
-        android:title="피드"/>
-    <item android:id="@+id/my_page"
-        android:title="마이페이지"/>
+    <item
+        android:id="@+id/recommend"
+        android:icon="@drawable/nav_selector_home"
+        android:title="술 추천" />
+    <item
+        android:id="@+id/all_alcohol"
+        android:icon="@drawable/nav_selector_allalcohol"
+        android:title="술 전체" />
+    <item
+        android:id="@+id/feed"
+        android:icon="@drawable/nav_selector_feed"
+        android:title="피드" />
+    <item
+        android:id="@+id/my_page"
+        android:icon="@drawable/nav_selector_mypage"
+        android:title="마이페이지" />
 </menu>

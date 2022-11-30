@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@color/white"
+        app:itemIconTint="@drawable/nav_selector_itemicontint"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"

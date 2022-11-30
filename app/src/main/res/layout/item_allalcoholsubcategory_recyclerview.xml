@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="14dp"
             android:layout_marginBottom="14dp"
-            android:src="@drawable/all_icon_scrap"
+            android:src="@drawable/all_icon_scrap24"
             app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
             app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>

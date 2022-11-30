@@ -80,8 +80,9 @@ class FeedRecyclerViewAdapter(
         fun bind(item: FeedRecyclerViewData) {
             binding.textviewFeeditemTitle.text = item.title
             binding.textviewFeeditemContent.text = item.content
-            binding.textviewFeeditemLikecount.text = "짠 " + item.likeCount + "개"
-            binding.textviewFeeditemCommentcount.text = "댓글 " + item.commentCount + "개"
+            binding.textviewFeeditemLikecount.text = item.likeCount.toString()
+            binding.textviewFeeditemScrapcount.text = item.scrapCount.toString()
+            binding.textviewFeeditemCommentcount.text = item.commentCount.toString()
         }
     }
 }

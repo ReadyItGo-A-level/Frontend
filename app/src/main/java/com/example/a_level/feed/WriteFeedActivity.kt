@@ -24,7 +24,7 @@ class WriteFeedActivity :AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_writefeed, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
+        menuInflater.inflate(R.menu.menu_write, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
         return true
     }
 

@@ -8,5 +8,5 @@ data class AllAlcoholResponse(
 
 data class Data(
     val alcohol: List<Alcohol>,
-    val totalCount: Int
+    val total: Int
 )

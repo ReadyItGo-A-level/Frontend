@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="20dp">
@@ -42,143 +43,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_title" />
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/textview_feeditem_type"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:text="주종"
-        android:textColor="@color/gray5"
-        android:textSize="12dp"
+        android:layout_marginTop="22dp"
+        android:orientation="horizontal"
+        android:scrollbars="none"
+        tools:listitem=""
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_dbtype"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/feeditemrecyclerview_textview_border"
-        android:paddingStart="9dp"
-        android:paddingTop="1dp"
-        android:paddingEnd="9dp"
-        android:paddingBottom="1dp"
-        android:text="주종"
-        android:textColor="@color/primary"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_type"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="11dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:text="이름"
-        android:textColor="@color/gray5"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_dbtype"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_dbname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/feeditemrecyclerview_textview_border"
-        android:paddingStart="9dp"
-        android:paddingTop="1dp"
-        android:paddingEnd="9dp"
-        android:paddingBottom="1dp"
-        android:text="이름"
-        android:textColor="@color/primary"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_name"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_volume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="11dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:text="도수"
-        android:textColor="@color/gray5"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_dbname"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_dbvolume"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/feeditemrecyclerview_textview_border"
-        android:paddingStart="9dp"
-        android:paddingTop="1dp"
-        android:paddingEnd="9dp"
-        android:paddingBottom="1dp"
-        android:text="도수"
-        android:textColor="@color/primary"
-        android:textSize="12dp"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_volume"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="26dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="16dp"
-        android:text="0000.00.00"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_type" />
-
-    <ImageView
-        android:id="@+id/imageview_feeditem_comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/feed_icon_comment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_date"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_type" />
-
-    <TextView
-        android:id="@+id/textview_feeditem_commentcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:text="댓글 0"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageview_feeditem_comment"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_type" />
 
     <ImageView
         android:id="@+id/imageview_feeditem_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/feed_icon_like"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/all_icon_cheers16"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_commentcount"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_type" />
 
     <TextView
@@ -186,12 +72,56 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:text="짠 0"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/gray4"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageview_feeditem_like"
-        app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_type" />
+        tools:text="0" />
 
+    <ImageView
+        android:id="@+id/imageview_feeditem_scrap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/all_icon_scrap16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_likecount" />
+
+    <TextView
+        android:id="@+id/textview_feeditem_scrapcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/gray4"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageview_feeditem_scrap"
+        tools:text="0" />
+
+    <ImageView
+        android:id="@+id/imageview_feeditem_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="18dp"
+        android:src="@drawable/all_icon_comment16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textview_feeditem_scrapcount" />
+
+    <TextView
+        android:id="@+id/textview_feeditem_commentcount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/gray4"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageview_feeditem_comment"
+        tools:text="0" />
 
     <View
         android:id="@+id/view_feeditem"

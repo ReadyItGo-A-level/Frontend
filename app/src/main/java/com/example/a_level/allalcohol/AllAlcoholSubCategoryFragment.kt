@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.liveData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.a_level.R
 import com.example.a_level.allalcohol.model.response.Alcohol
@@ -60,7 +59,7 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
         }
 
         val pager = Pager(PagingConfig(pageSize = 20)) {
-            PagingSource(typeToString, category!!)
+            PagingSource(typeToString, category!!, binding)
         }
 
         lifecycleScope.launch {
@@ -78,7 +77,9 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
                 setOnItemClickListener(object :
                     AllAlcoholSubCategoryPagingAdapter.OnItemClickListener {
                     override fun onItemClick(v: View, item: Alcohol) {
-                        startActivity(Intent(requireContext(), AlcoholDetailActivity::class.java))
+                        val intent = Intent(requireContext(), AlcoholDetailActivity::class.java)
+                        intent.putExtra("alcoholId", item.id)
+                        startActivity(intent)
                     }
                 })
             }

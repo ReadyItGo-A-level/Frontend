@@ -1,18 +1,13 @@
 package com.example.a_level.feed
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.a_level.common.AlcoholDetailReviewRecyclerViewAdapter
-import com.example.a_level.common.AlcoholDetailReviewRecyclerViewData
 import com.example.a_level.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {

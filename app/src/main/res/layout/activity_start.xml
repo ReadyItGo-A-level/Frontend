@@ -7,36 +7,43 @@
     tools:context=".login.StartActivity"
     android:background="@color/white">
 
-    <Button
-        android:id="@+id/button_start_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="117dp"
-        android:text="임시 로고"
-        app:layout_constraintBottom_toTopOf="@+id/button_start_kakao_login"
+
+    <TextView
+        android:id="@+id/textview_start_appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한잔할래"
+        android:textColor="@color/orange"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:layout_marginTop="281dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_start_kakao_login"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="54dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="117dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
-        android:background="#F7E14B"
+        android:background="@drawable/all_round_button"
+        android:backgroundTint="#F7E14B"
         android:gravity="center"
         android:text="카카오톡으로 시작하기"
         android:textColor="#381F1F"
-        android:textSize="13sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/button_start_signup"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_start_appname" />
 
     <Button
         android:id="@+id/button_start_signup"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
+        android:layout_height="54dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
@@ -44,6 +51,7 @@
         android:gravity="center"
         android:text="이메일로 시작하기"
         android:textColor="#191919"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_start_kakao_login" />
@@ -52,9 +60,7 @@
         android:id="@+id/constraintlayout_start_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="96dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintlayout_start"
+        android:layout_marginTop="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_start_signup">
@@ -64,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이미 가입하셨나요?"
-            android:textColor="#A2A0A0"
+            android:textColor="#6A6A6A"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -73,7 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:text="로그인"
-            android:textColor="#433E50"
+            android:textColor="#111111"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textview_start_already"
             tools:ignore="MissingConstraints" />
@@ -94,8 +100,8 @@
             android:layout_marginStart="3dp"
             android:text="이용약관"
             android:textAlignment="center"
-            android:textColor="#2C2C2C"
-            android:textSize="9sp"
+            android:textColor="#B2B2B2"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/textview_start_first_login"
             tools:ignore="MissingConstraints" />
@@ -106,8 +112,8 @@
             android:layout_height="wrap_content"
             android:text="첫 로그인시"
             android:textAlignment="center"
-            android:textColor="#767676"
-            android:textSize="9sp"
+            android:textColor="#B2B2B2"
+            android:textSize="12sp"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -117,8 +123,8 @@
             android:layout_marginStart="3dp"
             android:text="및"
             android:textAlignment="center"
-            android:textColor="#767676"
-            android:textSize="9sp"
+            android:textColor="#B2B2B2"
+            android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@id/textview_start_terms"
             tools:ignore="MissingConstraints" />
 
@@ -128,7 +134,7 @@
         android:id="@+id/constraintLayout_start_under"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -139,8 +145,8 @@
             android:layout_height="wrap_content"
             android:text="을 동의한 것으로 간주합니다."
             android:textAlignment="center"
-            android:textColor="#767676"
-            android:textSize="9sp"
+            android:textColor="#B2B2B2"
+            android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/textview_start_information"
             tools:ignore="MissingConstraints" />
 
@@ -150,8 +156,8 @@
             android:layout_height="wrap_content"
             android:text="개인정보처리방침"
             android:textAlignment="center"
-            android:textColor="#2C2C2C"
-            android:textSize="9sp"
+            android:textColor="#B2B2B2"
+            android:textSize="12sp"
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>

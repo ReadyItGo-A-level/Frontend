@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 when (item.itemId) {
                     R.id.recommend -> {
                         replaceFragment(RecommendFragment())
+
                     }
                     R.id.all_alcohol -> {
                         replaceFragment(AllAlcoholFragment())

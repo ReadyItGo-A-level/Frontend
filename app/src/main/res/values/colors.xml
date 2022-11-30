@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#F37413</color>
+    <color name="error">#FF0808</color>
+    <color name="correct">#1BB40E</color>
+    <color name="text">#111111</color>
+    <color name="userkeyword_button_grey">#E6E6E6</color>
 </resources>

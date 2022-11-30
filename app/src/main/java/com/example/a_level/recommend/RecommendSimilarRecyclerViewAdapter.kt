@@ -16,16 +16,16 @@ class RecommendSimilarRecyclerViewAdapter (
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val title: TextView = itemView.findViewById(R.id.textview_similarrecommend_title)
         val content: TextView = itemView.findViewById(R.id.textview_similarrecommend_content)
-        val lovenum: TextView = itemView.findViewById(R.id.textview_similarrecommend_lovenum)
-        val scrapnum: TextView = itemView.findViewById(R.id.textview_similarrecommend_scrapnum)
-        val commentnum: TextView = itemView.findViewById(R.id.textview_similarrecommend_commentnum)
+        val likeCount: TextView = itemView.findViewById(R.id.textview_similarrecommend_lovenum)
+        val scrapCount: TextView = itemView.findViewById(R.id.textview_similarrecommend_scrapnum)
+        val commentCount: TextView = itemView.findViewById(R.id.textview_similarrecommend_commentnum)
 
         fun bind(data:RecommendSimilarRecyclerViewData){
             title.text = data.title
             content.text = data.content
-            lovenum.text = data.lovenum
-            scrapnum.text = data.scrapnum
-            commentnum.text = data.commentnum
+            likeCount.text = data.likeCount.toString()
+            scrapCount.text = data.scrapCount.toString()
+            commentCount.text = data.commentCount.toString()
         }
     }
 

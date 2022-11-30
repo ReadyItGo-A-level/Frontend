@@ -7,6 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange">#F37413</color>
+    <color name="error">#FF0808</color>
+    <color name="correct">#1BB40E</color>
+    <color name="text">#111111</color>
+    <color name="userkeyword_button_grey">#E6E6E6</color>
     <color name="primary">#F37423</color>
     <color name="gray1">#F8F8F8</color>
     <color name="gray2">#F2F2F2</color>

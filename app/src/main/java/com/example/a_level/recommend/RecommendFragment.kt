@@ -1,17 +1,21 @@
 package com.example.a_level.recommend
 
 import android.content.ContentValues
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.App
 import com.example.a_level.R
 import com.example.a_level.databinding.FragmentRecommendBinding
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,9 +25,15 @@ class RecommendFragment : Fragment() {
     private lateinit var binding: FragmentRecommendBinding
     private lateinit var recommendUserAdapter: RecommendUserRecyclerViewAdapter
     private lateinit var recommendUserRecyclerViewData: ArrayList<RecommendUserRecyclerViewData>
+    private lateinit var recommendAllRecyclerViewData: ArrayList<RecommendUserRecyclerViewData>
+    private lateinit var recommendWineRecyclerViewData: ArrayList<RecommendUserRecyclerViewData>
+    private lateinit var recommendBeerRecyclerViewData: ArrayList<RecommendUserRecyclerViewData>
+    private lateinit var recommendSoolRecyclerViewData: ArrayList<RecommendUserRecyclerViewData>
+    private lateinit var recommendLiquorRecyclerViewData: ArrayList<RecommendUserRecyclerViewData>
     private lateinit var recommendSimilarRecyclerViewData: ArrayList<RecommendSimilarRecyclerViewData>
     private lateinit var recommendPopularRecyclerViewData: ArrayList<RecommendPopularRecyclerViewData>
     private lateinit var recommendList: RecommendResponse
+    private var tabTextList= arrayListOf("전체", "맥주","와인","양주","전통주") //"전체", "맥주","와인","양주","전통주"
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,9 +49,47 @@ class RecommendFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initializelist()
-        recommendResponse() //데이터 호출
-        initRecommendRecyclerView()
+//        recommendResponse() //데이터 호출
 
+        var allData= arrayListOf(
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"))
+        var wineData=arrayListOf(
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"))
+        var beerData=arrayListOf(
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"))
+        var liquorData=arrayListOf(
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"))
+        var traditionData=arrayListOf(
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"),
+            RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"))
+
+        var alcoholList=RecommendAlcoholData(allData,traditionData,liquorData,wineData,beerData)
+        binding.viewpagerRecommendUser.adapter=RecommendViewPagerAdapter(this,alcoholList, tabTextList)
+        binding.viewpagerRecommendUser.isUserInputEnabled=false
+        TabLayoutMediator(binding.tablayoutRecommendAlcohol, binding.viewpagerRecommendUser){tab, pos->
+            tab.text = tabTextList[pos]
+        }.attach()
+        setTabItemMargin(binding.tablayoutRecommendAlcohol,20)
+        initRecommendRecyclerView()
 
         tapSelected()
 
@@ -58,8 +106,30 @@ class RecommendFragment : Fragment() {
                     Log.d("log", response.toString())
                     Log.d("log", response.body().toString())
 
-                    val tablayout=binding.tablayoutRecommendAlcohol
-                    val tab1: TabLayout.Tab=tablayout.newTab()
+                    var alcohol=response.body()?.data?.alcohol
+                    var post=response.body()?.data?.post
+                    var topPost=response.body()?.data?.topPost
+
+                    tabTextList = arrayListOf("전체")
+
+                    if(alcohol !=null){
+                        if(alcohol.wine.size!=0){
+                            tabTextList.add("와인")
+                        }
+                        else if(alcohol.beer.size!=0){
+                            tabTextList.add("맥주")
+                        }
+                        else if(alcohol.sool.size!=0){
+                            tabTextList.add("전통주")
+                        }
+                        else if(alcohol.liquor.size!=0){
+                            tabTextList.add("양주")
+                        }
+                    }
+
+
+//                    val tablayout=binding.tablayoutRecommendAlcohol
+//                    val tab1: TabLayout.Tab=tablayout.newTab()
 
 //                    recommendList=response.body()!!
 //                    for (i in 1..recommendList.data.alcohol.alcohols.size){  //전체
@@ -82,29 +152,33 @@ class RecommendFragment : Fragment() {
 //
 //                    }
 //
-//                    for(i in 1..recommendList.data.post.size){
-//                        var id=recommendList.data.post[i].id
-//                        var title=recommendList.data.post[i].title
-//                        var content=recommendList.data.post[i].content
-//                        var image=recommendList.data.post[i].image
-//                        var commentCount=recommendList.data.post[i].commentCount
-//                        var scrapCount=recommendList.data.post[i].scrapCount
-//                        var likeCount=recommendList.data.post[i].likeCount
+                    if (post != null) {
+                        for(i in 1..post.size){
+                            var id=recommendList.data.post[i].id
+                            var title=recommendList.data.post[i].title
+                            var content=recommendList.data.post[i].content
+                            var image=recommendList.data.post[i].image
+                            var commentCount=recommendList.data.post[i].commentCount
+                            var scrapCount=recommendList.data.post[i].scrapCount
+                            var likeCount=recommendList.data.post[i].likeCount
+
+                            recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
+                        }
+                    }
 //
-//                        recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
-//                    }
-//
-//                    for(i in 1..recommendList.data.topPost.size){
-//                        var id=recommendList.data.topPost[i].id
-//                        var title=recommendList.data.topPost[i].title
-//                        var content=recommendList.data.topPost[i].content
-//                        var image=recommendList.data.topPost[i].image
-//                        var commentCount=recommendList.data.topPost[i].commentCount
-//                        var scrapCount=recommendList.data.topPost[i].scrapCount
-//                        var likeCount=recommendList.data.topPost[i].likeCount
-//
-//                        recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
-//                    }
+                    if (topPost != null) {
+                        for(i in 1..topPost.size){
+                            var id=recommendList.data.topPost[i].id
+                            var title=recommendList.data.topPost[i].title
+                            var content=recommendList.data.topPost[i].content
+                            var image=recommendList.data.topPost[i].image
+                            var commentCount=recommendList.data.topPost[i].commentCount
+                            var scrapCount=recommendList.data.topPost[i].scrapCount
+                            var likeCount=recommendList.data.topPost[i].likeCount
+
+                            recommendPopularRecyclerViewData.add(RecommendPopularRecyclerViewData(id, title, content, image, commentCount, scrapCount, likeCount))
+                        }
+                    }
 
                 }else{
                     try {
@@ -154,14 +228,14 @@ class RecommendFragment : Fragment() {
     }
 
     private fun initRecommendRecyclerView(){
-        binding.recyclerviewUserRecommend.apply {
-            layoutManager =
-                GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
-            adapter = RecommendUserRecyclerViewAdapter(
-                requireContext(),
-                recommendUserRecyclerViewData
-            )
-        }
+//        binding.recyclerviewUserRecommend.apply {
+//            layoutManager =
+//                GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
+//            adapter = RecommendUserRecyclerViewAdapter(
+//                requireContext(),
+//                recommendUserRecyclerViewData
+//            )
+//        }
 
         binding.recyclerviewSimilarRecommend.apply{
             layoutManager =
@@ -180,19 +254,26 @@ class RecommendFragment : Fragment() {
                 recommendPopularRecyclerViewData
             )
         }
-//        val adapter=RecommendUserRecyclerViewAdapter() //어댑터 객체 만듦
+//        val adapter=RecommendUserRecyclerViewAdapter(requireContext(),) //어댑터 객체 만듦
 //        adapter.datalist=mDatas //데이터 넣어줌
-//        binding.recyclerView.adapter=adapter //리사이클러뷰에 어댑터 연결
-//        binding.recyclerView.layoutManager= LinearLayoutManager(this) //레이아웃 매니저 연결
+//        binding.recyclerviewUserRecommend.adapter=adapter //리사이클러뷰에 어댑터 연결
+//        binding.recyclerviewUserRecommend.layoutManager= LinearLayoutManager(requireContext()) //레이아웃 매니저 연결
     }
 
     private fun initializelist(){ //임의로 데이터 넣어서 만들어봄
-        recommendUserRecyclerViewData= arrayListOf()
-//        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData("오이스터 베이", "쇼비농 블랑"))
-//        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData("보야", "피노누아"))
-//        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData("엠", "로제"))
-//        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData("칸티", "모스카토 다스티"))
-//        recommendUserRecyclerViewData.add(RecommendUserRecyclerViewData("간치아", "모스카토 로제"))
+//        recommendAllRecyclerViewData= arrayListOf()
+//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("","오이스터 베이", "쇼비농 블랑"))
+//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("","보야", "피노누아"))
+//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("","엠", "로제"))
+//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("","칸티", "모스카토 다스티"))
+//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("","간치아", "모스카토 로제"))
+//
+//        recommendWineRecyclerViewData= arrayListOf()
+//        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("","오이스터 베이", "쇼비농 블랑"))
+//        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("","보야", "피노누아"))
+//        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("","엠", "로제"))
+//        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("","칸티", "모스카토 다스티"))
+//        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("","간치아", "모스카토 로제"))
 
         recommendSimilarRecyclerViewData= arrayListOf()
         recommendSimilarRecyclerViewData.add(RecommendSimilarRecyclerViewData(1,"감튀랑 찰떡 궁합인 맛있는 맥주", "감튀랑 찰떡 궁합 신상 맥주 소개드립니다! 서초구 최대 호프집!","", 3, 3, 1))
@@ -215,5 +296,18 @@ class RecommendFragment : Fragment() {
         fragment.arguments = bundle
         childFragmentManager.beginTransaction()
             .replace(R.id.framelayout_allalcohol_fragmentcontainer, fragment).commit()
+    }
+
+    private fun setTabItemMargin(tabLayout: TabLayout, marginEnd: Int = 20) {
+        for(i in tabTextList.indices) {
+            val tabs = tabLayout.getChildAt(0) as ViewGroup
+            for(i in 0 until tabs.childCount) {
+                val tab = tabs.getChildAt(i)
+                val lp = tab.layoutParams as LinearLayout.LayoutParams
+                lp.marginEnd = marginEnd
+                tab.layoutParams = lp
+                tabLayout.requestLayout()
+            }
+        }
     }
 }

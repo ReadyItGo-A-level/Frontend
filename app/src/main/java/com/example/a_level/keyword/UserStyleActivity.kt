@@ -91,8 +91,8 @@ class UserStyleActivity : AppCompatActivity() {
                     response: Response<PreferenceResponse>
                 ) {
                     if(response.isSuccessful) {
-                        Log.d("log", response.toString())
-                        Log.d("log", response.body().toString())
+                        Log.e("술 취향등록", response.toString())
+                        Log.e("술 취향등록", response.body().toString())
 
 //                        recommendAlcoholApi(App.prefs.userid!!)
 //                        recommendPostApi(App.prefs.userid!!)

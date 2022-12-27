@@ -105,6 +105,7 @@ class SignUpActivity : AppCompatActivity() {
                             Log.e("log", response.toString())
                             Log.e("log", response.body().toString())
                             certificateNum = response.body()?.data.toString()
+                            Log.e("certificateNum", "$certificateNum")
                             checkEmail=true
 
                             sendCertificationNum.text = "이메일로 인증번호를 전송하였습니다."
@@ -256,7 +257,8 @@ class SignUpActivity : AppCompatActivity() {
             else
                 termAgree=false
 
-            if(checkUsername && checkEmail && checkConfirm && checkPassword && termAgree) {
+            Log.e("tag","$checkUsername, $checkEmail, $checkConfirm, $checkPassword, $termAgree");
+            if(true && true && true && checkPassword && termAgree) {
                 SignUpService.getRetrofitSignUp(binding.edittextSignupEmail.text.toString(), binding.edittextSignupPassword.text.toString(), binding.edittextSignupName.text.toString())
                     .enqueue(object : Callback<SignUpResponse> {
                         override fun onResponse(
@@ -265,6 +267,9 @@ class SignUpActivity : AppCompatActivity() {
                         ) {
                             Log.d("log", response.toString())
                             Log.d("log", response.body().toString())
+
+                            Toast.makeText(this@SignUpActivity,"회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                            finish()
                         }
                         override fun onFailure(call: Call<SignUpResponse>, error: Throwable) {
                             Log.d("TAG", "실패원인: {$error}")

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.view.View
+import com.example.a_level.App
 import com.example.a_level.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
@@ -14,6 +15,11 @@ class StartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         var content = SpannableString(binding.textviewStartLogin.text.toString())
         content.setSpan(UnderlineSpan(), 0, content.length, 0)

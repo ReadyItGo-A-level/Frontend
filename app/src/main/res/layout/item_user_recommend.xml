@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="90dp"
+    android:layout_width="wrap_content"
     android:layout_height="189dp"
-    android:paddingHorizontal="5dp">
+    android:paddingHorizontal="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_recommend_user"
@@ -17,7 +17,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/recommend_alcohol"
+            android:id="@+id/imageview_userrecommend_alcohol"
             android:layout_width="22dp"
             android:layout_height="84dp"
             android:src="@drawable/all_alcohol_image"

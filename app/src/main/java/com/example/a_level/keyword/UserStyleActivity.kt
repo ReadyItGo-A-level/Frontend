@@ -81,9 +81,9 @@ class UserStyleActivity : AppCompatActivity() {
 
             var flavor=flavorList.joinToString(separator = ",")
             Log.e("flavor: ", "$flavor")
-            var price=binding.textviewStyleMoneystart.text.toString()+','+binding.textviewStyleMoneyend.text.toString()
+            var price=(binding.textviewStyleMoneystart.text.toString().toLong()*10000).toString()+','+(binding.textviewStyleMoneyend.text.toString().toLong()*10000).toString()
             Log.e("price", "$price")
-            var request=PreferenceRequest(App.prefs.userid!!, drink, volumeNum.toString(), sugarNum, flavor, price)
+            var request=PreferenceRequest(drink, volumeNum.toString(), sugarNum.toInt(), flavor, price)
 
             PreferenceService.getRetrofitPreference(request).enqueue(object: Callback<PreferenceResponse> {
                 override fun onResponse(
@@ -91,8 +91,8 @@ class UserStyleActivity : AppCompatActivity() {
                     response: Response<PreferenceResponse>
                 ) {
                     if(response.isSuccessful) {
-                        Log.d("log", response.toString())
-                        Log.d("log", response.body().toString())
+                        Log.e("술 취향등록", response.toString())
+                        Log.e("술 취향등록", response.body().toString())
 
 //                        recommendAlcoholApi(App.prefs.userid!!)
 //                        recommendPostApi(App.prefs.userid!!)
@@ -153,7 +153,7 @@ class UserStyleActivity : AppCompatActivity() {
     }
 
     fun recommendAlcoholApi(userid: Long){
-        RecommendService.getRetrofitRecommendAlcohol(userid).enqueue(object: Callback<RecommendAlcoholResponse>{
+        RecommendService.getRetrofitRecommendAlcohol().enqueue(object: Callback<RecommendAlcoholResponse>{
             override fun onResponse(
                 call: Call<RecommendAlcoholResponse>,
                 response: Response<RecommendAlcoholResponse>
@@ -182,7 +182,7 @@ class UserStyleActivity : AppCompatActivity() {
     }
 
     fun recommendPostApi(userid: Long){
-        RecommendService.getRetrofitRecommendPost(userid).enqueue(object: Callback<RecommendPostResponse>{
+        RecommendService.getRetrofitRecommendPost().enqueue(object: Callback<RecommendPostResponse>{
             override fun onResponse(
                 call: Call<RecommendPostResponse>,
                 response: Response<RecommendPostResponse>

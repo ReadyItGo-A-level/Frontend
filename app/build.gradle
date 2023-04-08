@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'   //Bundle로 데이터 전달
 }
 
 android {
@@ -71,4 +72,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
     implementation 'org.conscrypt:conscrypt-android:2.5.2'
+
+    //json<->gson
+//    implementation 'com.google.code.gson:gson:2.8.5'
 }

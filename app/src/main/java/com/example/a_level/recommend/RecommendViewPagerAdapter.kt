@@ -1,5 +1,6 @@
 package com.example.a_level.recommend
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -14,8 +15,10 @@ class RecommendViewPagerAdapter(
     override fun createFragment(position: Int): Fragment {
         if(typeList[position]=="전체"){
             val recommendAllFragment=RecommendAllFragment()
-            val bundle=alcoholList.all
+            val bundle = Bundle()
+//            bundle.putParcelableArrayList("alcohol", alcoholList.all)
 //            recommendAllFragment.arguments=bundle
+
             return RecommendAllFragment()
         }
         else if(typeList[position]=="와인"){

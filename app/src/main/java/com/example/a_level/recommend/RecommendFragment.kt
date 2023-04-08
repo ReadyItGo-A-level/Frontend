@@ -96,8 +96,14 @@ class RecommendFragment : Fragment() {
 //        동적으로 탭 만들기
 
     }
+
+    override fun onResume() {
+        super.onResume()
+        recommendResponse()
+    }
+
     private fun recommendResponse(){
-        RecommendService.getRetrofitRecommend(App.prefs.userid!!).enqueue(object: Callback<RecommendResponse>{
+        RecommendService.getRetrofitRecommend().enqueue(object: Callback<RecommendResponse>{
             override fun onResponse(
                 call: Call<RecommendResponse>,
                 response: Response<RecommendResponse>

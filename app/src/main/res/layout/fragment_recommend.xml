@@ -12,12 +12,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout_recommend_title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintlayout_recommend_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingVertical="10dp"
+                    android:background="@drawable/recommend_underborder"
+                    app:layout_constraintTop_toTopOf="@+id/constraintlayout_recommend_title">
                 <TextView
                     android:id="@+id/textview_recommend_app"
                     android:layout_width="wrap_content"
@@ -25,24 +34,32 @@
                     android:text="한잔할래"
                     android:textSize="22sp"
                     android:textColor="@color/orange"
-                    android:layout_marginTop="10dp"
                     android:layout_marginStart="16dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_recommend_edit"
+                    android:layout_marginRight="16dp"
+                    app:layout_constraintTop_toTopOf="@+id/textview_recommend_app"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
                 <TextView
                     android:id="@+id/textview_recommend_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="34dp"
+                    android:layout_marginTop="24dp"
                     android:text="채오니"
                     android:textColor="#111111"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/textview_recommend_app" />
+                    app:layout_constraintTop_toBottomOf="@id/constraintlayout_recommend_edit" />
 
                 <TextView
                     android:id="@+id/textview_recommend_for"
@@ -82,61 +99,114 @@
 
                     <com.google.android.material.tabs.TabLayout
                         android:id="@+id/tablayout_recommend_alcohol"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="5dp"
+
                         app:tabBackground="@drawable/recommend_tablayout_selector"
+                        app:tabTextAppearance="@style/Tab_text"
+                        app:tabMaxWidth="70dp"
+                        app:tabMinWidth="65dp"
+                        app:tabGravity="fill"
+                        app:tabMode="fixed"
+                        app:tabPaddingStart="12dp"
+                        app:tabPaddingEnd="12dp"
                         app:tabTextColor="#767676"
                         app:tabSelectedTextColor="@color/white"
                         app:tabIndicatorHeight="0dp"
-                        app:tabTextAppearance="@style/Tab_text">
+                        />
 
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="전체" />
-
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="맥주" />
-
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="와인" />
-
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                           android:text="양주" />
-
-                        <com.google.android.material.tabs.TabItem
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="전통주" />
-                    </com.google.android.material.tabs.TabLayout>
-
-                    <FrameLayout
-                        android:id="@+id/framelayout_recommend_alcohol"
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/viewpager_recommend_user"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
-                        >
+                        android:layout_height="match_parent"/>
+<!--                    <com.google.android.material.tabs.TabLayout-->
+<!--                        android:id="@+id/tablayout_recommend_wine"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:layout_marginVertical="5dp"-->
 
-                        <HorizontalScrollView
-                            android:id="@+id/horizontalscrollview_recommend_alcohol"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            tools:ignore="MissingConstraints">
+<!--                        app:tabGravity="start"-->
+<!--                        app:tabMode="fixed"-->
+<!--                        app:tabBackground="@drawable/recommend_tablayout_selector"-->
+<!--                        app:tabTextAppearance="@style/Tab_text"-->
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/recyclerview_user_recommend"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:scrollbars="horizontal" />
-                        </HorizontalScrollView>
-                    </FrameLayout>
+<!--                        app:tabTextColor="#767676"-->
+<!--                        app:tabSelectedTextColor="@color/white"-->
+<!--                        app:tabIndicatorHeight="0dp"-->
+<!--                        />-->
+
+<!--                    <com.google.android.material.tabs.TabLayout-->
+<!--                        android:id="@+id/tablayout_recommend_beer"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        android:layout_marginVertical="5dp"-->
+
+<!--                        app:tabGravity="start"-->
+<!--                        app:tabBackground="@drawable/recommend_tablayout_selector"-->
+<!--                        app:tabTextAppearance="@style/Tab_text"-->
+
+<!--                        app:tabTextColor="#767676"-->
+<!--                        app:tabSelectedTextColor="@color/white"-->
+<!--                        app:tabIndicatorHeight="0dp"-->
+<!--                        />-->
+<!--                    <com.google.android.material.tabs.TabLayout-->
+<!--                        android:id="@+id/tablayout_recommend_alcohol"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        app:tabBackground="@drawable/recommend_tablayout_selector"-->
+<!--                        app:tabTextColor="#767676"-->
+<!--                        app:tabSelectedTextColor="@color/white"-->
+<!--                        app:tabIndicatorHeight="0dp"-->
+<!--                        app:tabTextAppearance="@style/Tab_text">-->
+
+<!--                        <com.google.android.material.tabs.TabItem-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="전체"/>-->
+
+<!--                        <com.google.android.material.tabs.TabItem-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="맥주" />-->
+
+<!--                        <com.google.android.material.tabs.TabItem-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="와인" />-->
+
+<!--                        <com.google.android.material.tabs.TabItem-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                           android:text="양주" />-->
+
+<!--                        <com.google.android.material.tabs.TabItem-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:text="전통주" />-->
+<!--                    </com.google.android.material.tabs.TabLayout>-->
+
+<!--                    <FrameLayout-->
+<!--                        android:id="@+id/framelayout_recommend_alcohol"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="16dp"-->
+<!--                        >-->
+
+<!--                        <HorizontalScrollView-->
+<!--                            android:id="@+id/horizontalscrollview_recommend_alcohol"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            tools:ignore="MissingConstraints">-->
+
+<!--                            <androidx.recyclerview.widget.RecyclerView-->
+<!--                                android:id="@+id/recyclerview_user_recommend"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:orientation="horizontal"-->
+<!--                                android:scrollbars="horizontal" />-->
+<!--                        </HorizontalScrollView>-->
+<!--                    </FrameLayout>-->
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 

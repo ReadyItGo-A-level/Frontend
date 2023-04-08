@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             } else {    //이메일 형식이 맞으면
                 wrongEmail.visibility = View.GONE
 
-                LoginService.getRetrofitLogin(binding.edittextLoginEmail.text.toString(), binding.edittextLoginPassword.text.toString()).enqueue(object:
+                LoginService.getRetrofitLogin(LoginRequest(binding.edittextLoginEmail.text.toString(), binding.edittextLoginPassword.text.toString())).enqueue(object:
                     Callback<LoginResponse> {
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>){
                         if(response.isSuccessful) {
@@ -57,8 +57,12 @@ class LoginActivity : AppCompatActivity() {
                             Log.d("log", response.toString())
                             Log.d("log", response.body().toString())
 
-                            App.prefs.userid = response.body()?.data
-                            Log.e("user_info", "${App.prefs.userid}")
+                            response.body()?.data?.token?.let { it1 ->
+                                App.prefs.setString("token",
+                                    it1
+                                )
+                            }
+                            Log.e("user_info", "${App.prefs.getString("token","")}")
                             val intent=Intent(this@LoginActivity, UserKeywordActivity::class.java)
                             finishAffinity()
                             startActivity(intent)

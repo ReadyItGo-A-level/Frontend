@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:scaleType="centerCrop"
-            android:src="@drawable/allalcoholsubcategory_item_testimage"
+            android:src="@drawable/all_alcohol_image"
             app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
             app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
             app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"

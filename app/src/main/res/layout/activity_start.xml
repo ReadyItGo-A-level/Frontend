@@ -7,26 +7,34 @@
     tools:context=".login.StartActivity"
     android:background="@color/white">
 
-
-    <TextView
-        android:id="@+id/textview_start_appname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="한잔할래"
-        android:textColor="@color/orange"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        android:layout_marginTop="281dp"
+    <ImageView
+        android:id="@+id/imageview_start_logo"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="191dp"
+        android:src="@drawable/ic_start_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageview_start_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_start_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_start_logo"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button_start_kakao_login"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="117dp"
+        android:layout_marginTop="144dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/all_round_button"
@@ -38,7 +46,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button_start_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_start_appname" />
+        app:layout_constraintTop_toBottomOf="@+id/imageview_start_text" />
 
     <Button
         android:id="@+id/button_start_signup"

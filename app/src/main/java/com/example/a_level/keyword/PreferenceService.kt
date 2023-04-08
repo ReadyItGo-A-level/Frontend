@@ -6,7 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface PreferenceService {
-    @POST("/users/preference")
+    @POST("recommendations/preference")
     fun postPreference(
         @Body jsonParams: PreferenceRequest
     ): Call<PreferenceResponse>

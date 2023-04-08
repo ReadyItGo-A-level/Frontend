@@ -99,12 +99,13 @@ class SignUpActivity : AppCompatActivity() {
                 sendCertificationNum.visibility = View.VISIBLE
                 checkEmail=false
             } else {
-                SignUpService.getRetrofitEmailCheck(binding.edittextSignupEmail.text.toString()).enqueue(object: Callback<CheckEmailResponse>{
+                SignUpService.getRetrofitPostEmail(binding.edittextSignupEmail.text.toString()).enqueue(object: Callback<CheckEmailResponse>{
                     override fun onResponse(call: Call<CheckEmailResponse>, response: Response<CheckEmailResponse>){
                         if(response.isSuccessful) {
                             Log.e("log", response.toString())
                             Log.e("log", response.body().toString())
                             certificateNum = response.body()?.data.toString()
+                            Log.e("certificateNum", "$certificateNum")
                             checkEmail=true
 
                             sendCertificationNum.text = "이메일로 인증번호를 전송하였습니다."
@@ -161,15 +162,45 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.buttonSignupCompleteCertification.setOnClickListener {
-            if(binding.edittextSignupCertificationNum.text.toString()==certificateNum && binding.linearlayoutSignupTimer.visibility==View.VISIBLE){
-                sendCertificationNum.text = "인증이 완료되었습니다."
-                binding.textviewSignupConfirmCertificate.visibility=View.VISIBLE
-                checkConfirm=true
+            if(binding.linearlayoutSignupTimer.visibility==View.VISIBLE) {  //타이머가 살아있으면
+                SignUpService.getRetrofitEmailCheck(
+                    binding.edittextSignupEmail.text.toString(),
+                    binding.edittextSignupCertificationNum.text.toString()
+                ).enqueue(object: Callback<CheckEmailResponse> {
+                    override fun onResponse(
+                        call: Call<CheckEmailResponse>,
+                        response: Response<CheckEmailResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            Log.e("log", response.toString())
+                            Log.e("log", response.body().toString())
 
-                timerTask?.cancel()
-                binding.linearlayoutSignupTimer.visibility=View.GONE
-            }else{
-                sendCertificationNum.text = "인증번호가 올바르지 않습니다."
+                            sendCertificationNum.text = "인증이 완료되었습니다."
+                            binding.textviewSignupConfirmCertificate.visibility=View.VISIBLE
+                            checkConfirm=true
+
+                            timerTask?.cancel()
+                            binding.linearlayoutSignupTimer.visibility=View.GONE
+                        } else {
+                            try {
+                                val body = response.errorBody()!!.string()
+                                Log.e(ContentValues.TAG, "body : $body")
+
+                                sendCertificationNum.text = "인증번호가 올바르지 않습니다."
+                                binding.textviewSignupConfirmCertificate.visibility=View.VISIBLE
+                                checkConfirm=false
+                            } catch (e: IOException) {
+                                e.printStackTrace()
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<CheckEmailResponse>, error: Throwable) {
+                        Log.e("TAG", "실패원인: {$error}")
+                    }
+                })
+            } else{
+                sendCertificationNum.text = "인증 시간이 초과되었습니다."
                 binding.textviewSignupConfirmCertificate.visibility=View.VISIBLE
                 checkConfirm=false
             }
@@ -256,15 +287,32 @@ class SignUpActivity : AppCompatActivity() {
             else
                 termAgree=false
 
-            if(checkUsername && checkEmail && checkConfirm && checkPassword && termAgree) {
-                SignUpService.getRetrofitSignUp(binding.edittextSignupEmail.text.toString(), binding.edittextSignupPassword.text.toString(), binding.edittextSignupName.text.toString())
+            Log.e("tag","$checkUsername, $checkEmail, $checkConfirm, $checkPassword, $termAgree");
+            if(true && true && true && checkPassword && termAgree) {
+                SignUpService.getRetrofitSignUp(SignupRequest(binding.edittextSignupEmail.text.toString(), binding.edittextSignupPassword.text.toString(), binding.edittextSignupName.text.toString()))
                     .enqueue(object : Callback<SignUpResponse> {
                         override fun onResponse(
                             call: Call<SignUpResponse>,
                             response: Response<SignUpResponse>
                         ) {
-                            Log.d("log", response.toString())
-                            Log.d("log", response.body().toString())
+                            if (response.isSuccessful) {
+                                Log.e("log", response.toString())
+                                Log.e("log", response.body().toString())
+
+                                Log.d("log", response.toString())
+                                Log.d("log", response.body().toString())
+
+                                Toast.makeText(this@SignUpActivity,"회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                                finish()
+                            } else {
+                                try {
+                                    val body = response.errorBody()!!.string()
+                                    Log.e(ContentValues.TAG, "body : $body")
+
+                                } catch (e: IOException) {
+                                    e.printStackTrace()
+                                }
+                            }
                         }
                         override fun onFailure(call: Call<SignUpResponse>, error: Throwable) {
                             Log.d("TAG", "실패원인: {$error}")

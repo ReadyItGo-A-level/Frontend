@@ -3,6 +3,12 @@ package com.example.a_level.login
 import android.provider.ContactsContract
 import com.google.gson.annotations.SerializedName
 
+data class SignupRequest(
+        val email: String,
+        val password: String,
+        val username: String
+)
+
 data class SignUpResponse(
         @SerializedName("status") val status: Int,
         @SerializedName("message") val message: String,

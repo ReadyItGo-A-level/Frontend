@@ -5,45 +5,42 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface SignUpService {
-//        @FormUrlEncoded
-        @POST("users/signup")
-//        @Headers("accept: application/json",
-//            "content-type: application/json")
+        @POST("signup")
         fun postSignUp(
-//            @Body jsonparams: SignUpRequest
-            @Query("email") email: String,
-            @Query("password") password: String,
-            @Query("username") username: String
+            @Body jsonParams:SignupRequest
         ): Call<SignUpResponse>
 
         @GET("users/check/{username}")
-    //    @Headers("accept: application/json",
-    //        "content-type: application/json"
-    //    )
         fun getUsername(
             @Path("username") username: String,
         ): Call<CheckUserResponse>
 
-        @GET("users/check/email")
-    //    @Headers("accept: application/json",
-    //        "content-type: application/json"
-    //    )
-        fun getEmailCheck(
+        @POST("users/check/email")
+        fun postEmailCheck(
             @Query("email") email: String,
         ): Call<CheckEmailResponse>
 
+        @GET("users/check/email")
+        fun getEmailCheck(
+            @Query("email") email: String,
+            @Query("token") token: String
+        ): Call<CheckEmailResponse>
 
     companion object{
-        fun getRetrofitSignUp(email: String, password: String, username: String): Call<SignUpResponse> {
-            return ApiClient.create(SignUpService::class.java).postSignUp(email, password, username)
+        fun getRetrofitSignUp(jsonParams:SignupRequest): Call<SignUpResponse> {
+            return ApiClient.create(SignUpService::class.java).postSignUp(jsonParams)
         }
 
         fun getRetrofitUsername(username: String): Call<CheckUserResponse>{
             return ApiClient.create(SignUpService::class.java).getUsername(username)
         }
 
-        fun getRetrofitEmailCheck(email: String): Call<CheckEmailResponse> {
-            return ApiClient.create(SignUpService::class.java).getEmailCheck(email)
+        fun getRetrofitPostEmail(email: String): Call<CheckEmailResponse> {
+            return ApiClient.create(SignUpService::class.java).postEmailCheck(email)
+        }
+
+        fun getRetrofitEmailCheck(email: String, token: String): Call<CheckEmailResponse> {
+            return ApiClient.create(SignUpService::class.java).getEmailCheck(email, token)
         }
     }
 }

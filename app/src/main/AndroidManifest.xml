@@ -16,10 +16,6 @@
         <activity
             android:name=".common.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".keyword.UserStyleActivity"
@@ -42,7 +38,10 @@
         <activity
             android:name=".login.StartActivity"
             android:exported="true">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".mypage.ChangePwActivity"

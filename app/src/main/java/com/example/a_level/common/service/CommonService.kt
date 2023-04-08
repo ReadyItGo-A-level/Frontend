@@ -8,13 +8,13 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface CommonService {
-    @GET("/alcohols/{id}")
+    @GET("alcohols/{id}")
     fun findAlcoholDetail(
         @Path("id") id: Long,
         @Query("userid") userId: Int
     ): Call<AlcoholDetailResponse>
 
-    @POST("/alcohols/{id}/scrap")
+    @POST("alcohols/{id}/scrap")
     fun requestScrap(
         @Path("id") id: Long,
         @Query("userid") userId: Long

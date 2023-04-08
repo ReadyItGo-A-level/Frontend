@@ -54,21 +54,21 @@ class FeedDetailActivity : AppCompatActivity() {
 
     private fun initUI() {
         setOnSwipeListener(binding.nestedscrollviewFeeddetail)
-        binding.lottieView.addAnimatorListener(object : Animator.AnimatorListener {
-            override fun onAnimationStart(animator: Animator) {
-            }
-            override fun onAnimationEnd(animator: Animator) {
-                binding.lottieView.visibility = View.GONE
-            }
-            override fun onAnimationCancel(animator: Animator) {}
-            override fun onAnimationRepeat(animator: Animator) {}
-        })
-        binding.imageviewFeeddetailPhoto.setOnLongClickListener {
-            Log.d("zopal", "click")
-            binding.lottieView.visibility = View.VISIBLE;
-            binding.lottieView.playAnimation();
-            return@setOnLongClickListener (true)
-        }
+//        binding.lottieView.addAnimatorListener(object : Animator.AnimatorListener {
+//            override fun onAnimationStart(animator: Animator) {
+//            }
+//            override fun onAnimationEnd(animator: Animator) {
+//                binding.lottieView.visibility = View.GONE
+//            }
+//            override fun onAnimationCancel(animator: Animator) {}
+//            override fun onAnimationRepeat(animator: Animator) {}
+//        })
+//        binding.imageviewFeeddetailPhoto.setOnLongClickListener {
+//            Log.d("zopal", "click")
+//            binding.lottieView.visibility = View.VISIBLE;
+//            binding.lottieView.playAnimation();
+//            return@setOnLongClickListener (true)
+//        }
     }
 
 

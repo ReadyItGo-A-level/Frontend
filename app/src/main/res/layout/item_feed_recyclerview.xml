@@ -50,7 +50,7 @@
         android:layout_marginTop="22dp"
         android:orientation="horizontal"
         android:scrollbars="none"
-        tools:listitem=""
+        tools:listitem="@layout/item_feed_information"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_feeditem_content" />

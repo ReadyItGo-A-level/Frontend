@@ -60,28 +60,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
-                    android:text="게시글 제목"
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageview_feeddetail" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageview_feeddetail"
+                    tools:text="게시글 제목" />
 
                 <TextView
                     android:id="@+id/textview_feeddetail_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="게시글 내용"
                     android:textColor="#6A6A6A"
                     android:textSize="14dp"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_title" />
+                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_title"
+                    tools:text="게시글 내용" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/textview_feeddetail_type"
+                    android:id="@+id/recyclerview_feeddetail_information"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="22dp"
@@ -99,7 +99,7 @@
                     android:layout_marginTop="22dp"
                     android:textColor="@color/gray4"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerview_feeddetail_information"
                     tools:text="2022.00.00" />
 
                 <ImageView
@@ -111,7 +111,7 @@
                     android:src="@drawable/all_icon_cheers16"
                     app:layout_constraintEnd_toStartOf="@+id/textview_feeddetail_likecount"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerview_feeddetail_information" />
 
                 <TextView
                     android:id="@+id/textview_feeddetail_likecount"
@@ -122,7 +122,7 @@
                     android:textColor="@color/gray4"
                     android:textSize="12dp"
                     app:layout_constraintEnd_toStartOf="@+id/imageview_feeddetail_scrap"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerview_feeddetail_information"
                     tools:text="0" />
 
                 <ImageView
@@ -133,7 +133,7 @@
                     android:layout_marginEnd="2dp"
                     android:src="@drawable/all_icon_scrap16"
                     app:layout_constraintEnd_toStartOf="@+id/textview_feeddetail_scrapcount"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type" />
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerview_feeddetail_information" />
 
                 <TextView
                     android:id="@+id/textview_feeddetail_scrapcount"
@@ -143,29 +143,8 @@
                     android:layout_marginEnd="8dp"
                     android:textColor="@color/gray4"
                     android:textSize="12dp"
-                    app:layout_constraintEnd_toStartOf="@+id/imageview_feeddetail_comment"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type"
-                    tools:text="0" />
-
-                <ImageView
-                    android:id="@+id/imageview_feeddetail_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:layout_marginEnd="2dp"
-                    android:src="@drawable/all_icon_comment16"
-                    app:layout_constraintEnd_toStartOf="@+id/textview_feeddetail_commentcount"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type" />
-
-                <TextView
-                    android:id="@+id/textview_feeddetail_commentcount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/gray4"
-                    android:textSize="12dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_type"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerview_feeddetail_information"
                     tools:text="0" />
 
                 <View
@@ -173,11 +152,44 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="16dp"
-                    android:background="@color/cardview_shadow_start_color"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_commentcount" />
+                    android:background="@color/gray2"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_scrapcount" />
+
+                <ImageView
+                    android:id="@+id/imageview_feeddetail_cm"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginTop="14dp"
+                    android:src="@drawable/feed_icon_comment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_feeddetail" />
+
+                <TextView
+                    android:id="@+id/textview_feeddetail_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="14dp"
+                    android:text="댓글"
+                    android:textColor="@color/gray5"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageview_feeddetail_cm"
+                    app:layout_constraintTop_toBottomOf="@+id/view_feeddetail" />
+
+                <TextView
+                    android:id="@+id/textview_feeddetail_commentcount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="14dp"
+                    android:textColor="@color/gray5"
+                    android:textSize="12dp"
+                    app:layout_constraintStart_toEndOf="@+id/textview_feeddetail_comment"
+                    app:layout_constraintTop_toBottomOf="@+id/view_feeddetail"
+                    tools:text="0" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerview_feeddetail"
+                    android:id="@+id/recyclerview_feeddetail_comment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
@@ -185,7 +197,7 @@
                     android:overScrollMode="never"
                     android:scrollbars="none"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@+id/view_feeddetail"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_comment"
                     tools:listitem="@layout/item_feeddetail_recyclerview" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -195,10 +207,12 @@
         android:id="@+id/edittext_feeddetail_comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/feeddetail_edittext_border"
         android:hint="댓글을 입력해주세요"
-        android:paddingTop="15dp"
-        android:background="@drawable/feeditemdescription_border"
+        android:textSize="14dp"
+        android:textColorHint="@color/gray4"
         android:paddingStart="16dp"
+        android:paddingTop="15dp"
         android:paddingEnd="68dp"
         android:paddingBottom="15dp"
         app:layout_constraintBottom_toBottomOf="parent" />
@@ -208,8 +222,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="13dp"
         android:src="@drawable/all_icon_send_24_primary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

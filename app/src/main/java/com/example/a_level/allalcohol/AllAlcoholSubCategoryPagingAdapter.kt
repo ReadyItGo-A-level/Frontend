@@ -49,8 +49,8 @@ class AllAlcoholSubCategoryPagingAdapter(
         fun bind(item: Alcohol) {
             binding.textviewAllalcoholsubcategoryTitle.text = item.name
             binding.textviewAllalcoholsubcategoryPrice.text = item.price.toString() + "원"
-            binding.textviewAllalcoholsubcategoryVolume.text = "(" + item.size.toString() + "ml)"
-            binding.textviewAllalcoholsubcategoryAbv.text = item.volume.toString() + "(ºC)"
+            binding.textviewAllalcoholsubcategoryVolume.text = "・" + item.size.toString() + "ml"
+            binding.textviewAllalcoholsubcategoryAbv.text = item.volume.toString() + "%"
         }
     }
 

@@ -203,9 +203,8 @@
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/primary"
-        android:background="@null"
-        android:backgroundTintMode="add"
         android:src="@drawable/all_icon_gallery"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

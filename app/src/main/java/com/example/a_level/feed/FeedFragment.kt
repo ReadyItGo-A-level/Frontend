@@ -9,11 +9,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.databinding.FragmentFeedBinding
+import com.example.a_level.feed.model.response.Post
 
 class FeedFragment : Fragment() {
     private lateinit var binding: FragmentFeedBinding
-    private lateinit var feedRecyclerViewData: ArrayList<FeedRecyclerViewData>
+
+    /* 주의사항
+    * FeedRecyclerViewAdapter에는 두가지 View가 있습니다.
+    * 하나는 0번째 인덱스에 들어가는 "~~~다양한 술얘기를 나눠보세요" 뷰 (viewType == Description)
+    * 다른 하나는 1번째 인덱스 이후에 들어가는 post 뷰 (viewType == Data)
+    * loadData()에 지금 구성한 것처럼 posts.add(null) 하여 0번째 인덱스에 null이 들어갈 수 있도록 해주세요
+    * adpater에서 0번째 인덱스가 null인지 검사해 Description인지 판별합니다.
+    * 이렇게 한 이유 = Description 뷰도 아래로 스크롤하면 사라지게 해야해서
+    * 더 좋은 방법 있으면 얼마든지 change 하시길..
+    * */
+    private lateinit var posts: ArrayList<Post?>
     private lateinit var feedRecyclerViewAdapter: FeedRecyclerViewAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,17 +44,56 @@ class FeedFragment : Fragment() {
     }
 
     private fun loadData() {
-        feedRecyclerViewData = arrayListOf()
-        feedRecyclerViewData.add(FeedRecyclerViewData("", "", 0, 0, 0, 0))
-        feedRecyclerViewData.add(
-            FeedRecyclerViewData("게시글 제목1", "게시글 내용 입니다.", 1, 2, 3, 1)
+        val tempPosts = ArrayList<Post>()
+        tempPosts.add(
+            Post(
+                null,
+                null,
+                "게시글 제목",
+                "게시글 내용",
+                null,
+                null,
+                "까르띠에 소비뇽 500년산",
+                "와인",
+                null,
+                "2(낮음)",
+                2000000,
+                null,
+                null,
+                null,
+                null,
+                null,
+                3,
+                2,
+                12
+            )
         )
-        feedRecyclerViewData.add(
-            FeedRecyclerViewData("게시글 제목2", "게시글 내용 입니다.", 1, 2, 3, 1)
+        tempPosts.add(
+            Post(
+                null,
+                null,
+                "게시글 제목",
+                "게시글 내용",
+                null,
+                null,
+                "까르띠에 소비뇽 500년산",
+                "와인",
+                null,
+                "2(낮음)",
+                2000000,
+                null,
+                null,
+                null,
+                null,
+                null,
+                3,
+                2,
+                12
+            )
         )
-        feedRecyclerViewData.add(
-            FeedRecyclerViewData("게시글 제목3", "게시글 내용 입니다.", 1, 2, 3, 1)
-        )
+        posts = arrayListOf()
+        posts.add(null)
+        posts.addAll(tempPosts)
     }
 
     private fun initToolBar() {
@@ -54,12 +105,13 @@ class FeedFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        feedRecyclerViewAdapter = FeedRecyclerViewAdapter(feedRecyclerViewData).apply {
-            setOnItemClickListener(object : FeedRecyclerViewAdapter.OnItemClickListener{
-                override fun onItemClick(v: View, item: FeedRecyclerViewData){
-                    startActivity(Intent(requireContext(), FeedDetailActivity::class.java))
+        feedRecyclerViewAdapter = FeedRecyclerViewAdapter(posts).apply {
+            setOnItemClickListener(object : FeedRecyclerViewAdapter.OnItemClickListener {
+                override fun onItemClick(v: View, item: Post?) {
+                    val intent = Intent(requireContext(), FeedDetailActivity::class.java)
+                    intent.putExtra("id", item!!.id ?: 0)
+                    startActivity(intent)
                 }
-
             })
         }
         binding.recyclerviewFeed.apply {

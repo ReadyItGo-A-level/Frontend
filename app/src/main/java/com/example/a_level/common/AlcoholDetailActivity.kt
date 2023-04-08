@@ -17,6 +17,7 @@ import com.example.a_level.common.model.response.DefaultResponse
 import com.example.a_level.common.model.response.Review
 import com.example.a_level.common.service.CommonService
 import com.example.a_level.databinding.ActivityAlcoholdetailBinding
+import com.example.a_level.feed.WriteFeedActivity
 import com.example.a_level.feed.model.response.Post
 import com.google.android.material.snackbar.Snackbar
 import retrofit2.Call
@@ -253,7 +254,8 @@ class AlcoholDetailActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.textviewAlcoholdetailWritepostreview.setOnClickListener {
-
+            val intent = Intent(this, WriteFeedActivity::class.java)
+            startActivity(intent)
         }
     }
 

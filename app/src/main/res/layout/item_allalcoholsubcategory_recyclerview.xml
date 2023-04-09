@@ -25,8 +25,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/all_alcohol_image"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_allalcoholsubcategory_item"
+            tools:src="@drawable/all_alcohol_image" />
+
+        <TextView
+            android:id="@+id/textview_allalcoholsubcategory_item_liquor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="(꜆˶ᵔᵕᵔ˶)꜆ 준비 중 입니다"
+            android:textColor="@color/gray4"
+            android:textSize="10dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
             app:layout_constraintEnd_toEndOf="@+id/constraintlayout_allalcoholsubcategory_item"
             app:layout_constraintStart_toStartOf="@+id/constraintlayout_allalcoholsubcategory_item"
@@ -50,14 +65,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        tools:text="술 이름"
         android:textColor="@color/black"
         android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_allalcoholsubcategory_item"
+        tools:text="술 이름" />
 
     <TextView
         android:id="@+id/textview_allalcoholsubcategory_price"
@@ -65,11 +80,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        tools:text="00원"
         android:textColor="@color/gray6"
         android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_title" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_title"
+        tools:text="00원" />
 
     <TextView
         android:id="@+id/textview_allalcoholsubcategory_volume"
@@ -77,13 +92,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        tools:text="・000ml"
         android:textColor="@color/gray6"
         android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/textview_allalcoholsubcategory_price"
-        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_title" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_title"
+        tools:text="・000ml" />
 
     <ImageView
         android:id="@+id/imageview_allalcoholsubcategory_volume"
@@ -99,10 +114,10 @@
         android:id="@+id/textview_allalcoholsubcategory_abv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="00%"
         android:textColor="@color/gray6"
         android:textSize="12dp"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/imageview_allalcoholsubcategory_volume"
-        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_price" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_allalcoholsubcategory_price"
+        tools:text="00%" />
 </androidx.constraintlayout.widget.ConstraintLayout>

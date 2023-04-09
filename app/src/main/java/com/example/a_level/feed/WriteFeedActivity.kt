@@ -1,10 +1,13 @@
 package com.example.a_level.feed
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputFilter
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -14,10 +17,24 @@ import java.text.DecimalFormat
 
 class WriteFeedActivity : AppCompatActivity() {
     lateinit var binding: ActivityWritefeedBinding
+    lateinit var launcher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWritefeedBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        launcher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    val intent = checkNotNull(result.data)
+                    val imageUri = intent.data
+                    binding.imageviewWritefeedGallery.apply {
+                        visibility = View.VISIBLE
+                        setImageURI(imageUri)
+                    }
+                }
+
+            }
 
         initActionBar()
         initView()
@@ -192,6 +209,14 @@ class WriteFeedActivity : AppCompatActivity() {
             }
         }
 
+        binding.floatingbuttonWritefeedGallery.setOnClickListener {
+            val intent = Intent().apply {
+                type = "image/*"
+                action = Intent.ACTION_GET_CONTENT
+
+            }
+            launcher.launch(intent)
+        }
     }
 
     private fun clearMoreInfo() {

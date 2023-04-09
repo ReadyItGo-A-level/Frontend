@@ -2,6 +2,7 @@ package com.example.a_level.feed
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -94,6 +95,7 @@ class FeedFragment : Fragment() {
         posts = arrayListOf()
         posts.add(null)
         posts.addAll(tempPosts)
+        Log.d("siiipal", posts[0].toString())
     }
 
     private fun initToolBar() {
@@ -109,7 +111,7 @@ class FeedFragment : Fragment() {
             setOnItemClickListener(object : FeedRecyclerViewAdapter.OnItemClickListener {
                 override fun onItemClick(v: View, item: Post?) {
                     val intent = Intent(requireContext(), FeedDetailActivity::class.java)
-                    intent.putExtra("id", item!!.id ?: 0)
+                    intent.putExtra("id", item?.id ?: 0)
                     startActivity(intent)
                 }
             })

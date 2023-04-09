@@ -6,4 +6,7 @@ object Const {
     const val WINE = 2
     const val TRADITIONAL = 3
     const val LIQUOR = 4
+
+    const val IMG_BASE_URL =
+        "http://13.125.232.247:8080"
 }

@@ -43,7 +43,21 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/allalcoholsubcategory_item_testimage"
+                    tools:src="@drawable/allalcoholsubcategory_item_testimage"
+                    app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_alcoholdetail_image"
+                    app:layout_constraintEnd_toEndOf="@+id/constraintlayout_alcoholdetail_image"
+                    app:layout_constraintStart_toStartOf="@+id/constraintlayout_alcoholdetail_image"
+                    app:layout_constraintTop_toTopOf="@+id/constraintlayout_alcoholdetail_image" />
+
+                <TextView
+                    android:id="@+id/textview_alcoholdetail_liquor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="(꜆˶ᵔᵕᵔ˶)꜆ 준비 중 입니다"
+                    android:textColor="@color/gray4"
+                    android:textSize="14dp"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_alcoholdetail_image"
                     app:layout_constraintEnd_toEndOf="@+id/constraintlayout_alcoholdetail_image"
                     app:layout_constraintStart_toStartOf="@+id/constraintlayout_alcoholdetail_image"
@@ -64,12 +78,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    tools:text="술 이름"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="술 이름" />
 
                 <ImageView
                     android:id="@+id/imageview_alcoholdetail_scrap"
@@ -85,21 +99,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    tools:text="예상 가격 00000원(000ml)"
                     android:textColor="@color/gray6"
                     android:textSize="14dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_name" />
+                    app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_name"
+                    tools:text="예상 가격 00000원(000ml)" />
 
                 <TextView
                     android:id="@+id/textview_alcoholdetail_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    tools:text="상세 설명 텍스트"
                     android:textColor="@color/gray6"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_price" />
+                    app:layout_constraintTop_toBottomOf="@+id/textview_alcoholdetail_price"
+                    tools:text="상세 설명 텍스트" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview_alcoholdetail_alcoholinformation"

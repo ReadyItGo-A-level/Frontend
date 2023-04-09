@@ -9,6 +9,11 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.model.GlideUrl
+import com.bumptech.glide.load.model.LazyHeaders
+import com.example.a_level.App
 import com.example.a_level.R
 import com.example.a_level.allalcohol.model.response.Alcohol
 import com.example.a_level.common.AlcoholDetailPostRecyclerViewAdapter.OnItemClickListener
@@ -114,6 +119,25 @@ class AlcoholDetailActivity : AppCompatActivity() {
             binding.imageviewAlcoholdetailScrap.setImageResource(R.drawable.all_icon_scrap24)
         } else {
             binding.imageviewAlcoholdetailScrap.setImageResource(R.drawable.all_icon_scrap24_full)
+        }
+        if (alcohol.image != null && alcohol.image != "null") {
+            binding.textviewAlcoholdetailLiquor.visibility = View.GONE
+            val glideUrl = GlideUrl(
+                Const.IMG_BASE_URL + alcohol.image,
+                LazyHeaders.Builder()
+                    .addHeader("Authorization", "Bearer " + App.prefs.getString("token", ""))
+                    .build()
+            )
+            Glide.with(binding.root.context).load(glideUrl)
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .centerCrop()
+                .into(binding.imageviewAlcoholdetailLiquor)
+        } else {
+            Glide.with(binding.root.context)
+                .clear(binding.imageviewAlcoholdetailLiquor)
+            binding.imageviewAlcoholdetailLiquor.setImageDrawable(null)
+            binding.textviewAlcoholdetailLiquor.visibility = View.VISIBLE
         }
     }
 

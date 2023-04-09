@@ -43,7 +43,7 @@ class FeedRecyclerViewAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return list[position]?.let { 0 } ?: 1
+        return list[position]?.let { 1 } ?: 0
     }
 
     override fun getItemCount(): Int {

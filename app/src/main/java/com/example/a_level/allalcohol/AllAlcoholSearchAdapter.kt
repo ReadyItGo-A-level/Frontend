@@ -11,7 +11,14 @@ import android.widget.Filterable
 import android.widget.Toast
 import androidx.core.view.get
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.model.GlideUrl
+import com.bumptech.glide.load.model.LazyHeaders
+import com.example.a_level.App
+import com.example.a_level.R
 import com.example.a_level.allalcohol.model.response.Alcohol
+import com.example.a_level.common.Const
 import com.example.a_level.databinding.ItemAllalcoholsubcategoryRecyclerviewBinding
 
 class AllAlcoholSearchAdapter(
@@ -94,6 +101,30 @@ class AllAlcoholSearchAdapter(
             binding.textviewAllalcoholsubcategoryPrice.text = item.price.toString() + "원"
             binding.textviewAllalcoholsubcategoryVolume.text = "(" + item.size.toString() + "ml)"
             binding.textviewAllalcoholsubcategoryAbv.text = item.volume.toString() + "(ºC)"
+            if (item.scraped == true)
+                binding.imageviewAllalcoholsubcategoryItemScrap.setImageResource(R.drawable.all_icon_scrap24_full)
+            else
+                binding.imageviewAllalcoholsubcategoryItemScrap.setImageResource(R.drawable.all_icon_scrap24)
+
+            if (item.image != null && item.image != "null") {
+                binding.textviewAllalcoholsubcategoryItemLiquor.visibility = View.GONE
+                val glideUrl = GlideUrl(
+                    Const.IMG_BASE_URL + item.image,
+                    LazyHeaders.Builder()
+                        .addHeader("Authorization", "Bearer " + App.prefs.getString("token", ""))
+                        .build()
+                )
+                Glide.with(binding.root.context).load(glideUrl)
+                    .skipMemoryCache(true)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .centerCrop()
+                    .into(binding.imageviewAllalcoholsubcategoryItemLiquor)
+            } else {
+                Glide.with(binding.root.context)
+                    .clear(binding.imageviewAllalcoholsubcategoryItemLiquor)
+                binding.imageviewAllalcoholsubcategoryItemLiquor.setImageDrawable(null)
+                binding.textviewAllalcoholsubcategoryItemLiquor.visibility = View.VISIBLE
+            }
         }
     }
 }

@@ -73,7 +73,7 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
         binding.recyclerviewAllalcoholsubcategory.apply {
             layoutManager =
                 GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
-            pagingAdapter = AllAlcoholSubCategoryPagingAdapter().apply {
+            pagingAdapter = AllAlcoholSubCategoryPagingAdapter(requireContext()).apply {
                 setOnItemClickListener(object :
                     AllAlcoholSubCategoryPagingAdapter.OnItemClickListener {
                     override fun onItemClick(v: View, item: Alcohol) {
@@ -84,6 +84,7 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
                 })
             }
             adapter = pagingAdapter
+            setHasFixedSize(true)
         }
     }
 
@@ -129,4 +130,8 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        pagingAdapter.notifyItemRangeChanged(0, pagingAdapter.itemCount)
+    }
 }

@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
+import androidx.paging.cachedIn
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.a_level.R
 import com.example.a_level.allalcohol.model.response.Alcohol
@@ -63,7 +64,7 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
         }
 
         lifecycleScope.launch {
-            pager.flow.collectLatest {
+            pager.flow.cachedIn(this).collectLatest {
                 pagingAdapter.submitData(lifecycle, it)
             }
         }
@@ -84,7 +85,6 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
                 })
             }
             adapter = pagingAdapter
-            setHasFixedSize(true)
         }
     }
 
@@ -132,6 +132,6 @@ class AllAlcoholSubCategoryFragment : Fragment(R.layout.fragment_allalcoholsubca
 
     override fun onResume() {
         super.onResume()
-        pagingAdapter.notifyItemRangeChanged(0, pagingAdapter.itemCount)
+        pagingAdapter.refresh()
     }
 }

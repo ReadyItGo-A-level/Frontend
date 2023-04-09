@@ -97,7 +97,7 @@ class AllAlcoholSubCategoryPagingAdapter(
     companion object {
         private val diffCallback = object : DiffUtil.ItemCallback<Alcohol>() {
             override fun areItemsTheSame(oldItem: Alcohol, newItem: Alcohol): Boolean {
-                return oldItem.name == newItem.name
+                return oldItem == newItem
             }
 
             override fun areContentsTheSame(oldItem: Alcohol, newItem: Alcohol): Boolean {

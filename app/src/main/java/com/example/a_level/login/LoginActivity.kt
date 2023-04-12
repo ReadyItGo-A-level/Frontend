@@ -62,7 +62,12 @@ class LoginActivity : AppCompatActivity() {
                                     it1
                                 )
                             }
+
                             Log.e("user_info", "${App.prefs.getString("token","")}")
+
+                            if(App.prefs.getString("savePreference","false")=="true"){
+
+                            }
                             val intent=Intent(this@LoginActivity, UserKeywordActivity::class.java)
                             finishAffinity()
                             startActivity(intent)

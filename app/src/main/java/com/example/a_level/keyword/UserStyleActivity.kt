@@ -108,6 +108,7 @@ class UserStyleActivity : AppCompatActivity() {
 //                        val strList=gson.toJson(post, )
 
 //                        var recommend = Recommend(recommendResponse.data.alcohol, recommendResponse.data.post, recommendResponse.data.topPost)
+                        App.prefs.setString("savePreference","true")
                         val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
 //                        intent.putExtra("recommendData", recommend)
                         startActivity(intent)
@@ -152,7 +153,7 @@ class UserStyleActivity : AppCompatActivity() {
             flavorList.add("가벼움")
     }
 
-    fun recommendAlcoholApi(userid: Long){
+    fun recommendAlcoholApi(){
         RecommendService.getRetrofitRecommendAlcohol().enqueue(object: Callback<RecommendAlcoholResponse>{
             override fun onResponse(
                 call: Call<RecommendAlcoholResponse>,
@@ -181,7 +182,7 @@ class UserStyleActivity : AppCompatActivity() {
         })
     }
 
-    fun recommendPostApi(userid: Long){
+    fun recommendPostApi(){
         RecommendService.getRetrofitRecommendPost().enqueue(object: Callback<RecommendPostResponse>{
             override fun onResponse(
                 call: Call<RecommendPostResponse>,

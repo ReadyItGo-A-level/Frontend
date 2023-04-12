@@ -17,5 +17,6 @@ data class Alcohol(
     val body: Int?,
     val sugar: Int?,
     val tannins: Int?,
-    val acidity: Int?
+    val acidity: Int?,
+    val scraped: Boolean?
 )

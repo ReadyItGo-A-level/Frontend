@@ -1,9 +1,7 @@
 package com.example.a_level.feed
 
-import android.animation.Animator
 import android.app.Activity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
@@ -12,11 +10,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.a_level.R
 import com.example.a_level.common.OnSwipeTouchListener
 import com.example.a_level.databinding.ActivityFeeddetailBinding
+import com.example.a_level.feed.model.response.Comment
+import com.example.a_level.feed.model.response.PostDetail
 
 
 class FeedDetailActivity : AppCompatActivity() {
-
     lateinit var binding: ActivityFeeddetailBinding
+    private var id: Long = 0
+    private lateinit var postDetail: PostDetail
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,28 @@ class FeedDetailActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-
+        id = intent.getLongExtra("id", 0)
+        val comments = ArrayList<Comment>()
+        comments.add(Comment("익명이", "오~ 대박~", "0000-00-00"))
+        postDetail = PostDetail(
+            id,
+            "알랑방구",
+            "제목 뭘로 짓냐",
+            "제곧내",
+            null,
+            null,
+            "까르띠에 소비뇽 500년산",
+            "달콤",
+            null,
+            "2,000,000",
+            null,
+            null,
+            null,
+            3,
+            10,
+            50,
+            comments
+        )
     }
 
     private fun initActionBar() {
@@ -45,15 +67,32 @@ class FeedDetailActivity : AppCompatActivity() {
     }
 
     private fun setDataOnView() {
-
+        binding.textviewFeeddetailUsername.text = postDetail.userName
+        binding.textviewFeeddetailTitle.text = postDetail.title
+        binding.textviewFeeddetailContent.text = postDetail.content
+        binding.textviewFeeddetailDate.text = postDetail.modifiedDate
+        binding.textviewFeeddetailLikecount.text = postDetail.likeCount.toString()
+        binding.textviewFeeddetailCommentcount.text = postDetail.commentCount.toString()
+        binding.textviewFeeddetailScrapcount.text = postDetail.scrapCount.toString()
     }
 
     private fun initRecyclerView() {
+        val feedInformationData = ArrayList<Pair<String, String>>()
+        postDetail.alcoholName?.let { feedInformationData.add(Pair("이름", postDetail.alcoholName!!)) }
+        postDetail.volume?.let { feedInformationData.add(Pair("도수", postDetail.volume.toString())) }
+        postDetail.sugar?.let { feedInformationData.add(Pair("당도", postDetail.sugar.toString())) }
+        postDetail.price?.let { feedInformationData.add(Pair("예상가격", postDetail.price.toString())) }
+        postDetail.flavor?.let { feedInformationData.add(Pair("맛", postDetail.flavor!!)) }
+        binding.recyclerviewFeeddetailInformation.adapter = FeedDetailInformationAdapter(feedInformationData)
 
+        binding.recyclerviewFeeddetailComment.adapter = FeedDetailCommentAdapter(postDetail.comments)
     }
 
     private fun initUI() {
         setOnSwipeListener(binding.nestedscrollviewFeeddetail)
+
+
+        /* 로티 이용해 이미지 꾹 누르면 좋아요 애니메이션 발동하는 코드
         binding.lottieView.addAnimatorListener(object : Animator.AnimatorListener {
             override fun onAnimationStart(animator: Animator) {
             }
@@ -64,11 +103,12 @@ class FeedDetailActivity : AppCompatActivity() {
             override fun onAnimationRepeat(animator: Animator) {}
         })
         binding.imageviewFeeddetailPhoto.setOnLongClickListener {
-            Log.d("zopal", "click")
+            Log.d("test lottie", "click")
             binding.lottieView.visibility = View.VISIBLE;
             binding.lottieView.playAnimation();
             return@setOnLongClickListener (true)
         }
+        */
     }
 
 
@@ -84,7 +124,8 @@ class FeedDetailActivity : AppCompatActivity() {
         }
     }
 
-    fun Activity.setOnSwipeListener(vararg views: View) {
+    //스와이프로 뒤로가기
+    private fun Activity.setOnSwipeListener(vararg views: View) {
         val onSwipeTouchListener =
             OnSwipeTouchListener(this, object : OnSwipeTouchListener.OnSwipeCallback {
                 override fun onLeft() {}

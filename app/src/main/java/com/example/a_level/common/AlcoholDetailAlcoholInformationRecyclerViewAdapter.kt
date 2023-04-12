@@ -18,27 +18,12 @@ class AlcoholDetailAlcoholInformationRecyclerViewAdapter(var list: ArrayList<Str
         return Holder(binding)
     }
 
-    private var listener: OnItemClickListener? = null
-
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.bind(list[position])
-        holder.itemView.setOnClickListener {
-            listener?.onItemClick(holder.itemView, list[position])!!
-        }
     }
 
     override fun getItemCount(): Int {
         return list.size
-    }
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun setData(list: ArrayList<String>) {
-        this.list = list
-        notifyDataSetChanged()
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(v: View, item: String): Boolean?
     }
 
     inner class Holder(private val binding: ItemAlcoholdetailRecyclerviewinformationBinding) :

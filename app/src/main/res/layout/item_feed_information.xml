@@ -4,36 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="14dp"
-    android:layout_marginEnd="4dp"
-    android:background="@drawable/allalcoholsubcategory_item_rectangle"
-    android:clipToOutline="true">
+    android:layout_marginEnd="9dp">
 
     <TextView
         android:id="@+id/textview_feedinformation_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/feeditemrecyclerview_textview_border"
-        android:padding="5dp"
-        android:textColor="@color/primary"
+        android:textColor="@color/gray5"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textview_feedinformation_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="술 정보" />
+        tools:text="타입" />
 
     <TextView
         android:id="@+id/textview_feedinformation_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/feeditemrecyclerview_textview_border"
-        android:padding="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="9dp"
+        android:paddingRight="9dp"
+        android:layout_marginStart="3dp"
         android:textColor="@color/primary"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/textview_feedinformation_type"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="술 정보" />
+        tools:text="정보" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,7 +46,7 @@ class AlcoholDetailReviewRecyclerViewAdapter(
         fun bind(item: Review) {
             binding.textviewAlcoholdetailItemContent.text = item.content
             binding.textviewAlcoholdetailItemUserid.text = item.userName
-            binding.textviewAlcoholdetailItemDate.text = item.date
+            binding.textviewAlcoholdetailItemDate.text = item.date.subSequence(0,10)
         }
     }
 }

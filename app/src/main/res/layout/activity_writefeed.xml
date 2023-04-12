@@ -5,109 +5,220 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_writefeed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
-        android:id="@+id/linearlayout_writefeed"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="14dp"
-        android:paddingVertical="22dp"
-        android:background="@drawable/writefeed_top_under"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_writefeed">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linearlayout_writefeed_before"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_writefeed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp" />
+
+        <LinearLayout
+            android:id="@+id/linearlayout_writefeed_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
             android:orientation="horizontal"
-            android:visibility="gone"
-            android:gravity="center_vertical"
-            tools:ignore="MissingConstraints">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/ic_heart_smile"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_weight="2"
-            android:text="술 정보를 공유한 유저는\n더 많은 관심을 끌고 있어요!" />
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_writefeed">
 
-        <Button
-            android:id="@+id/button_writefeed_info"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:textColor="#767676"
-            android:background="@drawable/writefeed_border_grey"
-            android:text="정보 입력 >" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/feed_icon_smile" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_weight="2"
+                android:text="술 정보를 공유한 유저는\n더 많은 관심을 끌고 있어요!" />
+
+            <TextView
+                android:id="@+id/textview_writefeed_moreinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/writefeed_textview_border"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="정보입력 ＞"
+                android:textColor="@color/gray5"
+                android:textSize="14dp" />
+
         </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearlayout_writefeed_after"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        tools:ignore="MissingConstraints">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <Spinner
-            android:id="@+id/spinner_writefeed_kind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:paddingVertical="6dp"
-            android:paddingHorizontal="14dp" />
-    </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearlayout_writefeed_moreinfo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_writefeed_type"
+                    android:layout_width="82dp"
+                    android:layout_height="34dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/writefeed_spinner_background"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <Spinner
+                    android:id="@+id/spinner_writefeed_volumn"
+                    android:layout_width="115dp"
+                    android:layout_height="34dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/writefeed_spinner_background"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <Spinner
+                    android:id="@+id/spinner_writefeed_taste"
+                    android:layout_width="115dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/writefeed_spinner_background"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/imageview_writefeed_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:src="@drawable/all_icon_cancel" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edittext_writefeed_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/writefeed_textview_border"
+                    android:gravity="center"
+                    android:hint="예상가격(원)"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:minWidth="160dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray5"
+                    android:textSize="14dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_writefeed_sugar"
+                    android:layout_width="160dp"
+                    android:layout_height="34dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/writefeed_spinner_background"
+                    android:gravity="center"
+                    android:spinnerMode="dropdown" />
+
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edittext_writefeed_name"
+                android:layout_width="wrap_content"
+                android:layout_height="34dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/writefeed_textview_border"
+                android:gravity="center"
+                android:hint="이름*"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:minWidth="160dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray5"
+                android:textSize="14dp" />
+
 
         </LinearLayout>
-    </LinearLayout>
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/imageview_writefeed_photo"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:src="@drawable/common_alcohol_test"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearlayout_writefeed" />
 
-    <EditText
-        android:id="@+id/edittext_writefeed_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="제목을 입력해주세요"
-        app:layout_constraintTop_toBottomOf="@id/imageview_writefeed_photo" />
+        <View
+            android:id="@+id/view_writefeed_1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="22dp"
+            android:background="@color/gray2" />
 
-    <EditText
-        android:id="@+id/edittext_writefeed_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="내용을 입력해주세요"
-        app:layout_constraintTop_toBottomOf="@id/edittext_writefeed_title" />
+        <ImageView
+            android:id="@+id/imageview_writefeed_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="14dp"
+            android:background="@drawable/common_roundrectangle"
+            android:clipToOutline="true"
+            android:visibility="gone"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/common_alcohol_test"/>
+
+        <EditText
+            android:id="@+id/edittext_writefeed_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="14dp"
+            android:background="@null"
+            android:hint="제목을 입력해주세요"
+            android:textSize="14dp" />
+
+        <View
+            android:id="@+id/view_writefeed_2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/gray2" />
+
+        <EditText
+            android:id="@+id/edittext_writefeed_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="14dp"
+            android:background="@null"
+            android:hint="내용을 입력해주세요"
+            android:textSize="14dp" />
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingbutton_writefeed_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/feed_writeicon_test"
-        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/primary"
+        android:src="@drawable/all_icon_gallery"
+        app:borderWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

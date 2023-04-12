@@ -9,14 +9,14 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface AllAlcoholService {
-    @GET("/alcohols")
+    @GET("alcohols")
     suspend fun findAlcohol(
         @Query("type") type: String,
         @Query("category") category: String,
         @Query("page") page: Int
     ): Response<AllAlcoholResponse>
 
-    @GET("/alcohol/search")
+    @GET("alcohol/search")
     fun searchAlcohol(
         @Query("keyword") keyword: String
     ): Call<ArrayList<Alcohol>>

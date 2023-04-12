@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Alevel">
         <activity
             android:name=".common.MainActivity"
-            android:exported="false">
+            android:exported="true">
         </activity>
         <activity
             android:name=".keyword.UserStyleActivity"

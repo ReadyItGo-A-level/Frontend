@@ -24,21 +24,18 @@ class RecommendWineFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recommendWineRecyclerViewData= arrayListOf()
-        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"))
-        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"))
-        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"))
-        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"))
-        recommendWineRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"))
+        val dataList = arguments?.getParcelableArrayList<RecommendUserRecyclerViewData>("data")
 
         binding.recyclerviewRecommendWine.apply {
+            if (dataList != null) {
             layoutManager =
                 GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
-            adapter = RecommendAllRecyclerViewAdapter(
-                requireContext(),
-                recommendWineRecyclerViewData
-            )
+            adapter =
+                RecommendAllRecyclerViewAdapter(
+                    requireContext(),
+                    dataList
+                )
+            }
         }
     }
-
 }

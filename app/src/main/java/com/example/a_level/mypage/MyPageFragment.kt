@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.a_level.App
 import com.example.a_level.databinding.FragmentMypageBinding
 
 class MyPageFragment : Fragment() {
@@ -16,6 +17,8 @@ class MyPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMypageBinding.inflate(layoutInflater)
+
+        binding.nickname.text= App.prefs.getString("username","유저")
 
         val myaccount = binding.myaccount
         myaccount.setOnClickListener {

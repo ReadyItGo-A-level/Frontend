@@ -1,5 +1,6 @@
 package com.example.a_level.feed
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a_level.databinding.FragmentFeedBinding
+import com.example.a_level.feed.model.response.FeedList
+import com.example.a_level.feed.model.response.FeedListResponse
+import com.example.a_level.feed.model.response.FeedService
 import com.example.a_level.feed.model.response.Post
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.IOException
 
 class FeedFragment : Fragment() {
     private lateinit var binding: FragmentFeedBinding
@@ -24,7 +32,7 @@ class FeedFragment : Fragment() {
     * 이렇게 한 이유 = Description 뷰도 아래로 스크롤하면 사라지게 해야해서
     * 더 좋은 방법 있으면 얼마든지 change 하시길..
     * */
-    private lateinit var posts: ArrayList<Post?>
+    private lateinit var posts: ArrayList<FeedList>
     private lateinit var feedRecyclerViewAdapter: FeedRecyclerViewAdapter
 
     override fun onCreateView(
@@ -38,64 +46,71 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadData()
         initToolBar()
-        initRecyclerView()
         initUi()
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadData()
+
+    }
+
     private fun loadData() {
-        val tempPosts = ArrayList<Post>()
-        tempPosts.add(
-            Post(
-                null,
-                null,
-                "게시글 제목",
-                "게시글 내용",
-                null,
-                null,
-                "까르띠에 소비뇽 500년산",
-                "와인",
-                null,
-                "2(낮음)",
-                2000000,
-                null,
-                null,
-                null,
-                null,
-                null,
-                3,
-                2,
-                12
-            )
-        )
-        tempPosts.add(
-            Post(
-                null,
-                null,
-                "게시글 제목",
-                "게시글 내용",
-                null,
-                null,
-                "까르띠에 소비뇽 500년산",
-                "와인",
-                null,
-                "2(낮음)",
-                2000000,
-                null,
-                null,
-                null,
-                null,
-                null,
-                3,
-                2,
-                12
-            )
-        )
         posts = arrayListOf()
-        posts.add(null)
-        posts.addAll(tempPosts)
-        Log.d("siiipal", posts[0].toString())
+
+        FeedService.retrofitGetFeedList().enqueue(object: Callback<FeedListResponse>{
+            override fun onResponse(
+                call: Call<FeedListResponse>,
+                response: Response<FeedListResponse>
+            ) {
+                if (response.isSuccessful) {
+                    Log.e("log", response.toString())
+                    Log.e("log", response.body().toString())
+
+                    var data=response.body()?.data
+                    var url="http://13.125.232.247:8080"
+
+                    if(data!=null) {
+                        for (i in 0 until data.size){
+                            var id=data[i].id
+                            var username=data[i].username
+                            var title=data[i].title
+                            var content=data[i].content
+                            var image=if(data[i].image==null) "" else url+data[i].image
+                            var hit=data[i].hit
+                            var commentCount=data[i].commentCount
+                            var scrapCount=data[i].scrapCount
+                            var likeCount=data[i].likeCount
+                            var alcoholName=data[i].alcoholName
+                            var alcoholType=data[i].alcoholType
+                            var flavor=data[i].flavor
+                            var volume=if(data[i].volume==null) 0 else data[i].volume
+                            var price=data[i].price
+                            var body=data[i].body
+                            var sugar=data[i].sugar
+                            var modifiedDate=data[i].modifiedDate
+
+                            posts.add(FeedList(id,username,title, content, image,hit,commentCount,scrapCount,likeCount,alcoholName,alcoholType,flavor,volume,price, body,sugar,modifiedDate))
+                        }
+                    }
+
+                    initRecyclerView()
+                } else {
+                    try {
+                        val body = response.errorBody()!!.string()
+
+                        Log.e(ContentValues.TAG, "body : $body")
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<FeedListResponse>, t: Throwable) {
+                Log.e("TAG", "실패원인: {$t}")
+            }
+        })
     }
 
     private fun initToolBar() {
@@ -107,18 +122,18 @@ class FeedFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        feedRecyclerViewAdapter = FeedRecyclerViewAdapter(posts).apply {
-            setOnItemClickListener(object : FeedRecyclerViewAdapter.OnItemClickListener {
-                override fun onItemClick(v: View, item: Post?) {
-                    val intent = Intent(requireContext(), FeedDetailActivity::class.java)
-                    intent.putExtra("id", item?.id ?: 0)
-                    startActivity(intent)
-                }
-            })
-        }
+//        feedRecyclerViewAdapter = FeedRecyclerViewAdapter(posts).apply {
+//            setOnItemClickListener(object : FeedRecyclerViewAdapter.OnItemClickListener {
+//                override fun onItemClick(v: View, item: Post?) {
+//                    val intent = Intent(requireContext(), FeedDetailActivity::class.java)
+//                    intent.putExtra("id", item?.id ?: 0)
+//                    startActivity(intent)
+//                }
+//            })
+//        }
         binding.recyclerviewFeed.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = feedRecyclerViewAdapter
+            adapter = FeedRecyclerViewAdapter(requireContext(),posts)
         }
     }
 

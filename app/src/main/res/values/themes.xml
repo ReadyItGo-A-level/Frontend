@@ -49,7 +49,7 @@
 
     <style name="Theme.Alevel.NoActionBar">
         <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>z
+        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="Tab_text" parent="TextAppearance.Design.Tab">

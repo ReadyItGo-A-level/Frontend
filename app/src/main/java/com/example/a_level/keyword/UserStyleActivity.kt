@@ -94,23 +94,9 @@ class UserStyleActivity : AppCompatActivity() {
                         Log.e("술 취향등록", response.toString())
                         Log.e("술 취향등록", response.body().toString())
 
-//                        recommendAlcoholApi(App.prefs.userid!!)
-//                        recommendPostApi(App.prefs.userid!!)
-//                        recommendTopPostApi()
-//
-//                        val gson=GsonBuilder().create()
-//                        val Alcohol=RecommendAlcohol(recommendAlcoholResponse.data)
-//                        val post=RecommendPost(recommendPostResponse.data)
-//                        val TopPost=RecommendTopPost(recommendTopPostResponse.data)
-//                        val groupListType: Type=object: TypeToken<ArrayList<RecommendAlcohol?>?>(){}.type
-////                        App.prefs.recommendPost
-//                        val jsonArray: JSONArray
-//                        val strList=gson.toJson(post, )
-
-//                        var recommend = Recommend(recommendResponse.data.alcohol, recommendResponse.data.post, recommendResponse.data.topPost)
                         App.prefs.setString("savePreference","true")
                         val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
-//                        intent.putExtra("recommendData", recommend)
+                        finishAffinity()
                         startActivity(intent)
                     }else{
                         try {

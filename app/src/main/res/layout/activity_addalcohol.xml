@@ -21,7 +21,8 @@
             android:layout_gravity="center"
             android:text="신규 술 등록"
             android:textSize="16sp"
-            android:textColor="#111111"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             />
 
     </androidx.appcompat.widget.Toolbar>
@@ -263,7 +264,10 @@
                 android:id="@+id/edittext_addalcohol_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/all_edittext_border" />
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -283,7 +287,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/all_edittext_border" />
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -303,7 +310,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/all_edittext_border" />
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -323,7 +333,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/all_edittext_border" />
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -343,7 +356,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/all_edittext_border" />
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -376,7 +392,10 @@
                 android:id="@+id/edittext_addalcohol_reason"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/all_edittext_border" />
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout

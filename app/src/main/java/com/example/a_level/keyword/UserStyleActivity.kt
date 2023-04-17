@@ -11,14 +11,10 @@ import com.example.a_level.databinding.ActivityUserStyleBinding
 import com.example.a_level.recommend.*
 import com.google.android.material.slider.RangeSlider
 import com.google.android.material.slider.Slider
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
-import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
-import java.lang.reflect.Type
 
 class UserStyleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserStyleBinding
@@ -95,9 +91,16 @@ class UserStyleActivity : AppCompatActivity() {
                         Log.e("술 취향등록", response.body().toString())
 
                         App.prefs.setString("savePreference","true")
-                        val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
-                        finishAffinity()
-                        startActivity(intent)
+
+                        val dialog = UserPreferenceDialog(this@UserStyleActivity)
+                        dialog.listener = object: UserPreferenceDialog.SummitDialogClickedListener {
+                            override fun onSummitClicked() {
+                                val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
+                                finishAffinity()
+                                startActivity(intent)
+                            }
+                        }
+                        dialog.start()
                     }else{
                         try {
                             val body = response.errorBody()!!.string()

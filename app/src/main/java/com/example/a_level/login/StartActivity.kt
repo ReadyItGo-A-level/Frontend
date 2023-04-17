@@ -34,7 +34,7 @@ class StartActivity : AppCompatActivity() {
 
         var userEmail=App.prefs.getString("email","")
         var userPassword=App.prefs.getString("password","")
-        if(userEmail!=null && userPassword!=null){
+        if(userEmail!="" && userPassword!=""){
             MypageService.retrofitGetUserInfo().enqueue(object:Callback<UserInfoResponse>{
                 override fun onResponse(
                     call: Call<UserInfoResponse>,

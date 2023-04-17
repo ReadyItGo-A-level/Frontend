@@ -2,11 +2,14 @@ package com.example.a_level.mypage
 
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -39,14 +42,13 @@ class AddAlcoholActivity : AppCompatActivity() {
             if((!click_beer && !click_liq && !click_trad && !click_wine) || title=="" || reason==""){
                 Toast.makeText(this, "필수 정보들을 채워주세요.", Toast.LENGTH_SHORT).show()
             }else{
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("등록 완료")
-                    .setMessage("제보해주셔서 감사합니다!")
-                    .setPositiveButton("확인",
-                        DialogInterface.OnClickListener { dialog, id ->
-                            finish()
-                        })
-                builder.show()
+                val dialog = AddAlcoholDialog(this@AddAlcoholActivity)
+                dialog.listener = object: AddAlcoholDialog.SummitDialogClickedListener {
+                    override fun onSummitClicked() {
+                        finish()
+                    }
+                }
+                dialog.start()
             }
         }
     }
@@ -155,6 +157,23 @@ class AddAlcoholActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val focusView = currentFocus
+        if (focusView != null && ev != null) {
+            val rect = Rect()
+            focusView.getGlobalVisibleRect(rect)
+            val x = ev.x.toInt()
+            val y = ev.y.toInt()
+
+            if (!rect.contains(x, y)) {
+                val imm = getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm?.hideSoftInputFromWindow(focusView.windowToken, 0)
+                focusView.clearFocus()
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     private fun checkClicked(){

@@ -1,6 +1,7 @@
 package com.example.a_level.login
 
 import android.content.ContentValues
+import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -10,7 +11,9 @@ import android.text.style.UnderlineSpan
 import android.util.Log
 import android.util.Patterns
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.a_level.R
@@ -218,29 +221,12 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-//                if(binding.edittextSignupPassword.text.toString().length == 0){
-//                    password.visibility = View.GONE
-//                    samePassword.visibility = View.GONE
-//                }
                 if (binding.edittextSignupPassword.text.toString().length < 8) {
                     password.visibility = View.VISIBLE
                 }
                 else{
                     password.visibility = View.GONE
                 }
-//                else if(binding.edittextSignupPasswordconfirm.text.toString().length==0){
-//                    password.visibility = View.GONE
-//                    samePassword.visibility=View.GONE
-//                }
-//                else if (binding.edittextSignupPasswordconfirm.text.toString() == binding.edittextSignupPassword.text.toString()) {
-//                    password.visibility = View.GONE
-//                    samePassword.text="비밀번호가 일치합니다"
-//                    samePassword.visibility = View.VISIBLE
-//                } else {
-//                    password.visibility = View.GONE
-//                    samePassword.text="비밀번호가 일치하지 않습니다."
-//                    samePassword.visibility = View.VISIBLE
-//                }
             }
         })
 
@@ -250,25 +236,11 @@ class SignUpActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                if (binding.edittextSignupPasswordconfirm.text.toString() == binding.edittextSignupPassword.text.toString()) {
-//                    samePassword.text = "비밀번호가 일치합니다"
-//                    samePassword.visibility = View.VISIBLE
-//                } else {
-//                    samePassword.text = "비밀번호가 일치하지 않습니다."
-//                    samePassword.visibility = View.VISIBLE
-//                }
+
             }
 
             override fun afterTextChanged(p0: Editable?) {
-//                if (binding.edittextSignupPasswordconfirm.text.toString().length == 0) {
-//                    samePassword.visibility = View.GONE
-//                if (binding.edittextSignupPasswordconfirm.text.toString() == binding.edittextSignupPassword.text.toString()) {
-//                    samePassword.setText("비밀번호가 일치합니다")
-//                    samePassword.visibility = View.VISIBLE
-//                } else {
-//                    samePassword.setText("비밀번호가 일치하지 않습니다.")
-//                    samePassword.visibility = View.VISIBLE
-//                }
+
             }
         })
 
@@ -322,6 +294,23 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this@SignUpActivity,"정보를 다 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val focusView = currentFocus
+        if (focusView != null && ev != null) {
+            val rect = Rect()
+            focusView.getGlobalVisibleRect(rect)
+            val x = ev.x.toInt()
+            val y = ev.y.toInt()
+
+            if (!rect.contains(x, y)) {
+                val imm = getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm?.hideSoftInputFromWindow(focusView.windowToken, 0)
+                focusView.clearFocus()
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

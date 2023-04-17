@@ -25,8 +25,8 @@ class RecommendTraditionFragment : Fragment() {
 
         val dataList = arguments?.getParcelableArrayList<RecommendUserRecyclerViewData>("data")
 
-        binding.recyclerviewRecommendTradition.apply {
-            if (dataList != null) {
+        if (dataList != null && dataList.size!=0) {
+            binding.recyclerviewRecommendTradition.apply {
                 layoutManager =
                     GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
                 adapter =
@@ -35,6 +35,9 @@ class RecommendTraditionFragment : Fragment() {
                         dataList
                     )
             }
+        }else{
+            binding.textviewRecommendtradReady.visibility=View.VISIBLE
+            binding.recyclerviewRecommendTradition.visibility=View.GONE
         }
     }
 

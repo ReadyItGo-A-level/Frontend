@@ -87,7 +87,7 @@ class UserKeywordActivity : AppCompatActivity() {
                 if (click_trad)
                     list.add("전통주")
                 var drink=list.joinToString(separator = ",")
-//                Log.e("drink", "$drink")
+
                 val intent = Intent(this, UserStyleActivity::class.java)
                 intent.putExtra("drink", drink)
                 startActivity(intent)

@@ -33,10 +33,10 @@ class WrittenPostAdapter(val writtenpostList: ArrayList<WrittenPostData>) :
     }
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img = itemView.findViewById<ImageView>(R.id.wpost_img)
-        val title = itemView.findViewById<TextView>(R.id.wpost_title)
-        val main = itemView.findViewById<TextView>(R.id.wpost_main)
-        val date = itemView.findViewById<TextView>(R.id.wpost_date)
-        val comment = itemView.findViewById<TextView>(R.id.wpost_ncomment)
+        val img = itemView.findViewById<ImageView>(R.id.imageview_writtenpost_image)
+        val title = itemView.findViewById<TextView>(R.id.textview_writtenpost_title)
+        val main = itemView.findViewById<TextView>(R.id.textview_writtenpost_main)
+        val date = itemView.findViewById<TextView>(R.id.textview_writtenpost_date)
+        val comment = itemView.findViewById<TextView>(R.id.textview_writtenpost_commentnumber)
     }
 }

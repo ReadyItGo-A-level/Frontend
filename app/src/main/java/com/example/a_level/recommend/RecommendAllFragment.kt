@@ -23,17 +23,10 @@ class RecommendAllFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        recommendAllRecyclerViewData= arrayListOf()
-//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"))
-//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"))
-//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"))
-//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"))
-//        recommendAllRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"))
-
         val dataList = arguments?.getParcelableArrayList<RecommendUserRecyclerViewData>("data")
 
+        if (dataList != null && dataList.size!=0) {
         binding.recyclerviewAllRecommend.apply {
-            if (dataList != null) {
                 layoutManager =
                     GridLayoutManager(requireContext(), dataList.size, GridLayoutManager.VERTICAL, false)
                 adapter =
@@ -42,7 +35,10 @@ class RecommendAllFragment : Fragment() {
                         dataList
                     )
             }
-
+        }
+        else{
+            binding.textviewRecommendallReady.visibility=View.VISIBLE
+            binding.recyclerviewAllRecommend.visibility=View.GONE
         }
     }
 

@@ -23,7 +23,6 @@ data class RecommendResponse(
         ){
             data class AlcoholData(
                 @SerializedName("image") val image: String,
-                @SerializedName("place") val place: String,
                 @SerializedName("name") val name: String
             )
         }

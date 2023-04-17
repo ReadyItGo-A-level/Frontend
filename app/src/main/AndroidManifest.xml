@@ -2,50 +2,55 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.a_level">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
-        android:usesCleartextTraffic="true"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".App"
-        android:theme="@style/Theme.Alevel">
+        android:theme="@style/Theme.Alevel"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".TermOfUseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserPreferenceDialog"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.ChangeNicknameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mypage.AddAlcoholDialog"
+            android:exported="false" />
         <activity
             android:name=".common.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".keyword.UserStyleActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".keyword.UserKeywordActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".login.SignUpActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
-            android:parentActivityName=".login.StartActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"
+            android:parentActivityName=".login.StartActivity" />
         <activity
             android:name=".login.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".mypage.ChangePwActivity"
-            android:exported="false" />
         <activity
             android:name=".mypage.MyAccountActivity"
             android:exported="false" />
@@ -64,14 +69,15 @@
         <activity
             android:name=".mypage.AddAlcoholActivity"
             android:exported="false" />
-        <activity android:name=".allalcohol.AllAlcoholSearchActivity"/>
-        <activity android:name=".common.AlcoholDetailActivity"/>
-        <activity android:name=".feed.FeedDetailActivity"/>
+        <activity android:name=".allalcohol.AllAlcoholSearchActivity" />
+        <activity android:name=".common.AlcoholDetailActivity" />
+        <activity android:name=".feed.FeedDetailActivity" />
         <activity
-            android:theme="@style/Theme.Alevel.ActionBar"
-            android:name=".common.AlcoholDetailWriteReviewActivity"/>
-        <activity android:name=".feed.WriteFeedActivity"/>
-
+            android:name=".common.AlcoholDetailWriteReviewActivity"
+            android:theme="@style/Theme.Alevel.ActionBar" />
+        <activity android:name=".feed.WriteFeedActivity" />
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

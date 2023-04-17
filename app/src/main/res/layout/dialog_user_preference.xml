@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="280dp"
+    android:layout_gravity="center"
+    android:background="#00000000">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/addalcohol_dialog_background">
+
+            <TextView
+                android:id="@+id/textview_dialog_preference_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="54dp"
+                android:text="술 취향 입력 완료!"
+                android:textColor="#111111"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textview_dialog_preference_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="2dp"
+                android:text="술 취향은 홈 화면에서\n언제든지 수정가능 합니다 :)"
+                android:textAlignment="center"
+                android:textColor="@color/gray5"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_dialog_preference_title" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_dialog_summit"
+                android:layout_width="190dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="19dp"
+                android:background="@drawable/addalcohol_dialog_button"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:text="홈으로 가기"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_dialog_preference_main" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/addalcohol_dialog" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

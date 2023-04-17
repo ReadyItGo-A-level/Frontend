@@ -25,8 +25,8 @@ class RecommendLiquorFragment : Fragment() {
 
         val dataList = arguments?.getParcelableArrayList<RecommendUserRecyclerViewData>("data")
 
-        binding.recyclerviewRecommendLiquor.apply {
-            if (dataList != null) {
+        if (dataList != null && dataList.size!=0) {
+            binding.recyclerviewRecommendLiquor.apply {
                 layoutManager =
                     GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
                 adapter =
@@ -35,6 +35,10 @@ class RecommendLiquorFragment : Fragment() {
                         dataList
                     )
             }
+        }
+        else{
+            binding.textviewRecommendliquorReady.visibility=View.VISIBLE
+            binding.recyclerviewRecommendLiquor.visibility=View.GONE
         }
     }
 }

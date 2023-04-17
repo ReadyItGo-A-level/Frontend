@@ -23,7 +23,6 @@ class RecommendAllRecyclerViewAdapter(
     ): RecyclerView.Adapter<RecommendAllRecyclerViewAdapter.ViewHolder>() {
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         val image: ImageView =itemView.findViewById(R.id.imageview_userrecommend_alcohol)
-        val place: TextView = itemView.findViewById(R.id.textview_userrecommend_place)
         val name: TextView = itemView.findViewById(R.id.textview_userrecommend_name)
         val box: ConstraintLayout =itemView.findViewById(R.id.constraintlayout_recommend_user_box)
 
@@ -39,7 +38,6 @@ class RecommendAllRecyclerViewAdapter(
 //                    .into(image)
 //            }
 
-            place.text=data.place
             name.text= data.name
         }
     }

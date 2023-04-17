@@ -107,29 +107,23 @@ class RecommendFragment : Fragment() {
                         for(i in 0 until alcohol.alcohols.size) {
                             if (alcohol.alcohols.size != 0) {
                                 var image= if (alcohol.alcohols[i].image==null) "" else url + alcohol.alcohols[i].image
-                                var place=if(alcohol.alcohols[i].place==null) "" else alcohol.alcohols[i].place
-                                allData.add(RecommendUserRecyclerViewData(image, place, alcohol.alcohols[i].name))
+                                allData.add(RecommendUserRecyclerViewData(image,alcohol.alcohols[i].name))
                             }
                             if (alcohol.wine.size != 0) {
                                 var image= if (alcohol.wine[i].image==null) "" else url + alcohol.wine[i].image
-                                Log.e("wine url", "image")
-                                var place=if(alcohol.wine[i].place==null) "" else alcohol.wine[i].place
-                                wineData.add(RecommendUserRecyclerViewData(image, place, alcohol.wine[i].name))
+                                wineData.add(RecommendUserRecyclerViewData(image, alcohol.wine[i].name))
                             }
                             if (alcohol.beer.size != 0) {
                                 var image= if (alcohol.beer[i].image==null) "" else url + alcohol.beer[i].image
-                                var place=if(alcohol.beer[i].place==null) "" else alcohol.beer[i].place
-                                beerData.add(RecommendUserRecyclerViewData(image, place, alcohol.beer[i].name))
+                                beerData.add(RecommendUserRecyclerViewData(image, alcohol.beer[i].name))
                             }
                             if (alcohol.sool.size != 0) {
                                 var image= if (alcohol.sool[i].image==null) "" else url + alcohol.sool[i].image
-                                var place=if(alcohol.sool[i].place==null) "" else alcohol.sool[i].place
-                                traditionData.add(RecommendUserRecyclerViewData(image, place, alcohol.sool[i].name))
+                                traditionData.add(RecommendUserRecyclerViewData(image, alcohol.sool[i].name))
                             }
                             if (alcohol.liquor.size != 0) {
                                 var image= if (alcohol.sool[i].image==null) "" else url + alcohol.sool[i].image
-                                var place=if(alcohol.sool[i].place==null) "" else alcohol.sool[i].place
-                                liquorData.add(RecommendUserRecyclerViewData(image, place, alcohol.liquor[i].name))
+                                liquorData.add(RecommendUserRecyclerViewData(image, alcohol.liquor[i].name))
                             }
                         }
                     }
@@ -171,13 +165,23 @@ class RecommendFragment : Fragment() {
                         }
                     }
 
-                    binding.recyclerviewSimilarRecommend.apply {
-                        layoutManager =
-                            GridLayoutManager(requireContext(), recommendSimilarRecyclerViewData.size, GridLayoutManager.VERTICAL, false)
-                        adapter = RecommendSimilarRecyclerViewAdapter(
-                            requireContext(),
-                            recommendSimilarRecyclerViewData
-                        )
+                    if(recommendSimilarRecyclerViewData.size!=0) {
+                        binding.recyclerviewSimilarRecommend.apply {
+                            layoutManager =
+                                GridLayoutManager(
+                                    requireContext(),
+                                    recommendSimilarRecyclerViewData.size,
+                                    GridLayoutManager.VERTICAL,
+                                    false
+                                )
+                            adapter = RecommendSimilarRecyclerViewAdapter(
+                                requireContext(),
+                                recommendSimilarRecyclerViewData
+                            )
+                        }
+                    }else{
+                        binding.textviewRecommendUserReady.visibility=View.VISIBLE
+                        binding.recyclerviewSimilarRecommend.visibility=View.GONE
                     }
 
                     recommendPopularRecyclerViewData= arrayListOf()
@@ -205,15 +209,25 @@ class RecommendFragment : Fragment() {
                         }
                     }
 
-                    binding.recyclerviewPopularRecommend.apply {
-                        layoutManager =
-                            GridLayoutManager(requireContext(), recommendPopularRecyclerViewData.size, GridLayoutManager.VERTICAL, false)
-                        adapter = RecommendPopularRecyclerViewAdapter(
-                            requireContext(),
-                            recommendPopularRecyclerViewData
-                        )
+                    if(recommendPopularRecyclerViewData.size!=0) {
+                        binding.recyclerviewPopularRecommend.apply {
+                            layoutManager =
+                                GridLayoutManager(
+                                    requireContext(),
+                                    recommendPopularRecyclerViewData.size,
+                                    GridLayoutManager.VERTICAL,
+                                    false
+                                )
+                            adapter = RecommendPopularRecyclerViewAdapter(
+                                requireContext(),
+                                recommendPopularRecyclerViewData
+                            )
+                        }
                     }
-
+                    else{
+                        binding.textviewRecommendPopularReady.visibility=View.VISIBLE
+                        binding.recyclerviewPopularRecommend.visibility=View.GONE
+                    }
                 } else {
                     try {
                         val body = response.errorBody()!!.string()

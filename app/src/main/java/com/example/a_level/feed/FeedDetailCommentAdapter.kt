@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a_level.databinding.ItemFeeddetailRecyclerviewBinding
 import com.example.a_level.feed.model.response.Comment
+import com.example.a_level.feed.model.response.Comments
 
 class FeedDetailCommentAdapter(
-    private var list: List<Comment>
+    private var list: ArrayList<Comments>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -34,7 +35,7 @@ class FeedDetailCommentAdapter(
 
     inner class Holder(private val binding: ItemFeeddetailRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Comment) {
+        fun bind(item: Comments) {
             binding.textviewFeeddetailItemUsername.text = item.username
             binding.textviewFeeddetailItemContent.text = item.content
             binding.textviewFeeddetailItemDate.text = item.modifiedDate

@@ -31,10 +31,10 @@ class ScrapPostAdapter(val scrappostList: ArrayList<ScrapPostData>) : RecyclerVi
     }
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img = itemView.findViewById<ImageView>(R.id.spost_img)
-        val title = itemView.findViewById<TextView>(R.id.spost_title)
-        val main = itemView.findViewById<TextView>(R.id.spost_main)
-        val date = itemView.findViewById<TextView>(R.id.spost_date)
-        val comment = itemView.findViewById<TextView>(R.id.spost_ncomment)
+        val img = itemView.findViewById<ImageView>(R.id.imageview_scrappost_image)
+        val title = itemView.findViewById<TextView>(R.id.textview_scrappost_title)
+        val main = itemView.findViewById<TextView>(R.id.textview_scrappost_main)
+        val date = itemView.findViewById<TextView>(R.id.textview_scrappost_date)
+        val comment = itemView.findViewById<TextView>(R.id.textview_scrappost_commentnumber)
     }
 }

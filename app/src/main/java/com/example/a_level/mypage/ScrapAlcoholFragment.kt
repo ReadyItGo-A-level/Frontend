@@ -20,18 +20,22 @@ class ScrapAlcoholFragment : Fragment() {
         binding = FragmentScrapalcoholBinding.inflate(layoutInflater)
 
         val scrapalcoholList = arrayListOf(
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%"),
-            ScrapAlcoholData(R.drawable.allalcoholsubcategory_item_testimage, "이슬톡톡", "2500원", "350ml", "3%")
+            ScrapAlcoholData(R.drawable.all_alcohol_image, "소비뇽 블랑", "24800원", "750ml", "13%"),
+            ScrapAlcoholData(R.drawable.all_alcohol_image, "엡솔루트 보드카", "17000원", "375ml", "40%"),
+            ScrapAlcoholData(R.drawable.all_alcohol_image, "보야, 피노누아", "38000원", "750ml", "13%"),
         )
 
-        val rv_salcohol = binding.rvSalcohol
+        val recyclerviewScrapAlcohol = binding.recyclerviewScrapAlcohol
         val gridLayoutManager = GridLayoutManager(context, 2)
-        rv_salcohol.layoutManager = gridLayoutManager
+        recyclerviewScrapAlcohol.layoutManager = gridLayoutManager
 
-        rv_salcohol.adapter = ScrapAlcoholAdapter(scrapalcoholList)
+        val scrapAlcoholList_empty = binding.linearlayoutScrapalcoholNodata
+        if (ScrapAlcoholAdapter(scrapalcoholList).itemCount == 0) {
+            scrapAlcoholList_empty.visibility = View.VISIBLE
+        } else {
+            scrapAlcoholList_empty.visibility = View.INVISIBLE
+            recyclerviewScrapAlcohol.adapter = ScrapAlcoholAdapter(scrapalcoholList)
+        }
         return binding.root
     }
 }

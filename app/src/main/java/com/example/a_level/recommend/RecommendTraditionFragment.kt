@@ -23,20 +23,21 @@ class RecommendTraditionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recommendTraditionRecyclerViewData= arrayListOf()
-        recommendTraditionRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"))
-        recommendTraditionRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"))
-        recommendTraditionRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"))
-        recommendTraditionRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"))
-        recommendTraditionRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"))
+        val dataList = arguments?.getParcelableArrayList<RecommendUserRecyclerViewData>("data")
 
-        binding.recyclerviewRecommendTradition.apply {
-            layoutManager =
-                GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
-            adapter = RecommendAllRecyclerViewAdapter(
-                requireContext(),
-                recommendTraditionRecyclerViewData
-            )
+        if (dataList != null && dataList.size!=0) {
+            binding.recyclerviewRecommendTradition.apply {
+                layoutManager =
+                    GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
+                adapter =
+                    RecommendAllRecyclerViewAdapter(
+                        requireContext(),
+                        dataList
+                    )
+            }
+        }else{
+            binding.textviewRecommendtradReady.visibility=View.VISIBLE
+            binding.recyclerviewRecommendTradition.visibility=View.GONE
         }
     }
 

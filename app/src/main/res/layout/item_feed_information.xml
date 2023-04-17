@@ -27,7 +27,7 @@
         android:paddingBottom="2dp"
         android:paddingLeft="9dp"
         android:paddingRight="9dp"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="6dp"
         android:textColor="@color/primary"
         android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="parent"

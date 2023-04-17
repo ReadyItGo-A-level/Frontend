@@ -25,20 +25,22 @@ class RecommendBeerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recommendBeerRecyclerViewData= arrayListOf()
-        recommendBeerRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","오이스터 베이", "쇼비농 블랑"))
-        recommendBeerRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","보야", "피노누아"))
-        recommendBeerRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","엠", "로제"))
-        recommendBeerRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","칸티", "모스카토 다스티"))
-        recommendBeerRecyclerViewData.add(RecommendUserRecyclerViewData("R.drawable.all_alcohol_image","간치아", "모스카토 로제"))
+        val dataList = arguments?.getParcelableArrayList<RecommendUserRecyclerViewData>("data")
 
+        if (dataList != null && dataList.size!=0) {
         binding.recyclerviewRecommendBeer.apply {
-            layoutManager =
-                GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
-            adapter = RecommendAllRecyclerViewAdapter(
-                requireContext(),
-                recommendBeerRecyclerViewData
-            )
+                layoutManager =
+                    GridLayoutManager(requireContext(), 5, GridLayoutManager.VERTICAL, false)
+                adapter =
+                    RecommendAllRecyclerViewAdapter(
+                        requireContext(),
+                        dataList
+                    )
+            }
+        }
+        else{
+            binding.textviewRecommendbeerReady.visibility=View.VISIBLE
+            binding.recyclerviewRecommendBeer.visibility=View.GONE
         }
     }
 

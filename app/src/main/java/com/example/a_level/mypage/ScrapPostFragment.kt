@@ -19,13 +19,20 @@ class ScrapPostFragment : Fragment() {
         binding = FragmentScrappostBinding.inflate(layoutInflater)
 
         val scrappostList = arrayListOf(
-            ScrapPostData(R.drawable.ic_launcher_background, "오늘은 맥주가 땡기는 걸", "이슬톡톡 어때", "2022.06.21", 7)
+            ScrapPostData(R.drawable.mypage_post_noimage, "오늘은 맥주가 땡기는 걸", "이슬톡톡 어때", "2022.06.21", 7)
         )
 
-        val rv_spost = binding.rvSpost
-        rv_spost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val recyclerviewScrapPost = binding.recyclerviewScrapPost
+        recyclerviewScrapPost.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        rv_spost.adapter = ScrapPostAdapter(scrappostList)
+        val scrapPostList_empty = binding.linearlayoutScrappostNodata
+        if (ScrapPostAdapter(scrappostList).itemCount == 0) {
+            scrapPostList_empty.visibility = View.VISIBLE
+        } else {
+            scrapPostList_empty.visibility = View.INVISIBLE
+            recyclerviewScrapPost.adapter = ScrapPostAdapter(scrappostList)
+        }
+
         return binding.root
     }
 }

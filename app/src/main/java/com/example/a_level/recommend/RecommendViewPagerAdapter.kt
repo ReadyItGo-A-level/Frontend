@@ -16,22 +16,42 @@ class RecommendViewPagerAdapter(
         if(typeList[position]=="전체"){
             val recommendAllFragment=RecommendAllFragment()
             val bundle = Bundle()
-//            bundle.putParcelableArrayList("alcohol", alcoholList.all)
-//            recommendAllFragment.arguments=bundle
+            bundle.putParcelableArrayList("data", alcoholList.all)
+            recommendAllFragment.arguments=bundle
 
-            return RecommendAllFragment()
+            return recommendAllFragment
         }
         else if(typeList[position]=="와인"){
-            return RecommendWineFragment()
+            val recommendWineFragment=RecommendWineFragment()
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("data", alcoholList.wine)
+            recommendWineFragment.arguments=bundle
+
+            return recommendWineFragment
         }
         else if(typeList[position]=="맥주"){
-            return RecommendBeerFragment()
+            val recommendBeerFragment=RecommendBeerFragment()
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("data", alcoholList.beer)
+            recommendBeerFragment.arguments=bundle
+
+            return recommendBeerFragment
         }
         else if(typeList[position]=="전통주"){
-            return RecommendTraditionFragment()
+            val recommendTraditionFragment=RecommendTraditionFragment()
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("data", alcoholList.tradition)
+            recommendTraditionFragment.arguments=bundle
+
+            return recommendTraditionFragment
         }
         else{
-            return RecommendLiquorFragment()
+            val recommendLiquorFragment=RecommendLiquorFragment()
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("data", alcoholList.liquor)
+            recommendLiquorFragment.arguments=bundle
+
+            return recommendLiquorFragment
         }
     }
 }

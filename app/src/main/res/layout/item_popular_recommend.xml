@@ -50,12 +50,9 @@
             android:layout_width="88dp"
             android:layout_height="88dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="8dp"
             android:src="@drawable/common_alcohol_test"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_recommend_popular"
             app:layout_constraintEnd_toEndOf="@+id/constraintlayout_recommend_popular"
-            app:layout_constraintTop_toBottomOf="@+id/textview_popularrecommend_title">
-        </ImageView>
+            app:layout_constraintTop_toTopOf="@+id/textview_popularrecommend_content"></ImageView>
 
         <ImageView
             android:id="@+id/imageview_popularrecommend_love"

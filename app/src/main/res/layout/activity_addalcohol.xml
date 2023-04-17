@@ -1,209 +1,420 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mypage.AddAlcoholActivity">
+    tools:context=".mypage.AddAlcoholActivity"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:theme="?attr/actionBarTheme">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="술 제보 페이지"
-            android:textSize="22sp" />
+            android:text="신규 술 등록"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
-        android:id="@+id/intro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="A-level에서 보고싶은 술이 있다면 말해주세요!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginRight="20dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intro">
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:background="@drawable/mypage_addalcohol_primary"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="14dp">
+            <TextView
+                android:id="@+id/intro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="한잔할래에서 보고 싶은 술을 알려주세요"
+                android:textSize="14sp"
+                android:textColor="@color/primary"/>
+            <TextView
+                android:id="@+id/intro2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*술 주종, 이름, 추천 이유는 필수 입력값입니다"
+                android:textSize="12sp"
+                android:textColor="@color/primary"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="술 주종"
+                android:textColor="#111111"
+                android:textSize="16dp"
+                android:layout_marginRight="1dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="@color/primary"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginRight="9dp">
+            <LinearLayout
+                android:id="@+id/imageview_keyword_beer"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:background="@drawable/userkeyword_round_grey"
+
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_userkeyword_beer"
+                    tools:ignore="MissingConstraints" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/textview_keyword_beer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="맥주"
+                android:textColor="@color/gray4"
+                android:textSize="14sp" />
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginRight="9dp">
+                    <LinearLayout
+                        android:id="@+id/imageview_keyword_wine"
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:background="@drawable/userkeyword_round_grey"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_userkeyword_wine"
+                            tools:ignore="MissingConstraints" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textview_keyword_wine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="와인"
+                        android:textColor="@color/gray4"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginRight="9dp">
+                    <LinearLayout
+                        android:id="@+id/imageview_keyword_liquor"
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:background="@drawable/userkeyword_round_grey"
+
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_userkeyword_liquor"
+                            tools:ignore="MissingConstraints" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textview_keyword_liquor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="양주"
+                        android:textColor="@color/gray4"
+                        android:textSize="14sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_horizontal"
+                    android:layout_marginRight="9dp">
+                    <LinearLayout
+                        android:id="@+id/imageview_keyword_tradition"
+                        android:layout_width="76dp"
+                        android:layout_height="76dp"
+                        android:background="@drawable/userkeyword_round_grey"
+
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_userkeyword_tradition"
+                            tools:ignore="MissingConstraints" />
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textview_keyword_tradition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="전통주"
+                        android:textColor="@color/gray4"
+                        android:textSize="14sp" />
+                </LinearLayout>
+            </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="술 이름"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginRight="1dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edittext_addalcohol_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="용량"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="가격"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="도수"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="판매처"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="추천 이유"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginRight="1dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="@color/primary"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edittext_addalcohol_reason"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/all_edittext_border"
+                android:paddingHorizontal="14dp"
+                android:textColor="@color/gray6"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_addalcohol_submit"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/userkeyword_button_grey"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="술 종류" />
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="4">
-
-                <RadioButton
-                    android:id="@+id/beer"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="맥주" />
-
-                <RadioButton
-                    android:id="@+id/liquor"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="양주" />
-
-                <RadioButton
-                    android:id="@+id/kliquor"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="전통주" />
-
-                <RadioButton
-                    android:id="@+id/wine"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="와인" />
-            </RadioGroup>
+                android:text="등록하기"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="술 이름" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittext" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="용량" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittext" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="가격" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittext" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="도수" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittext" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="판매처" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittext" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="기타의견" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:background="@drawable/edittext" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/summit"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="30dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="등록"
-            app:cornerRadius="0dp" />
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

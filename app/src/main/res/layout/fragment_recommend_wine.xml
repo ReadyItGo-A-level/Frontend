@@ -11,7 +11,13 @@
         android:orientation="vertical"
         android:layout_marginTop="15dp"
         >
-
+        <TextView
+            android:id="@+id/textview_recommendwine_ready"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(꜆˶ᵔᵕᵔ˶)꜆ 준비 중 입니다"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
         <HorizontalScrollView
             android:id="@+id/horizontalscrollview_recommend_wine"
             android:layout_width="match_parent"

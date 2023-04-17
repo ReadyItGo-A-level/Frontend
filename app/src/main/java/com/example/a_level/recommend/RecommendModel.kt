@@ -15,7 +15,7 @@ data class RecommendResponse(
         @SerializedName("topPost") val topPost: ArrayList<Post>
     ){
         data class Alcohol(
-            @SerializedName("alocohols") val alcohols: ArrayList<AlcoholData>,
+            @SerializedName("alcohols") val alcohols: ArrayList<AlcoholData>,
             @SerializedName("sool") val sool: ArrayList<AlcoholData>,
             @SerializedName("liquor") val liquor: ArrayList<AlcoholData>,
             @SerializedName("wine") val wine: ArrayList<AlcoholData>,
@@ -23,7 +23,6 @@ data class RecommendResponse(
         ){
             data class AlcoholData(
                 @SerializedName("image") val image: String,
-                @SerializedName("place") val place: String,
                 @SerializedName("name") val name: String
             )
         }
@@ -95,7 +94,7 @@ data class RecommendTopPostResponse(
 data class RecommendAlcoholData(
     val all: ArrayList<RecommendUserRecyclerViewData>,
     val tradition: ArrayList<RecommendUserRecyclerViewData>,
-    val liqor: ArrayList<RecommendUserRecyclerViewData>,
+    val liquor: ArrayList<RecommendUserRecyclerViewData>,
     val wine: ArrayList<RecommendUserRecyclerViewData>,
     val beer: ArrayList<RecommendUserRecyclerViewData>,
 )

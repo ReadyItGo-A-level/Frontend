@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="마이페이지"
-            android:textColor="#4E4E4E"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 

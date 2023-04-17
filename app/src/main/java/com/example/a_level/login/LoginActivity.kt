@@ -3,16 +3,23 @@ package com.example.a_level.login
 import android.R
 import android.content.ContentValues
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.a_level.App
+import com.example.a_level.common.MainActivity
 import com.example.a_level.databinding.ActivityLoginBinding
 import com.example.a_level.keyword.UserKeywordActivity
+import com.example.a_level.mypage.MypageService
+import com.example.a_level.mypage.UserInfoResponse
+import com.example.a_level.recommend.RecommendFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,6 +54,33 @@ class LoginActivity : AppCompatActivity() {
             } else {    //이메일 형식이 맞으면
                 wrongEmail.visibility = View.GONE
 
+                MypageService.retrofitGetUserInfo().enqueue(object:Callback<UserInfoResponse>{
+                    override fun onResponse(
+                        call: Call<UserInfoResponse>,
+                        response: Response<UserInfoResponse>
+                    ) {
+                        if(response.isSuccessful) {
+                            Log.d("log", response.toString())
+                            Log.d("log", response.body().toString())
+
+                            var username=response.body()?.data?.username
+                            App.prefs.setString("username",username!!)
+                        }else{
+                            try {
+                                val body = response.errorBody()!!.string()
+
+                                Log.e(ContentValues.TAG, "body : $body")
+                            } catch (e: IOException) {
+                                e.printStackTrace()
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<UserInfoResponse>, t: Throwable) {
+                        Log.d("TAG", "실패원인: {$t}")
+                    }
+                })
+
                 LoginService.getRetrofitLogin(LoginRequest(binding.edittextLoginEmail.text.toString(), binding.edittextLoginPassword.text.toString())).enqueue(object:
                     Callback<LoginResponse> {
                     override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>){
@@ -62,10 +96,26 @@ class LoginActivity : AppCompatActivity() {
                                     it1
                                 )
                             }
+                            response.body()?.data?.id?.let{it1->
+                                App.prefs.setString("userId", it1.toString())
+                            }
+
+                            App.prefs.setString("email",binding.edittextLoginEmail.text.toString())
+                            App.prefs.setString("password",binding.edittextLoginPassword.text.toString())
+
                             Log.e("user_info", "${App.prefs.getString("token","")}")
-                            val intent=Intent(this@LoginActivity, UserKeywordActivity::class.java)
-                            finishAffinity()
-                            startActivity(intent)
+
+                            if(App.prefs.getString("savePreference","false")=="true"){
+                                val intent=Intent(this@LoginActivity, MainActivity::class.java)
+                                finishAffinity()
+                                startActivity(intent)
+                            }
+                            else {
+                                val intent =
+                                    Intent(this@LoginActivity, UserKeywordActivity::class.java)
+                                finishAffinity()
+                                startActivity(intent)
+                            }
                         }else{
                             try {
                                 val body = response.errorBody()!!.string()
@@ -93,6 +143,23 @@ class LoginActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        val focusView = currentFocus
+        if (focusView != null && ev != null) {
+            val rect = Rect()
+            focusView.getGlobalVisibleRect(rect)
+            val x = ev.x.toInt()
+            val y = ev.y.toInt()
+
+            if (!rect.contains(x, y)) {
+                val imm = getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm?.hideSoftInputFromWindow(focusView.windowToken, 0)
+                focusView.clearFocus()
+            }
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

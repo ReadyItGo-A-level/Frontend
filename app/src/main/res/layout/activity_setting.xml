@@ -22,114 +22,141 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="설정"
-            android:textSize="22sp" />
+            android:textColor="#111111"
+            android:textSize="18sp" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_alarm"
+        android:id="@+id/constraintlayout_setting_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_setting_alarm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_setting_line">
 
         <TextView
-            android:id="@+id/alarm"
+            android:id="@+id/textview_setting_alarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:text="알람 설정"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/const_alarm"
-            app:layout_constraintStart_toStartOf="@id/const_alarm"
-            app:layout_constraintTop_toTopOf="@id/const_alarm" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="14dp"
+            android:text="알림 설정"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/constraintlayout_setting_alarm"
+            app:layout_constraintTop_toTopOf="@id/constraintlayout_setting_alarm" />
 
         <Switch
             android:id="@+id/btn_alarm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintBottom_toBottomOf="@id/alarm"
+            android:layout_marginEnd="16dp"
+            android:thumb="@drawable/setting_switch_thumb"
+            android:track="@drawable/setting_switch"
+            app:layout_constraintBottom_toBottomOf="@id/textview_setting_alarm"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/alarm" />
+            app:layout_constraintTop_toTopOf="@id/textview_setting_alarm" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line1"
+        android:id="@+id/constraintlayout_setting_line1"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#e8e8e8"
+        android:layout_height="1.2dp"
+        android:background="#F2F2F2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/const_alarm" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_setting_alarm" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_update"
+        android:id="@+id/constraintlayout_setting_version"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/div_line1">
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_setting_line1">
 
         <TextView
             android:id="@+id/update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
             android:text="버전 업데이트"
-            android:textSize="20sp"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/update2"
+            android:id="@+id/textview_setting_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp"
-            android:text="최신버전: v.1"
-            android:textColor="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/update" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line2"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#e8e8e8"
-        app:layout_constraintTop_toBottomOf="@+id/const_update" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/const_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/div_line2">
+            android:layout_marginStart="6dp"
+            android:text="최신 버전:v.1"
+            android:textColor="#B2B2B2"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_setting_version"
+            app:layout_constraintStart_toEndOf="@+id/update"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_setting_version" />
 
         <TextView
-            android:id="@+id/logout"
+            android:id="@+id/textview_setting_version2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="24dp"
-            android:text="로그아웃"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/const_logout"
-            app:layout_constraintStart_toStartOf="@id/const_logout"
-            app:layout_constraintTop_toTopOf="@id/const_logout" />
+            android:layout_marginEnd="16dp"
+            android:text="v.1"
+            android:textColor="#111111"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintlayout_setting_version"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintlayout_setting_version" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/div_line3"
+        android:id="@+id/constraintlayout_setting_line2"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#e8e8e8"
+        android:layout_height="1.2dp"
+        android:background="#F2F2F2"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_setting_version" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_setting_logout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_setting_line2">
+
+        <TextView
+            android:id="@+id/textview_setting_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:text="로그아웃"
+            android:textColor="#111111"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/constraintlayout_setting_logout"
+            app:layout_constraintStart_toStartOf="@id/constraintlayout_setting_logout"
+            app:layout_constraintTop_toTopOf="@id/constraintlayout_setting_logout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintlayout_setting_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1.2dp"
+        android:background="#F2F2F2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/const_logout" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_setting_logout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,7 @@
                     />
 
                 <ImageView
+                    android:id="@+id/imageview_edit_recommend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_recommend_edit"
@@ -120,93 +121,6 @@
                         android:id="@+id/viewpager_recommend_user"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
-<!--                    <com.google.android.material.tabs.TabLayout-->
-<!--                        android:id="@+id/tablayout_recommend_wine"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="30dp"-->
-<!--                        android:layout_marginVertical="5dp"-->
-
-<!--                        app:tabGravity="start"-->
-<!--                        app:tabMode="fixed"-->
-<!--                        app:tabBackground="@drawable/recommend_tablayout_selector"-->
-<!--                        app:tabTextAppearance="@style/Tab_text"-->
-
-<!--                        app:tabTextColor="#767676"-->
-<!--                        app:tabSelectedTextColor="@color/white"-->
-<!--                        app:tabIndicatorHeight="0dp"-->
-<!--                        />-->
-
-<!--                    <com.google.android.material.tabs.TabLayout-->
-<!--                        android:id="@+id/tablayout_recommend_beer"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="30dp"-->
-<!--                        android:layout_marginVertical="5dp"-->
-
-<!--                        app:tabGravity="start"-->
-<!--                        app:tabBackground="@drawable/recommend_tablayout_selector"-->
-<!--                        app:tabTextAppearance="@style/Tab_text"-->
-
-<!--                        app:tabTextColor="#767676"-->
-<!--                        app:tabSelectedTextColor="@color/white"-->
-<!--                        app:tabIndicatorHeight="0dp"-->
-<!--                        />-->
-<!--                    <com.google.android.material.tabs.TabLayout-->
-<!--                        android:id="@+id/tablayout_recommend_alcohol"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="30dp"-->
-<!--                        app:tabBackground="@drawable/recommend_tablayout_selector"-->
-<!--                        app:tabTextColor="#767676"-->
-<!--                        app:tabSelectedTextColor="@color/white"-->
-<!--                        app:tabIndicatorHeight="0dp"-->
-<!--                        app:tabTextAppearance="@style/Tab_text">-->
-
-<!--                        <com.google.android.material.tabs.TabItem-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="전체"/>-->
-
-<!--                        <com.google.android.material.tabs.TabItem-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="맥주" />-->
-
-<!--                        <com.google.android.material.tabs.TabItem-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="와인" />-->
-
-<!--                        <com.google.android.material.tabs.TabItem-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                           android:text="양주" />-->
-
-<!--                        <com.google.android.material.tabs.TabItem-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="전통주" />-->
-<!--                    </com.google.android.material.tabs.TabLayout>-->
-
-<!--                    <FrameLayout-->
-<!--                        android:id="@+id/framelayout_recommend_alcohol"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:layout_marginTop="16dp"-->
-<!--                        >-->
-
-<!--                        <HorizontalScrollView-->
-<!--                            android:id="@+id/horizontalscrollview_recommend_alcohol"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="match_parent"-->
-<!--                            tools:ignore="MissingConstraints">-->
-
-<!--                            <androidx.recyclerview.widget.RecyclerView-->
-<!--                                android:id="@+id/recyclerview_user_recommend"-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="match_parent"-->
-<!--                                android:orientation="horizontal"-->
-<!--                                android:scrollbars="horizontal" />-->
-<!--                        </HorizontalScrollView>-->
-<!--                    </FrameLayout>-->
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -227,6 +141,18 @@
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_recommend_user_ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(꜆˶ᵔᵕᵔ˶)꜆ 준비 중 입니다"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_recommend_similaruser"
+                    android:visibility="gone"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
@@ -264,6 +190,18 @@
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textview_recommend_popular_ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(꜆˶ᵔᵕᵔ˶)꜆ 준비 중 입니다"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textview_recommend_popular"
+                    android:visibility="gone"/>
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"

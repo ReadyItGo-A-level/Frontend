@@ -42,18 +42,27 @@
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="유저 닉네임" />
 
-                <ImageView
-                    android:id="@+id/imageview_feeddetail"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintlayout_feeddetail"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginTop="12dp"
-                    android:background="@drawable/common_roundrectangle"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/common_alcohol_test"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_username" />
+                    app:layout_constraintTop_toBottomOf="@+id/textview_feeddetail_username"
+                    android:visibility="gone"
+                    >
+
+                <ImageView
+                    android:id="@+id/imageview_feeddetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/common_roundrectangle"
+                    android:clipToOutline="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/textview_feeddetail_title"
@@ -65,7 +74,7 @@
                     android:textStyle="bold"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageview_feeddetail"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintlayout_feeddetail"
                     tools:text="게시글 제목" />
 
                 <TextView

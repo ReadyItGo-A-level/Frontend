@@ -1,8 +1,13 @@
 package com.example.a_level.feed
 
+import android.content.ContentValues
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.InputFilter
+import android.util.Log
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.*
@@ -13,11 +18,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.a_level.R
 import com.example.a_level.databinding.ActivityWritefeedBinding
+import com.example.a_level.feed.model.response.FeedResponse
+import com.example.a_level.feed.model.response.FeedService
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
+import java.io.IOException
+import java.math.BigDecimal
 import java.text.DecimalFormat
 
 class WriteFeedActivity : AppCompatActivity() {
     lateinit var binding: ActivityWritefeedBinding
     lateinit var launcher: ActivityResultLauncher<Intent>
+    private lateinit var imgFile: MultipartBody.Part
+    private lateinit var imageFile: File
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityWritefeedBinding.inflate(layoutInflater)
@@ -32,6 +54,12 @@ class WriteFeedActivity : AppCompatActivity() {
                         visibility = View.VISIBLE
                         setImageURI(imageUri)
                     }
+
+                    imageUri?.let{
+                        imageFile= File(getRealPathFromURI(it))
+                        val requestBody = imageFile?.asRequestBody("multipart/form-data".toMediaTypeOrNull())
+                        imgFile= MultipartBody.Part.createFormData("file", imageFile.name, requestBody)
+                    }
                 }
 
             }
@@ -41,6 +69,72 @@ class WriteFeedActivity : AppCompatActivity() {
         initListener()
         initSpinnerAdapter()
         initSpinnerListener()
+    }
+
+    private fun writeFeed(){
+        var essential=""
+        var type=binding.spinnerWritefeedType.selectedItem.toString()
+        var name=binding.edittextWritefeedName.text.toString()
+
+        if(type=="주종" || name==""){
+            if(type=="주종" && name=="")
+                essential+="주종, 이름"
+            else if(type=="주종")
+                essential+="주종"
+            else if(name=="")
+                essential+="이름"
+
+            val dialog=LayoutInflater.from(this).inflate(R.layout.dialog_feed_essential,null)
+            val alertDialog=AlertDialog.Builder(this)
+                .setView(dialog)
+                .show()
+
+            dialog.findViewById<TextView>(R.id.textview_dialog_feed_essential).text=essential
+            dialog.findViewById<LinearLayout>(R.id.linearlayout_dialog_feed_ok).setOnClickListener {
+                alertDialog.dismiss()
+            }
+        }
+        else {
+            var volumne=if(binding.spinnerWritefeedVolumn.selectedItemPosition==0) "" else binding.spinnerWritefeedVolumn.selectedItem.toString().substringBefore('(')
+            var taste=if(binding.spinnerWritefeedTaste.selectedItemPosition==0) "" else binding.spinnerWritefeedTaste.selectedItem
+            var sugar=if(binding.spinnerWritefeedSugar.selectedItemPosition==0) "" else binding.spinnerWritefeedSugar.selectedItem.toString().substringBefore('(')
+
+            val jsonObject =
+                JSONObject("{\"title\":\"${binding.edittextWritefeedTitle.text}\", \"content\":\"${binding.edittextWritefeedContent.text}\",\"alcoholName\":\"${binding.edittextWritefeedName.text}\",\"alcoholType\":\"${binding.spinnerWritefeedType.selectedItem}\", \"flavor\":\"${taste}\", \"volume\":\"${volumne}\", \"price\":\"${binding.edittextWritefeedPrice.text}\", \"body\":\"${""}\"}, \"sugar\":\"${sugar}\"")
+            val mediaType = "application/json".toMediaType()
+            val jsonBody = jsonObject.toString().toRequestBody(mediaType)
+
+            if(binding.imageviewWritefeedGallery.visibility==View.GONE){
+                val emptyRequestBody = "".toRequestBody("multipart/form-data".toMediaTypeOrNull())
+                imgFile= MultipartBody.Part.createFormData("file", "", emptyRequestBody)
+                Log.e("Image", "empty")
+            }
+
+            FeedService.retrofitPostFeed(imgFile,jsonBody).enqueue(object : Callback<FeedResponse> {
+                override fun onResponse(
+                    call: Call<FeedResponse>,
+                    response: Response<FeedResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        Log.e("log", response.toString())
+                        Log.e("log", response.body().toString())
+
+                    } else {
+                        try {
+                            val body = response.errorBody()!!.string()
+
+                            Log.e(ContentValues.TAG, "body : $body")
+                        } catch (e: IOException) {
+                            e.printStackTrace()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<FeedResponse>, t: Throwable) {
+                    Log.e("TAG", "실패원인: {$t}")
+                }
+            })
+        }
     }
 
     private fun initSpinnerListener() {
@@ -268,6 +362,23 @@ class WriteFeedActivity : AppCompatActivity() {
         }
     }
 
+    fun getRealPathFromURI(uri: Uri): String{
+        val buildName= Build.MANUFACTURER
+        if(buildName.equals("Xiaomi")){
+            return uri.path!!
+        }
+        var columnIndex=0
+        val proj=arrayOf(MediaStore.Images.Media.DATA)
+        val cursor=contentResolver.query(uri, proj, null, null, null)
+        if(cursor!!.moveToFirst()){
+            columnIndex=cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        }
+        val result=cursor.getString(columnIndex)
+        cursor.close()
+        return result
+
+    }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_write, menu)       // main_menu 메뉴를 toolbar 메뉴 버튼으로 설정
         return true
@@ -280,6 +391,7 @@ class WriteFeedActivity : AppCompatActivity() {
                 true
             }
             R.id.menu_write_submit -> {
+                writeFeed()
                 Toast.makeText(this, "글을 작성했습니다.", Toast.LENGTH_SHORT).show()
                 finish()
                 true

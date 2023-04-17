@@ -11,14 +11,10 @@ import com.example.a_level.databinding.ActivityUserStyleBinding
 import com.example.a_level.recommend.*
 import com.google.android.material.slider.RangeSlider
 import com.google.android.material.slider.Slider
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
-import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
-import java.lang.reflect.Type
 
 class UserStyleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserStyleBinding
@@ -94,23 +90,17 @@ class UserStyleActivity : AppCompatActivity() {
                         Log.e("술 취향등록", response.toString())
                         Log.e("술 취향등록", response.body().toString())
 
-//                        recommendAlcoholApi(App.prefs.userid!!)
-//                        recommendPostApi(App.prefs.userid!!)
-//                        recommendTopPostApi()
-//
-//                        val gson=GsonBuilder().create()
-//                        val Alcohol=RecommendAlcohol(recommendAlcoholResponse.data)
-//                        val post=RecommendPost(recommendPostResponse.data)
-//                        val TopPost=RecommendTopPost(recommendTopPostResponse.data)
-//                        val groupListType: Type=object: TypeToken<ArrayList<RecommendAlcohol?>?>(){}.type
-////                        App.prefs.recommendPost
-//                        val jsonArray: JSONArray
-//                        val strList=gson.toJson(post, )
+                        App.prefs.setString("savePreference","true")
 
-//                        var recommend = Recommend(recommendResponse.data.alcohol, recommendResponse.data.post, recommendResponse.data.topPost)
-                        val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
-//                        intent.putExtra("recommendData", recommend)
-                        startActivity(intent)
+                        val dialog = UserPreferenceDialog(this@UserStyleActivity)
+                        dialog.listener = object: UserPreferenceDialog.SummitDialogClickedListener {
+                            override fun onSummitClicked() {
+                                val intent = Intent(this@UserStyleActivity, MainActivity::class.java)
+                                finishAffinity()
+                                startActivity(intent)
+                            }
+                        }
+                        dialog.start()
                     }else{
                         try {
                             val body = response.errorBody()!!.string()
@@ -152,7 +142,7 @@ class UserStyleActivity : AppCompatActivity() {
             flavorList.add("가벼움")
     }
 
-    fun recommendAlcoholApi(userid: Long){
+    fun recommendAlcoholApi(){
         RecommendService.getRetrofitRecommendAlcohol().enqueue(object: Callback<RecommendAlcoholResponse>{
             override fun onResponse(
                 call: Call<RecommendAlcoholResponse>,
@@ -181,7 +171,7 @@ class UserStyleActivity : AppCompatActivity() {
         })
     }
 
-    fun recommendPostApi(userid: Long){
+    fun recommendPostApi(){
         RecommendService.getRetrofitRecommendPost().enqueue(object: Callback<RecommendPostResponse>{
             override fun onResponse(
                 call: Call<RecommendPostResponse>,

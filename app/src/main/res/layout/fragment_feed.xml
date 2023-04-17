@@ -12,6 +12,7 @@
         app:contentInsetLeft="20dp"
         app:contentInsetStart="20dp"
         app:contentInsetStartWithNavigation="0dp"
+        android:background="@drawable/recommend_underborder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

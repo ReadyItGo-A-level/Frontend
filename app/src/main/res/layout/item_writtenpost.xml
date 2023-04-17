@@ -1,70 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content">
 
-	<ImageView
-		android:id="@+id/wpost_img"
-		android:layout_width="72dp"
-		android:layout_height="72dp"
-		android:layout_marginStart="16dp"
-		android:layout_marginTop="16dp"
-		android:layout_marginBottom="16dp"
-		app:layout_constraintBottom_toBottomOf="parent"
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:id="@+id/constraintlayout_writtenpost_item"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent"
-		app:srcCompat="@drawable/ic_launcher_background" />
+		app:layout_constraintTop_toTopOf="parent">
 
-	<TextView
-		android:id="@+id/wpost_title"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:text="기념일 와인 추천해주세요 제가.."
-		android:textSize="15dp"
-		android:textStyle="bold"
-		app:layout_constraintStart_toEndOf="@id/wpost_img"
-		app:layout_constraintTop_toTopOf="@id/wpost_img" />
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/constraintlayout_writtenpost_image"
+			android:layout_width="80dp"
+			android:layout_height="80dp"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="16dp"
+			android:padding="20dp"
+			android:background="@color/gray1"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent">
 
-	<TextView
-		android:id="@+id/wpost_main"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:layout_marginTop="8dp"
-		android:text="본문 어쩌구 저쩌구"
-		android:textSize="12dp"
-		app:layout_constraintStart_toEndOf="@+id/wpost_img"
-		app:layout_constraintTop_toBottomOf="@+id/wpost_title" />
+			<ImageView
+				android:id="@+id/imageview_writtenpost_image"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				app:srcCompat="@drawable/mypage_post_noimage"
+				app:layout_constraintStart_toStartOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintEnd_toEndOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				/>
+		</androidx.constraintlayout.widget.ConstraintLayout>
 
-	<TextView
-		android:id="@+id/wpost_date"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="16dp"
-		android:layout_marginTop="8dp"
-		android:text="2022.04.28"
-		app:layout_constraintBottom_toBottomOf="@id/wpost_img"
-		app:layout_constraintStart_toEndOf="@id/wpost_img"
-		app:layout_constraintTop_toBottomOf="@id/wpost_main" />
+		<TextView
+			android:id="@+id/textview_writtenpost_title"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:text="기념일 와인 추천해주세요 제가.."
+			android:textColor="#111111"
+			android:textSize="14dp"
+			android:textStyle="bold"
+			app:layout_constraintStart_toEndOf="@id/constraintlayout_writtenpost_image"
+			app:layout_constraintTop_toTopOf="@id/constraintlayout_writtenpost_image" />
 
-	<TextView
-		android:id="@+id/wpost_comment"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="60dp"
-		android:text="댓글"
-		app:layout_constraintStart_toEndOf="@id/wpost_date"
-		app:layout_constraintTop_toTopOf="@id/wpost_date" />
+		<TextView
+			android:id="@+id/textview_writtenpost_main"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="4dp"
+			android:layout_marginEnd="16dp"
+			android:text="본문 어쩌구 저쩌구 몇줄까지 추가가 가능한지 모르겠지만 줄이 바뀌면 어떻게 될란지 모르겠군요"
+			android:textColor="#6A6A6A"
+			android:textSize="12dp"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toEndOf="@+id/constraintlayout_writtenpost_image"
+			app:layout_constraintTop_toBottomOf="@+id/textview_writtenpost_title" />
 
-	<TextView
-		android:id="@+id/wpost_ncomment"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginStart="8dp"
-		android:text="7"
-		app:layout_constraintBottom_toBottomOf="@id/wpost_comment"
-		app:layout_constraintStart_toEndOf="@id/wpost_comment"
-		app:layout_constraintTop_toTopOf="@id/wpost_comment" />
+		<TextView
+			android:id="@+id/textview_writtenpost_date"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="16dp"
+			android:layout_marginTop="2dp"
+			android:text="2022.04.28"
+			android:textColor="#B2B2B2"
+			android:textSize="12sp"
+			app:layout_constraintStart_toEndOf="@id/constraintlayout_writtenpost_image"
+			app:layout_constraintTop_toBottomOf="@+id/textview_writtenpost_main" />
+
+		<TextView
+			android:id="@+id/textview_writtenpost_comment"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="3dp"
+			android:text="댓글"
+			android:textColor="#B2B2B2"
+			android:textSize="12sp"
+			app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+			app:layout_constraintStart_toEndOf="@+id/imageView3"
+			app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+		<TextView
+			android:id="@+id/textview_writtenpost_commentnumber"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="6dp"
+			android:text="7"
+			android:textColor="#AAAAAA"
+			android:textSize="11sp"
+			app:layout_constraintBottom_toBottomOf="@id/textview_writtenpost_comment"
+			app:layout_constraintStart_toEndOf="@id/textview_writtenpost_comment"
+			app:layout_constraintTop_toTopOf="@id/textview_writtenpost_comment" />
+
+		<ImageView
+			android:id="@+id/imageView3"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:layout_marginStart="12dp"
+			app:layout_constraintBottom_toBottomOf="@+id/textview_writtenpost_date"
+			app:layout_constraintStart_toEndOf="@+id/textview_writtenpost_date"
+			app:layout_constraintTop_toTopOf="@+id/textview_writtenpost_date"
+			app:srcCompat="@drawable/ic_all_comment" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+	<LinearLayout
+		android:id="@+id/linearLayout_writtenpost_line"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_marginTop="16dp"
+		android:background="#F2F2F2"
+		android:orientation="vertical"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/constraintlayout_writtenpost_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

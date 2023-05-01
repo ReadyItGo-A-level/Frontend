@@ -12,19 +12,10 @@
         android:theme="@style/Theme.Alevel"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".TermOfUseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".UserPreferenceDialog"
-            android:exported="false" />
-        <activity
             android:name=".mypage.ChangePasswordActivity"
             android:exported="false" />
         <activity
             android:name=".mypage.ChangeNicknameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".mypage.AddAlcoholDialog"
             android:exported="false" />
         <activity
             android:name=".common.MainActivity"

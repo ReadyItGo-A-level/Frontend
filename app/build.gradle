@@ -34,6 +34,10 @@ android {
         jvmTarget = '1.8'
     }
 
+    lintOptions {
+        baseline(file("lint-baseline.xml"))
+    }
+
     namespace 'com.example.a_level'
 }
 
